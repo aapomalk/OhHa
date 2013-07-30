@@ -1,0 +1,34 @@
+Aihe: Viidensuora
+Toteutetaan vuoropohjainen peli, jossa kaksi pelaajaa yrittävät saada omaa merkkiään (esimerkiksi risti tai nolla)
+viisi peräkkäin pysty-, vaaka- tai vinottaiseen suuntaan. Pelialustana toimii ääretön ruudukko.
+
+Lisäominaisuuksina peliin voidaan toteuttaa vihjenappula aloittelijoille sekä erilaisia pelaajaprofiili- sekä peli-
+tilasto -ominaisuuksia.
+
+Käyttäjät: kaksi pelaajaa (kerrallaan)
+
+Pelin valikon toiminnot:
+-pikapeli
+	*ei kirjautumista -> suoraan peliin
+	*mahdollisuus yhteen tallennuspaikkaan
+(sekä mahdolliset lisäominaisuudet:)
+-kaksinpeli
+	*kaksi pelaajaa kirjautuvat sisään
+	*valitaan ottelun pituus (yksittäinen, paras kolmesta, -viidestä, ...)
+	*mahdollisuus myös ladata tallennettu peli
+-tilastot
+	*nähdään kaikkien pelien tilastot
+-tunnusten luominen
+	*uusi pelaaja luo itselleen käyttäjänimen ja salasanan
+-lopeta
+	*sulkee pelin (kirjautumiset eivät jää voimaan)
+
+Pelin pelattavat ominaisuudet:
+-ruudukko
+	*pelaajat vuorollaan painavat ruutuja tehden 'aluevaltauksia'
+-sivupalkki
+	*vuoronvaihtonappula(t), jottei hiiren käyttäjää vaihdettaessa vahingossa suoriteta eihaluttua vuoroa
+		[mahdollisuus myös näppäinohjaukseen, jolloin pelaajilla omat näppäimet, nuoli+enter/wasd+välilyönti]
+	*vihjenappula aloittelijoille (mihin seuraavaksi ehkä kannattaisi laittaa oma merkki)
+	*tallenna peli -nappula (pikapelissä yksi tallennuspaikka, samoin kullakin tunnusparilla yksi)
+	*takaisin valikkoon -nappula (kysyy pelin tallennushalukkuudesta, jonka jälkeen siirrytään takaisin valikkoon)
