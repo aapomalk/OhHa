@@ -6,7 +6,7 @@ package viidensuora;
 
 /**
  *
- * @author aapomalk
+ * @author Aapo
  */
 public class Viidensuora {
 
