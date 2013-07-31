@@ -2,5 +2,5 @@ Projektin Viidensuora tuntikirjanpito:
 30.07. (yhteensä 04,75h)
 	noin klo 14:00-17:30; Aloitusluento ja valmistelutehtävien tekemistä
 	noin klo 22:30-23:45; Git:n tutustumista, ohjelmien lataamista ja yhteydenmuodostus kotikoneelta
-31.07. (yhteensä 00,00h)
-	
+31.07. (yhteensä 01,03h)
+	noin klo 09:20-10:25; ViidensuoraTest luotu ja ohja-kertausta
