@@ -1,9 +1,12 @@
 Projektin Viidensuora tuntikirjanpito:
-30.07. (yhteens‰ 04,75h)
+30.07. (yhteens‰ 04h 45min)
 	noin klo 14:00-17:30; Aloitusluento ja valmisteluteht‰vien tekemist‰
 	noin klo 22:30-23:45; Git:n tutustumista, ohjelmien lataamista ja yhteydenmuodostus kotikoneelta
-31.07. (yhteens‰ 03,92h)
-	noin klo 09:20-10:40; ViidensuoraTest luotu ja ohja-kertausta
-	noin klo 13:00-14:20; Erikoisen ongelman pohdintaa ja ViidensuoraTest oikeannimiseen packageen
-	noin klo 14:30-15:00; Testien ja Debuggerin harjoittelua
-	noin klo 20:10-20:55; RistiNollaMuistio, -Test, Merkki ja Laatu.java tehty, eli koodausta
+31.07. (yhteens‰ 05h 20min)
+1h20min	noin klo 09:20-10:40; ViidensuoraTest luotu ja ohja-kertausta
+1h20min	noin klo 13:00-14:20; Erikoisen ongelman pohdintaa ja ViidensuoraTest oikeannimiseen packageen
+0h30min	noin klo 14:30-15:00; Testien ja Debuggerin harjoittelua
+0h45min	noin klo 20:10-20:55; RistiNollaMuistio, -Test, Merkki ja Laatu.java tehty, eli koodausta
+2h25min	noin klo 21:30-23:55; Lis‰‰ koodausta, Tarkastaja ja TarkastajaTest, pitk‰‰n ongelmaa pienen bugin kanssa
+01.08. (yhteens‰ h min)
+	

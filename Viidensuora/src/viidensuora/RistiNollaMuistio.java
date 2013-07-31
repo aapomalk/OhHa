@@ -61,4 +61,8 @@ public class RistiNollaMuistio {
     public int nollienMaara() {
         return merkkienMaara(Laatu.NOLLA);
     }
+    
+    public ArrayList<Merkki> getMerkit() {
+        return merkit;
+    }
 }

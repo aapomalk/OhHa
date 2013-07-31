@@ -9,5 +9,5 @@ package viidensuora;
  * @author Aapo
  */
 public enum Laatu {
-    RISTI, NOLLA;
+    RISTI, NOLLA, TYHJA;
 }
