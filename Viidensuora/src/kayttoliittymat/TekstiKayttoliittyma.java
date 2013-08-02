@@ -56,10 +56,19 @@ public class TekstiKayttoliittyma {
             ristiTaiNolla = "nolla";
         }
         System.out.print(ristiTaiNolla + " anna x-koordinaatti: ");
-        int x = Integer.parseInt(lukija.nextLine());
+        String xTeksti = (lukija.nextLine());
         System.out.print(ristiTaiNolla + " anna y-koordinaatti: ");
-        int y = Integer.parseInt(lukija.nextLine());
-        lisaaKoordinaatit(x, y);
+        String yTeksti = (lukija.nextLine());
+        int x;
+        int y;
+        if (xTeksti.matches("(|-)[0-9]+") && yTeksti.matches("(|-)[0-9]+")) {
+            x = Integer.parseInt(xTeksti);
+            y = Integer.parseInt(yTeksti);
+            lisaaKoordinaatit(x, y);
+        } else {
+            System.out.println("Syota koordinaatit oikein");
+            kysyKoordinaatteja();
+        }
     }
 
     private void lisaaKoordinaatit(int x, int y) {
