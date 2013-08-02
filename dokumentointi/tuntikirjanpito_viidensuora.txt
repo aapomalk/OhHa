@@ -8,5 +8,6 @@ Projektin Viidensuora tuntikirjanpito:
 0h30min	noin klo 14:30-15:00; Testien ja Debuggerin harjoittelua
 0h45min	noin klo 20:10-20:55; RistiNollaMuistio, -Test, Merkki ja Laatu.java tehty, eli koodausta
 2h25min	noin klo 21:30-23:55; Lisää koodausta, Tarkastaja ja TarkastajaTest, pitkään ongelmaa pienen bugin kanssa
-01.08. (yhteensä h min)
-	
+02.08. (yhteensä 2h 30min)
+	noin klo 11:00-12:00; Koodaus jatkuu, ReunimmaisetKoordinaatit, -Test ja vähän muitakin testejä
+	noin klo 12:10-13:40; Alkeellinen tekstikäyttöliittymä ja käsin testausta

@@ -4,6 +4,7 @@
  */
 package viidensuora;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,6 +17,7 @@ import static org.junit.Assert.*;
  * @author Aapo
  */
 public class RistiNollaMuistioTest {
+
     private RistiNollaMuistio ruudukko;
     
     public RistiNollaMuistioTest() {
@@ -48,12 +50,12 @@ public class RistiNollaMuistioTest {
         ruudukko.lisaaRisti(0, 0);
         ruudukko.lisaaRisti(1, 1);
         
-        assertEquals(1, ruudukko.ristienMaara());
+        assertEquals("ristien maara ei tasmaa", 1, ruudukko.ristienMaara());
         
         ruudukko.lisaaNolla(2, 2);
         ruudukko.lisaaNolla(-1, -1);
         
-        assertEquals(1, ruudukko.nollienMaara());
+        assertEquals("nollien maara ei tasmaa", 1, ruudukko.nollienMaara());
     }
     
     @Test
@@ -66,12 +68,21 @@ public class RistiNollaMuistioTest {
     
     @Test
     public void merkkienMaaraTest() {
-        ruudukko.lisaaRisti(0, 0);
-        assertEquals(1, ruudukko.ristienMaara());
+        for (int i = 0; i < 10; i++) {
+            ruudukko.lisaaRisti(i, 0);
+            assertEquals(i+1, ruudukko.ristienMaara());
+            
+            ruudukko.lisaaNolla(i+1, 1);
+            assertEquals(i+1, ruudukko.nollienMaara());
+        }
         
-        ruudukko.lisaaNolla(1, 1);
-        assertEquals(1, ruudukko.nollienMaara());
     }
     
-    
+    @Test
+    public void voikoMuistionTyhjentaa() {
+        ruudukko.lisaaRisti(0, 0);
+        ArrayList<Merkki> tyhjennettava = ruudukko.getMerkit();
+        tyhjennettava.clear();
+        assertEquals(1, ruudukko.ristienMaara());
+    }
 }

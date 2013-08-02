@@ -10,10 +10,10 @@ package viidensuora;
  */
 import java.util.ArrayList;
 
-public class Tarkastaja {
+public class MerkkienJononLoytaja {
     private ArrayList<Laatu> tarkastusJono;
     
-    public Tarkastaja(ArrayList<Laatu> tarkastusJono) {
+    public MerkkienJononLoytaja(ArrayList<Laatu> tarkastusJono) {
         this.tarkastusJono = tarkastusJono;
     }
     
@@ -41,17 +41,17 @@ public class Tarkastaja {
     private boolean lahdeSuuntaan(ArrayList<Merkki> merkit, int suunta, Merkki merkki, int askel) {
         if (merkki.getLaatu() == (tarkastusJono.get(askel))) {
             if (askel + 1 == tarkastusJono.size()) {
-                return true;
+                return true;//paatepiste
             }
             for (Merkki seuraava : merkit) {
                 if (seuraava.equals(merkki)) {
                     continue;
                 }
-                if ((seuraava.getX() == tarkastaX(merkki.getX(), suunta)) 
-                        && (seuraava.getY() == tarkastaY(merkki.getY(), suunta))) {
+                if ((seuraava.getX() == suunnistaViereinenX(merkki.getX(), suunta)) 
+                        && (seuraava.getY() == suunnistaViereinenY(merkki.getY(), suunta))) {
                     askel++;
                     if (lahdeSuuntaan(merkit, suunta, seuraava, askel)) {
-                        return true;
+                        return true;//paluupolku paatepisteelta
                     }
                     askel--;
                 }
@@ -60,7 +60,7 @@ public class Tarkastaja {
         return false;
     }
     
-    private int tarkastaX(int lahtoX, int suunta) {
+    protected int suunnistaViereinenX(int lahtoX, int suunta) {
         if (suunta == 0 || suunta == 4) {
             return lahtoX;
         }
@@ -70,7 +70,7 @@ public class Tarkastaja {
         return (lahtoX-1);
     }
     
-    private int tarkastaY(int lahtoY, int suunta) {
+    protected int suunnistaViereinenY(int lahtoY, int suunta) {
         if (suunta == 2 || suunta == 6) {
             return lahtoY;
         }

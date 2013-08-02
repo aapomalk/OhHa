@@ -8,6 +8,8 @@ package viidensuora;
  *
  * @author Aapo
  */
+import kayttoliittymat.TekstiKayttoliittyma;
+
 public class Viidensuora {
 
     /**
@@ -15,5 +17,7 @@ public class Viidensuora {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        TekstiKayttoliittyma meh = new TekstiKayttoliittyma();
+        meh.kaynnista();
     }
 }

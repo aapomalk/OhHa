@@ -17,17 +17,17 @@ import java.util.ArrayList;
  *
  * @author Aapo
  */
-public class TarkastajaTest {
+public class MerkkienJononLoytajaTest {
 
     private RistiNollaMuistio ruudukko;
-    private Tarkastaja viisiRistia;
+    private MerkkienJononLoytaja viisiRistia;
 
-    public TarkastajaTest() {
+    public MerkkienJononLoytajaTest() {
         ArrayList<Laatu> ristiLista = new ArrayList<Laatu>();
         for (int i = 0; i < 5; i++) {
             ristiLista.add(Laatu.RISTI);
         }
-        viisiRistia = new Tarkastaja(ristiLista);
+        viisiRistia = new MerkkienJononLoytaja(ristiLista);
     }
 
     @BeforeClass
@@ -56,14 +56,14 @@ public class TarkastajaTest {
     public void loytyykoViisiRistia() {
         for (int i = 0; i < 5; i++) {
             ArrayList<Merkki> loydetyt = viisiRistia.tarkasta(ruudukko.getMerkit());
-            assertEquals(0, loydetyt.size());
+            assertEquals("ei pitanyt viela loytya", 0, loydetyt.size());
 
             ruudukko.lisaaRisti(0, i);
             ruudukko.lisaaNolla(i + 1, 0);
         }
 
         ArrayList<Merkki> loydetyt = viisiRistia.tarkasta(ruudukko.getMerkit());
-        assertEquals(2, loydetyt.size());
+        assertEquals("nyt olisi pitanyt loytya", 2, loydetyt.size());
     }
     
     @Test
@@ -86,5 +86,26 @@ public class TarkastajaTest {
         
         ArrayList<Merkki> loydetyt = viisiRistia.tarkasta(ruudukko.getMerkit());
         assertEquals(0, loydetyt.size());
+    }
+    
+    @Test
+    public void toimiikoViereistenKoordinaattienSuunnistaminen() {
+        assertEquals("suunta 0, x", 0, viisiRistia.suunnistaViereinenX(0, 0));
+        for (int i = 1; i < 4; i++) {
+            assertEquals("suunta 1-3, x", 1, viisiRistia.suunnistaViereinenX(0, i));
+        }
+        assertEquals("suunta 4, x", 0, viisiRistia.suunnistaViereinenX(0, 4));
+        for (int i = 5; i < 8; i++) {
+            assertEquals("suunta 5-7, x", -1, viisiRistia.suunnistaViereinenX(0, i));
+        }
+        
+        assertEquals("suunta 7, y", -1, viisiRistia.suunnistaViereinenY(0, 7));
+        assertEquals("suunta 0, y", -1, viisiRistia.suunnistaViereinenY(0, 0));
+        assertEquals("suunta 1, y", -1, viisiRistia.suunnistaViereinenY(0, 1));
+        assertEquals("suunta 2, y", 0, viisiRistia.suunnistaViereinenY(0, 2));
+        for (int i = 3; i < 6; i++) {
+            assertEquals("suunta 3-5, y", 1, viisiRistia.suunnistaViereinenY(0, i));
+        }
+        assertEquals("suunta 6, y", 0, viisiRistia.suunnistaViereinenY(0, 6));
     }
 }

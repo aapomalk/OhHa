@@ -63,6 +63,12 @@ public class RistiNollaMuistio {
     }
     
     public ArrayList<Merkki> getMerkit() {
-        return merkit;
+        ArrayList<Merkki> merkitKopio = new ArrayList<Merkki>();
+        merkitKopio.addAll(merkit);
+        return merkitKopio;
+    }
+    
+    public boolean getEdellinenMerkkiRisti() {
+        return this.edellinenMerkkiRisti;
     }
 }
