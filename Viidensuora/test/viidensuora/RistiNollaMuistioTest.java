@@ -19,23 +19,23 @@ import static org.junit.Assert.*;
 public class RistiNollaMuistioTest {
 
     private RistiNollaMuistio ruudukko;
-    
+
     public RistiNollaMuistioTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         this.ruudukko = new RistiNollaMuistio();
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -44,40 +44,43 @@ public class RistiNollaMuistioTest {
     //
     // @Test
     // public void hello() {}
-    
+
     @Test
     public void lisaaKaksiSamaaMerkkiaPerakkainMaara1() {
         ruudukko.lisaaRisti(0, 0);
         ruudukko.lisaaRisti(1, 1);
-        
+
         assertEquals("ristien maara ei tasmaa", 1, ruudukko.ristienMaara());
-        
+
         ruudukko.lisaaNolla(2, 2);
         ruudukko.lisaaNolla(-1, -1);
-        
+
         assertEquals("nollien maara ei tasmaa", 1, ruudukko.nollienMaara());
     }
-    
+
     @Test
     public void lisaaKaksiMerkkiaSamaanPaikkaan() {
         ruudukko.lisaaRisti(0, 0);
         ruudukko.lisaaNolla(0, 0);
-        
+
         assertEquals(0, ruudukko.nollienMaara());
     }
-    
+
     @Test
     public void merkkienMaaraTest() {
-        for (int i = 0; i < 10; i++) {
+        int luku = 5;
+        for (int i = 0; i <= luku; i++) {
             ruudukko.lisaaRisti(i, 0);
-            assertEquals(i+1, ruudukko.ristienMaara());
-            
-            ruudukko.lisaaNolla(i+1, 1);
-            assertEquals(i+1, ruudukko.nollienMaara());
+            ruudukko.lisaaNolla(i + 1, 1);
+
+            if (i == luku) {
+                assertEquals(i + 1, ruudukko.ristienMaara());
+                assertEquals(i + 1, ruudukko.nollienMaara());
+            }
         }
-        
+
     }
-    
+
     @Test
     public void voikoMuistionTyhjentaa() {
         ruudukko.lisaaRisti(0, 0);
@@ -85,24 +88,24 @@ public class RistiNollaMuistioTest {
         tyhjennettava.clear();
         assertEquals(1, ruudukko.ristienMaara());
     }
-    
+
     @Test
     public void onnistuukoSiirronPeruminenOsa1() {
         ruudukko.lisaaRisti(0, 0);
         assertEquals("nyt olisi pitanyt olla 1 risti", 1, ruudukko.ristienMaara());
         ruudukko.peruSiirto();
-        
+
         assertEquals("nyt olisi pitanyt olla 0 ristia", 0, ruudukko.ristienMaara());
         assertEquals("edellinenMerkkiRisti olisi pitanyt palautua falseksi", false, ruudukko.getEdellinenMerkkiRisti());
     }
-    
+
     @Test
     public void onnistuukoSiirronPeruminenOsa2() {
         ruudukko.lisaaRisti(0, 0);
         ruudukko.lisaaNolla(1, 1);
         assertEquals("nyt olisi pitanyt olla 1 nolla", 1, ruudukko.nollienMaara());
         ruudukko.peruSiirto();
-        
+
         assertEquals("nyt olisi pitanyt olla 0 nollaa", 0, ruudukko.nollienMaara());
         assertEquals("edellinenMerkkiRisti olisi pitanyt palautua trueksi", true, ruudukko.getEdellinenMerkkiRisti());
     }
