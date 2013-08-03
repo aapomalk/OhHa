@@ -71,4 +71,15 @@ public class RistiNollaMuistio {
     public boolean getEdellinenMerkkiRisti() {
         return this.edellinenMerkkiRisti;
     }
+    
+    public void peruSiirto() {
+        if (!this.merkit.isEmpty()) {
+            this.merkit.remove(this.merkit.size()-1);
+            if (this.edellinenMerkkiRisti) {
+                this.edellinenMerkkiRisti = false;
+            } else {
+                this.edellinenMerkkiRisti = true;
+            }
+        }
+    }
 }

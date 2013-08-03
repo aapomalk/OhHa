@@ -13,3 +13,5 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 12:10-13:40; Alkeellinen tekstikäyttöliittymä ja käsin testausta
 	noin klo 14:45-15:45; Pientä viilausta ja vakioiden pois refaktorointia (kuten palautteessa luki)
 	noin klo 16:00-16:20; Tiedonetsintää ja ensimmäisen Luokkakaavion yritelmä
+03.08. (yhteensä 00h 50min)
+	noin klo 17:00-17:50; Siskon kanssa tekstikäyttöliittymän testausta ja vuoron perumisen alustus

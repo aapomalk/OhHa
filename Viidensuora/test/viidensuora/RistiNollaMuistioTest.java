@@ -85,4 +85,25 @@ public class RistiNollaMuistioTest {
         tyhjennettava.clear();
         assertEquals(1, ruudukko.ristienMaara());
     }
+    
+    @Test
+    public void onnistuukoSiirronPeruminenOsa1() {
+        ruudukko.lisaaRisti(0, 0);
+        assertEquals("nyt olisi pitanyt olla 1 risti", 1, ruudukko.ristienMaara());
+        ruudukko.peruSiirto();
+        
+        assertEquals("nyt olisi pitanyt olla 0 ristia", 0, ruudukko.ristienMaara());
+        assertEquals("edellinenMerkkiRisti olisi pitanyt palautua falseksi", false, ruudukko.getEdellinenMerkkiRisti());
+    }
+    
+    @Test
+    public void onnistuukoSiirronPeruminenOsa2() {
+        ruudukko.lisaaRisti(0, 0);
+        ruudukko.lisaaNolla(1, 1);
+        assertEquals("nyt olisi pitanyt olla 1 nolla", 1, ruudukko.nollienMaara());
+        ruudukko.peruSiirto();
+        
+        assertEquals("nyt olisi pitanyt olla 0 nollaa", 0, ruudukko.nollienMaara());
+        assertEquals("edellinenMerkkiRisti olisi pitanyt palautua trueksi", true, ruudukko.getEdellinenMerkkiRisti());
+    }
 }
