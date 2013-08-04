@@ -60,7 +60,6 @@ public class PelitilanteenTiedostostaLukija {
             muistio.lisaaNolla(x, y);
         } else {
             kasittelija.tiedostoOliKorruptoitunut();
-            return;
         }
     }
     

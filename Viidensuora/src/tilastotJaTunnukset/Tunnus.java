@@ -17,11 +17,11 @@ public class Tunnus {
     private int vihjenapinKaytot;
     
     public Tunnus(String tunnus) {
-        this(tunnus, 0, 0, 0, 0.0, 0);
+        this(tunnus, 0, 0.0, 0, 0, 0);
     }
     
-    public Tunnus(String tunnusNimi, int pelit, int voittoja, int ristillaPelatut,
-            double pelienKeskimaarainenPituus, int vihjenapinKaytot) {
+    public Tunnus(String tunnusNimi, int pelit, double pelienKeskimaarainenPituus, int ristillaPelatut, 
+             int vihjenapinKaytot, int voittoja) {
     this.tunnus = tunnusNimi;
     this.pelatutPelit = pelit;
     this.voitot = voittoja;

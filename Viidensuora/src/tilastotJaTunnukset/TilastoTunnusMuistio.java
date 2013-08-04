@@ -21,8 +21,8 @@ public class TilastoTunnusMuistio {
     private int pelienTallennustenMaara;
     
     public TilastoTunnusMuistio(ArrayList<Tunnus> tunnukset, ArrayList<TunnusPari> tunnusParit,
-            int pelienMaara, int ristienVoitot, int nollienVoitot, double pelienKeskimaarainenPituus,
-            int pelienTallennustenMaara) {
+            int nollienVoitot, double pelienKeskimaarainenPituus, int pelienMaara, int pelienTallennustenMaara,
+            int ristienVoitot) {
         this.tunnukset = tunnukset;
         this.tunnusParit = tunnusParit;
         this.pelienMaara = pelienMaara;
@@ -33,7 +33,7 @@ public class TilastoTunnusMuistio {
     }
     
     public TilastoTunnusMuistio() {
-        this(new ArrayList<Tunnus>(), new ArrayList<TunnusPari>(), 0, 0, 0, 0.0, 0);
+        this(new ArrayList<Tunnus>(), new ArrayList<TunnusPari>(), 0, 0.0, 0, 0, 0);
     }
     
     public void lisaaTunnus(String tunnusNimi) {
