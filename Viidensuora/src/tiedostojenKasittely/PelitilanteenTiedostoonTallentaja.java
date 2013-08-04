@@ -12,7 +12,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import viidensuora.Merkki;
 
-public class TiedostoonKirjoittaja {
+public class PelitilanteenTiedostoonTallentaja {
     private FileWriter kirjoittaja;
     
     public void tallennaPelitilanne(ArrayList<Merkki> merkit, String tiedosto, VirheidenKasittelija kasittelija) {

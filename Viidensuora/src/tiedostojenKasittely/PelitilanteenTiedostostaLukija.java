@@ -13,7 +13,7 @@ import java.io.File;
 import java.util.Scanner;
 import viidensuora.RistiNollaMuistio;
 
-public class TiedostonLukija {
+public class PelitilanteenTiedostostaLukija {
     private File tiedosto;
     private Scanner lukija;
     

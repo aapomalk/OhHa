@@ -10,20 +10,19 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 import viidensuora.RistiNollaMuistio;
 
 /**
  *
  * @author Aapo
  */
-public class TiedostoonKirjoittajaTest {
-    private TiedostoonKirjoittaja kirjoittaja;
+public class PelitilanteenTiedostostaLukijaTest {
+    private PelitilanteenTiedostoonTallentaja kirjoittaja;
     private VirheidenKasittelija kasittelija;
     private RistiNollaMuistio muistio;
+    private PelitilanteenTiedostostaLukija lukija;
     
-    public TiedostoonKirjoittajaTest() {
-        
+    public PelitilanteenTiedostostaLukijaTest() {
     }
     
     @BeforeClass
@@ -38,7 +37,8 @@ public class TiedostoonKirjoittajaTest {
     public void setUp() {
         muistio = new RistiNollaMuistio();
         kasittelija = new VirheidenKasittelija("tyhja");
-        kirjoittaja = new TiedostoonKirjoittaja();
+        kirjoittaja = new PelitilanteenTiedostoonTallentaja();
+        lukija = new PelitilanteenTiedostostaLukija();
     }
     
     @After
@@ -51,13 +51,21 @@ public class TiedostoonKirjoittajaTest {
     // public void hello() {}
     
     @Test
-    public void onnistuukoTiedostoonKirjoittaminen() {
+    public void kokeillaanLukeaTiedostosta() {
         muistio.lisaaRisti(0, 0);
         muistio.lisaaNolla(1, 1);
-        muistio.lisaaRisti(-1, -1);
-        muistio.lisaaNolla(2, 0);
-        kirjoittaja.tallennaPelitilanne(muistio.getMerkit(), "Testi.txt", kasittelija);
-        System.out.println("Tarkista Testi.txt -tiedosto kasin, toistaiseksi");
-        assertEquals(0, 0);
+        kirjoittaja.tallennaPelitilanne(muistio.getMerkit(), "Testi2.txt", kasittelija);
+        muistio.lisaaRisti(2, 2);
+        assertEquals("risteja olisi pitanyt olla 2", 2, muistio.ristienMaara());
+        lukija.lataaPelitilanne("Testi2.txt", kasittelija, muistio);
+        
+        assertEquals("risteja olisi pitanyt olla 1", 1, muistio.ristienMaara());
+    }
+    
+    @Test
+    public void tyhjentyykoMuistio() {
+        muistio.lisaaRisti(0, 0);
+        lukija.tyhjennaMuistio(muistio);
+        assertEquals("muistion olisi pitanyt olla tyhja", 0, muistio.ristienMaara());
     }
 }

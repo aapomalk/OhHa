@@ -15,4 +15,7 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 16:00-16:20; Tiedonetsintää ja ensimmäisen Luokkakaavion yritelmä
 03.08. (yhteensä 02h 35min)
 	noin klo 17:00-17:50; Siskon kanssa tekstikäyttöliittymän testausta ja vuoron perumisen alustus
-	noin klo 21:15-23:00; Tiedostoon kirjoittaminen ja tiedostosta lukeminen toimii ilmeisesti
+	noin klo 21:15-23:00; Tiedostoon kirjoittaminen ja tiedostosta lukeminen toimii ilmeisesti (RistiNollaMuistion kanssa)
+04.08. (yhteensä 02h 50min)
+	noin klo 11:20-11:50; Tilastoihin tallennettavien tietojen ylöskirjoittaminen (aihemäärittelyyn)
+	noin klo 13:00-15:20; Tunnus, TunnusPari ja TilastoTunnusMuistio luokat ja testit

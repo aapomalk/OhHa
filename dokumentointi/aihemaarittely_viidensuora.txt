@@ -19,7 +19,7 @@ Pelin valikon toiminnot:
 -tilastot
 	*nähdään kaikkien pelien tilastot
 -tunnusten luominen
-	*uusi pelaaja luo itselleen käyttäjänimen ja salasanan
+	*uusi pelaaja luo itselleen käyttäjänimen (ja salasanan, tai ehkä ei)
 -lopeta
 	*sulkee pelin (kirjautumiset eivät jää voimaan)
 
@@ -32,3 +32,27 @@ Pelin pelattavat ominaisuudet:
 	*vihjenappula aloittelijoille (mihin seuraavaksi ehkä kannattaisi laittaa oma merkki)
 	*tallenna peli -nappula (pikapelissä yksi tallennuspaikka, samoin kullakin tunnusparilla yksi)
 	*takaisin valikkoon -nappula (kysyy pelin tallennushalukkuudesta, jonka jälkeen siirrytään takaisin valikkoon)
+
+Pelin tilastoihin tallennettava tiedot:
+-yleiset:
+	*pelien määrä
+	*ristien voitot
+	*nollien voitot
+	*pelien keskimääräinen pituus
+	*pelien tallennusten määrä
+-tunnuskohtaiset:
+	*tunnus
+	*pelatut pelit
+	*voitot
+	*ristillä pelatut pelit (aloitusvuoro)
+	*pelien keskimääräinen pituus
+	*vihjenapin käyttökerrat
+-tunnusparikohtaiset:
+	*tunnuspari
+	*tunnusten väliset pelatut pelit
+	*tunnuksen1 voitot tunnuksesta2
+	*tunnuksen1 ristillä pelatut pelit tunnusta2 vastaan
+	*tunnuksen2 voitot tunnuksesta1
+	*tunnuksen2 ristillä pelatut pelit tunnusta1 vastaan
+	*tunnusten välisten pelien keskimääräinen pituus
+	*tunnusparin tekemien tallennusten määrä

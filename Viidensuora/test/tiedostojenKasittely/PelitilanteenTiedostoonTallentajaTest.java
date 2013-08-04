@@ -10,19 +10,20 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 import viidensuora.RistiNollaMuistio;
 
 /**
  *
  * @author Aapo
  */
-public class TiedostonLukijaTest {
-    private TiedostoonKirjoittaja kirjoittaja;
+public class PelitilanteenTiedostoonTallentajaTest {
+    private PelitilanteenTiedostoonTallentaja kirjoittaja;
     private VirheidenKasittelija kasittelija;
     private RistiNollaMuistio muistio;
-    private TiedostonLukija lukija;
     
-    public TiedostonLukijaTest() {
+    public PelitilanteenTiedostoonTallentajaTest() {
+        
     }
     
     @BeforeClass
@@ -37,8 +38,7 @@ public class TiedostonLukijaTest {
     public void setUp() {
         muistio = new RistiNollaMuistio();
         kasittelija = new VirheidenKasittelija("tyhja");
-        kirjoittaja = new TiedostoonKirjoittaja();
-        lukija = new TiedostonLukija();
+        kirjoittaja = new PelitilanteenTiedostoonTallentaja();
     }
     
     @After
@@ -51,21 +51,13 @@ public class TiedostonLukijaTest {
     // public void hello() {}
     
     @Test
-    public void kokeillaanLukeaTiedostosta() {
+    public void onnistuukoTiedostoonKirjoittaminen() {
         muistio.lisaaRisti(0, 0);
         muistio.lisaaNolla(1, 1);
-        kirjoittaja.tallennaPelitilanne(muistio.getMerkit(), "Testi2.txt", kasittelija);
-        muistio.lisaaRisti(2, 2);
-        assertEquals("risteja olisi pitanyt olla 2", 2, muistio.ristienMaara());
-        lukija.lataaPelitilanne("Testi2.txt", kasittelija, muistio);
-        
-        assertEquals("risteja olisi pitanyt olla 1", 1, muistio.ristienMaara());
-    }
-    
-    @Test
-    public void tyhjentyykoMuistio() {
-        muistio.lisaaRisti(0, 0);
-        lukija.tyhjennaMuistio(muistio);
-        assertEquals("muistion olisi pitanyt olla tyhja", 0, muistio.ristienMaara());
+        muistio.lisaaRisti(-1, -1);
+        muistio.lisaaNolla(2, 0);
+        kirjoittaja.tallennaPelitilanne(muistio.getMerkit(), "Testi.txt", kasittelija);
+        System.out.println("Tarkista Testi.txt -tiedosto kasin, toistaiseksi");
+        assertEquals(0, 0);
     }
 }

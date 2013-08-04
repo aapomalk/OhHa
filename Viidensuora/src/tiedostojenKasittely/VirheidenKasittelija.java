@@ -16,18 +16,26 @@ public class VirheidenKasittelija {
     }
     
     public void virheTiedostoonKirjoittamisessa() {
-        
+        if (this.mikaKayttoliittyma.equals("TekstiKayttoliittyma")) {
+            System.out.println("Tallentaminen ei onnistunut");
+        }
     }
     
     public void virheFileWriterinLuomisessa() {
-        
+        if (this.mikaKayttoliittyma.equals("TekstiKayttoliittyma")) {
+            System.out.println("Tallentamisen alustuksessa tapahtui virhe");
+        }
     }
     
     public void virheScannerinJaTiedostonKanssa() {
-        
+        if (this.mikaKayttoliittyma.equals("TekstiKayttoliittyma")) {
+            System.out.println("Tiedoston lataamisessa tapahtui virhe");
+        }
     }
     
     public void tiedostoOliKorruptoitunut() {
-        
+        if (this.mikaKayttoliittyma.equals("TekstiKayttoliittyma")) {
+            System.out.println("Tiedosto oli korruptoitunut, lataaminen epäonnistui");
+        }
     }
 }
