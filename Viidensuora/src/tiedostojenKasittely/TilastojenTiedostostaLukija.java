@@ -19,7 +19,7 @@ public class TilastojenTiedostostaLukija {
     private Scanner lukija;
 
     public TilastoTunnusMuistio lataaTilastot(String tiedostoNimi, VirheidenKasittelija kasittelija) {
-        TilastoTunnusMuistio muistio = null;
+        TilastoTunnusMuistio muistio = new TilastoTunnusMuistio();
         try {
             tiedosto = new File(tiedostoNimi);
             lukija = new Scanner(tiedosto);
