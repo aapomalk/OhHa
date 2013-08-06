@@ -69,25 +69,45 @@ public class MerkkienJononLoytajaTest {
     }
 
     @Test
+    public void toimiikoTarkastaViimeinenMetodi() {
+        for (int i = 0; i < 5; i++) {
+            if (i == 3) {
+                assertTrue("ei pitanyt viela loytya", !viisiRistia.tarkastaViimeinen(ruudukko.getMerkit()));
+            }
+
+            ruudukko.lisaaRisti(0, i);
+            if (i < 4) {
+                ruudukko.lisaaNolla(i + 1, 0);
+            }
+        }
+
+        assertTrue("nyt olisi pitanyt loytya", viisiRistia.tarkastaViimeinen(ruudukko.getMerkit()));
+    }
+
+    @Test
     public void loytyykoViisiRistiaVinottain() {
         for (int i = 0; i < 5; i++) {
             ruudukko.lisaaRisti(i, i);
-            ruudukko.lisaaNolla(i + 1, i);
+
+            if (i < 4) {
+                ruudukko.lisaaNolla(i + 1, i);
+            }
         }
 
-        ArrayList<Merkki> loydetyt = viisiRistia.tarkasta(ruudukko.getMerkit());
-        assertEquals(2, loydetyt.size());
+        assertTrue(viisiRistia.tarkastaViimeinen(ruudukko.getMerkit()));
     }
 
     @Test
     public void loytyykoViisiRistiaJosValeja() {
         for (int i = 0; i < 5; i++) {
             ruudukko.lisaaRisti(2 * i, 2 * i);
-            ruudukko.lisaaNolla(i + 1, i);
+
+            if (i < 4) {
+                ruudukko.lisaaNolla(i + 1, i);
+            }
         }
 
-        ArrayList<Merkki> loydetyt = viisiRistia.tarkasta(ruudukko.getMerkit());
-        assertEquals(0, loydetyt.size());
+        assertTrue(!viisiRistia.tarkastaViimeinen(ruudukko.getMerkit()));
     }
 
     @Test

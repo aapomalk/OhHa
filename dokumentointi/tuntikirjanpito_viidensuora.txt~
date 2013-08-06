@@ -20,3 +20,8 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 11:20-11:50; Tilastoihin tallennettavien tietojen ylöskirjoittaminen (aihemäärittelyyn)
 	noin klo 13:00-15:20; Tunnus, TunnusPari ja TilastoTunnusMuistio luokat ja testit
 	noin klo 18:45-21:45; Tilastojen tiedostoon kirjoitus, -testi, tiedostosta lukeminen ja -testi, koodi on varmaa aika rumaa..
+05.08. (yhteensä 00h 40min)
+	noin klo 11:10-11:50; Tekstikäyttöliittymään sisällytetty uudet ominaisuudet, tosin kankeasti
+06.08. (yhteensä 01h 50min)
+	noin klo 14:40-15:15; Virheiden käsittelijän rajapinnaksi muuttaminen (jotta käyttöliittymän vaihto onnistuu helposti) ja MerkkienJononLöytäjän optimointi (tarkistaa vain lisätyn merkin, vanha toiminto vain vihjenappia ajatellen) ja testien keventäminen (edellisellä)
+	noin klo 15:15-16:30; TyhjienMerkkienLisaaja ja -Test, sekä käsin tekstikäyttöliittymän/pelin testausta

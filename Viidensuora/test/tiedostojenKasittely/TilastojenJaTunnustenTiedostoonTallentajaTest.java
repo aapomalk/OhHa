@@ -37,7 +37,7 @@ public class TilastojenJaTunnustenTiedostoonTallentajaTest {
     @Before
     public void setUp() {
         muistio = new TilastoTunnusMuistio();
-        kasittelija = new VirheidenKasittelija("TekstiKayttoliittyma");
+        kasittelija = new VirheidenKasittelijaTeksti("TekstiKayttoliittyma");
         tallentaja = new TilastojenJaTunnustenTiedostoonTallentaja();
     }
     

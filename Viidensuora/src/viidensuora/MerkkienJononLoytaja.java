@@ -29,6 +29,10 @@ public class MerkkienJononLoytaja {
         return loydetyt;
     }
     
+    public boolean tarkastaViimeinen(ArrayList<Merkki> merkit) {
+        return katseleYmparille(merkit, merkit.get(merkit.size()-1));
+    }
+    
     private boolean katseleYmparille(ArrayList<Merkki> merkit, Merkki merkki) {
         for (int i = 0; i < 8; i++) { 
             Suunta suunta = muutaNumeroSuunnaksi(i);

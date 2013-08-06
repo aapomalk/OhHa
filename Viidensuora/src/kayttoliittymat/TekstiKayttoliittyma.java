@@ -29,7 +29,7 @@ public class TekstiKayttoliittyma {
 
     public TekstiKayttoliittyma() {
         jatketaan = true;
-        kasittelija = new VirheidenKasittelija("TekstiKayttoliittyma");
+        kasittelija = new VirheidenKasittelijaTeksti("TekstiKayttoliittyma");
         TilastojenTiedostostaLukija aloitus = new TilastojenTiedostostaLukija();
         tilastot = aloitus.lataaTilastot("Tilastot.txt", kasittelija);
         tulostaTilastot();
@@ -202,13 +202,13 @@ public class TekstiKayttoliittyma {
 
     private boolean tarkistaVoitto() {
         if (muistio.getEdellinenMerkkiRisti()) {
-            if (!viisiRistia.tarkasta(muistio.getMerkit()).isEmpty()) {
+            if (viisiRistia.tarkastaViimeinen(muistio.getMerkit())) {
                 System.out.println("Risti voitti");
                 tilastot.peliPelattu(muistio.nollienMaara(), Laatu.RISTI);
                 return true;
             }
         } else {
-            if (!viisiNollaa.tarkasta(muistio.getMerkit()).isEmpty()) {
+            if (viisiNollaa.tarkastaViimeinen(muistio.getMerkit())) {
                 System.out.println("Nolla voitti");
                 tilastot.peliPelattu(muistio.nollienMaara(), Laatu.NOLLA);
                 return true;
