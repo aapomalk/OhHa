@@ -61,7 +61,6 @@ Vihjetoiminnon etsittävät merkkien jonot:
 -rakenna hyökkäystä (esimerkkinä ristille)
 	*värikoodi [sininen)
 	_xx_
-	_x_x
 	_xxx
 	_xx_x
 	_x_xx
@@ -76,7 +75,6 @@ Vihjetoiminnon etsittävät merkkien jonot:
 -varo vastustajaa (nollalle otsikot vaihtuu päittäin)
 	*[keltainen]
 	_oo_
-	_o_o
 	_ooo
 	_oo_o
 	_o_oo

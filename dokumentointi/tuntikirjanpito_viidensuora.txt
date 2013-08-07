@@ -26,3 +26,5 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 14:40-15:15; Virheiden käsittelijän rajapinnaksi muuttaminen (jotta käyttöliittymän vaihto onnistuu helposti) ja MerkkienJononLöytäjän optimointi (tarkistaa vain lisätyn merkin, vanha toiminto vain vihjenappia ajatellen) ja testien keventäminen (edellisellä)
 	noin klo 15:15-16:30; TyhjienMerkkienLisaaja ja -Test, sekä käsin tekstikäyttöliittymän/pelin testausta
 	noin klo 22:45-23:20; Luokkakaavion päivitys ajankohtaiseksi
+07.08. (yhteensä 02h 15min)
+	noin klo 13:00-15:15; Vihje luokan rakentelua.
