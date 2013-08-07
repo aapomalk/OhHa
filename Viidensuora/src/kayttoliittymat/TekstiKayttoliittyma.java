@@ -17,8 +17,9 @@ import viidensuora.*;
 public class TekstiKayttoliittyma {
 
     private RistiNollaMuistio muistio;
-    private MerkkienJononLoytaja viisiRistia;
-    private MerkkienJononLoytaja viisiNollaa;
+    private MerkkienJononLoytaja loytaja;
+    private ArrayList<Laatu> viisiRistia;
+    private ArrayList<Laatu> viisiNollaa;
     private ReunimmaisetKoordinaatit rajaaja;
     private Scanner lukija;
     private PelitilanteenTiedostoonTallentaja peliSave;
@@ -28,6 +29,7 @@ public class TekstiKayttoliittyma {
     private boolean jatketaan;
 
     public TekstiKayttoliittyma() {
+        loytaja = new MerkkienJononLoytaja();
         jatketaan = true;
         kasittelija = new VirheidenKasittelijaTeksti("TekstiKayttoliittyma");
         TilastojenTiedostostaLukija aloitus = new TilastojenTiedostostaLukija();
@@ -50,14 +52,13 @@ public class TekstiKayttoliittyma {
     }
 
     private void loytajienAlustus() {
-        ArrayList<Laatu> ristit = new ArrayList<Laatu>();
-        ArrayList<Laatu> nollat = new ArrayList<Laatu>();
+        this.viisiRistia = new ArrayList<Laatu>();
+        this.viisiNollaa = new ArrayList<Laatu>();
         for (int i = 0; i < 5; i++) {
-            ristit.add(Laatu.RISTI);
-            nollat.add(Laatu.NOLLA);
+            viisiRistia.add(Laatu.RISTI);
+            viisiNollaa.add(Laatu.NOLLA);
         }
-        viisiRistia = new MerkkienJononLoytaja(ristit);
-        viisiNollaa = new MerkkienJononLoytaja(nollat);
+        
     }
 
     public void kaynnista() {
@@ -202,13 +203,13 @@ public class TekstiKayttoliittyma {
 
     private boolean tarkistaVoitto() {
         if (muistio.getEdellinenMerkkiRisti()) {
-            if (viisiRistia.tarkastaViimeinen(muistio.getMerkit())) {
+            if (this.loytaja.tarkastaViimeinen(muistio.getMerkit(), viisiRistia)) {
                 System.out.println("Risti voitti");
                 tilastot.peliPelattu(muistio.nollienMaara(), Laatu.RISTI);
                 return true;
             }
         } else {
-            if (viisiNollaa.tarkastaViimeinen(muistio.getMerkit())) {
+            if (this.loytaja.tarkastaViimeinen(muistio.getMerkit(), viisiNollaa)) {
                 System.out.println("Nolla voitti");
                 tilastot.peliPelattu(muistio.nollienMaara(), Laatu.NOLLA);
                 return true;

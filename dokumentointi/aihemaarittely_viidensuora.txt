@@ -57,33 +57,26 @@ Pelin tilastoihin tallennettava tiedot:
 	*tunnusten v‰listen pelien keskim‰‰r‰inen pituus
 	*tunnusparin tekemien tallennusten m‰‰r‰
 
-Vihjetoiminnon etsitt‰v‰t merkkien jonot:
--rakenna hyˆkk‰yst‰ (esimerkkin‰ ristille)
-	*v‰rikoodi [sininen)
+Vihjetoiminnon etsitt‰v‰t merkkien puolikkaat jonot:
+-nollaMerkkiset:
+	_
+	__
+-yksimerkkiset:
+	_x_
+	__x_
+-kaksimerkkiset:
 	_xx_
-	_x_x
-	_xxx
-	_xx_x
-	_x_xx
-	x__xx
+	__xx_
+-kolmemerkkiset:
+	_xxx_
+-nelimerkkiset:
+	_xxxx_
 
--varma voitto
-	*[vihre‰]
-	xx_xx
-	x_xxx
-	_xxxx
-
--varo vastustajaa (nollalle otsikot vaihtuu p‰itt‰in)
-	*[keltainen]
-	_oo_
-	_o_o
-	_ooo
-	_oo_o
-	_o_oo
-	o__oo
-
--t‰ytyy est‰‰
-	*[punainen]
-	oo_oo
-	o_ooo
-	_oooo
+-toisesta p‰‰st‰ peitetyt:
+	_xo
+	_xxo
+	_xxxo
+	_xxxxo
+	__xo
+	__xxo
+	__xxxo

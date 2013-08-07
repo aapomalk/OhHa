@@ -9,16 +9,30 @@ package viidensuora;
  * @author Aapo
  */
 public enum Suunta {
-    YLOS(4), YLOS_OIKEALLE(3), OIKEALLE(2), ALAS_OIKEALLE(1), 
-    ALAS(0), ALAS_VASEMMALLE(7), VASEMMALLE(6), YLOS_VASEMMALLE(5);
+    YLOS(0, 1), 
+    YLOS_OIKEALLE(1, 1), 
+    OIKEALLE(1, 0), 
+    ALAS_OIKEALLE(1, -1), 
+    ALAS(0, -1), 
+    ALAS_VASEMMALLE(-1, -1), 
+    VASEMMALLE(-1, 0), 
+    YLOS_VASEMMALLE(-1, 1);
     
-    private final int suuntaArvo;
+    private final int xMuutos;
+    private final int yMuutos;
     
-    private Suunta(int suuntaArvo) {
-        this.suuntaArvo = suuntaArvo;
+    
+    private Suunta(int xMuutos, int yMuutos) {
+        this.xMuutos = xMuutos;
+        this.yMuutos = yMuutos;
+        
     }
     
-    public int getSuuntaArvo() {
-        return this.suuntaArvo;
+    public int getXmuutos() {
+        return this.xMuutos;
+    }
+    
+    public int getYmuutos() {
+        return this.yMuutos;
     }
 }

@@ -22,40 +22,9 @@ public class TyhjienMerkkienLisaaja {
     }
     
     private void lisaaTyhjaViereiseen(ArrayList<Merkki> merkit, Merkki merkki) {
-        for (int i = 0; i < 8; i++) { 
-            Suunta suunta = muutaNumeroSuunnaksi(i);
-            lisaaTyhja(merkit, suunnistaViereinenX(merkki.getX(), suunta), suunnistaViereinenY(merkki.getY(), suunta));
+        for (Suunta suunta : Suunta.values()) { 
+            lisaaTyhja(merkit, (merkki.getX() + suunta.getXmuutos()), (merkki.getY() + suunta.getYmuutos()));
         }
-    }
-    
-    protected int suunnistaViereinenX(int lahtoX, Suunta suunta) {
-        if (suunta.getSuuntaArvo() == 0 || suunta.getSuuntaArvo() == 4) {
-            return lahtoX;
-        }
-        if (suunta.getSuuntaArvo() > 0 && suunta.getSuuntaArvo() < 4) {
-            return (lahtoX+1);
-        }
-        return (lahtoX-1);
-    }
-    
-    protected int suunnistaViereinenY(int lahtoY, Suunta suunta) {
-        if (suunta.getSuuntaArvo() == 2 || suunta.getSuuntaArvo() == 6) {
-            return lahtoY;
-        }
-        if (suunta.getSuuntaArvo() > 2 && suunta.getSuuntaArvo() < 6) {
-            return (lahtoY+1);
-        }
-        return (lahtoY-1);
-    }
-    
-    protected Suunta muutaNumeroSuunnaksi(int i) {
-        Suunta suunta = Suunta.ALAS;
-        for (Suunta s : Suunta.values()) {
-            if (s.getSuuntaArvo() == i) {
-                suunta = s;
-            }
-        }
-        return suunta;
     }
     
     private void lisaaTyhja(ArrayList<Merkki> merkit, int x, int y) {

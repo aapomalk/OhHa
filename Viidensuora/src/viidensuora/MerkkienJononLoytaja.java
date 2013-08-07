@@ -11,17 +11,13 @@ package viidensuora;
 import java.util.ArrayList;
 
 public class MerkkienJononLoytaja {
-    private ArrayList<Laatu> tarkastusJono;
     
-    public MerkkienJononLoytaja(ArrayList<Laatu> tarkastusJono) {
-        this.tarkastusJono = tarkastusJono;
-    }
-    
-    public ArrayList<Merkki> tarkasta(ArrayList<Merkki> merkit) {
+    public ArrayList<Merkki> tarkasta(ArrayList<Merkki> merkit,
+            ArrayList<Laatu> jonoEteen, ArrayList<Laatu> jonoTaakse) {
         ArrayList<Merkki> loydetyt = new ArrayList<Merkki>();
         
         for (Merkki merkki : merkit) {
-            if(katseleYmparille(merkit, merkki)) {
+            if(katseleYmparille(merkit, merkki, jonoEteen, jonoTaakse)) {
                 loydetyt.add(merkki);
             }
         }
@@ -29,43 +25,55 @@ public class MerkkienJononLoytaja {
         return loydetyt;
     }
     
-    public boolean tarkastaViimeinen(ArrayList<Merkki> merkit) {
-        return katseleYmparille(merkit, merkit.get(merkit.size()-1));
+    public boolean tarkastaViimeinen(ArrayList<Merkki> merkit, ArrayList<Laatu> jono) {
+        return katseleYmparille(merkit, merkit.get(merkit.size()-1), jono);
     }
     
-    private boolean katseleYmparille(ArrayList<Merkki> merkit, Merkki merkki) {
-        for (int i = 0; i < 8; i++) { 
-            Suunta suunta = muutaNumeroSuunnaksi(i);
-            if (lahdeSuuntaan(merkit, suunta, merkki, 0)) {
+    private boolean katseleYmparille(ArrayList<Merkki> merkit, Merkki merkki,
+            ArrayList<Laatu> jono) {
+        for (Suunta suunta : Suunta.values()) { 
+            if (lahdeSuuntaan(merkit, suunta, merkki, 0, jono)) {
                 return true;
             }
         }
         return false;
     }
     
-    protected Suunta muutaNumeroSuunnaksi(int i) {
-        Suunta suunta = Suunta.ALAS;
-        for (Suunta s : Suunta.values()) {
-            if (s.getSuuntaArvo() == i) {
-                suunta = s;
+    private boolean katseleYmparille(ArrayList<Merkki> merkit, Merkki merkki,
+            ArrayList<Laatu> jonoEteen, ArrayList<Laatu> jonoTaakse) {
+        for (Suunta suunta : Suunta.values()) {
+            if (lahdeSuuntaan(merkit, suunta, merkki, 0, jonoEteen) &&
+                    lahdeSuuntaan(merkit, suuntaTaakse(suunta), merkki, 0, jonoTaakse)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    private Suunta suuntaTaakse(Suunta suunta) {
+        for (Suunta taakse : Suunta.values()) {
+            if (taakse.getXmuutos() == (-1 * suunta.getXmuutos()) &&
+                    taakse.getYmuutos() == (-1 * suunta.getYmuutos())) {
+                return taakse;
             }
         }
         return suunta;
     }
     
-    private boolean lahdeSuuntaan(ArrayList<Merkki> merkit, Suunta suunta, Merkki merkki, int askel) {
-        if (merkki.getLaatu() == (tarkastusJono.get(askel))) {
-            if (askel + 1 == tarkastusJono.size()) {
+    private boolean lahdeSuuntaan(ArrayList<Merkki> merkit, Suunta suunta,
+            Merkki merkki, int askel, ArrayList<Laatu> jono) {
+        if (merkki.getLaatu() == (jono.get(askel))) {
+            if (askel + 1 == jono.size()) {
                 return true;//paatepiste
             }
             for (Merkki seuraava : merkit) {
                 if (seuraava.equals(merkki)) {
                     continue;
                 }
-                if ((seuraava.getX() == suunnistaViereinenX(merkki.getX(), suunta)) 
-                        && (seuraava.getY() == suunnistaViereinenY(merkki.getY(), suunta))) {
+                if ((seuraava.getX() == (merkki.getX() + suunta.getXmuutos())) 
+                        && (seuraava.getY() == (merkki.getY() + suunta.getYmuutos()))) {
                     askel++;
-                    if (lahdeSuuntaan(merkit, suunta, seuraava, askel)) {
+                    if (lahdeSuuntaan(merkit, suunta, seuraava, askel, jono)) {
                         return true;//paluupolku paatepisteelta
                     }
                     askel--;
@@ -75,23 +83,4 @@ public class MerkkienJononLoytaja {
         return false;
     }
     
-    protected int suunnistaViereinenX(int lahtoX, Suunta suunta) {
-        if (suunta.getSuuntaArvo() == 0 || suunta.getSuuntaArvo() == 4) {
-            return lahtoX;
-        }
-        if (suunta.getSuuntaArvo() > 0 && suunta.getSuuntaArvo() < 4) {
-            return (lahtoX+1);
-        }
-        return (lahtoX-1);
-    }
-    
-    protected int suunnistaViereinenY(int lahtoY, Suunta suunta) {
-        if (suunta.getSuuntaArvo() == 2 || suunta.getSuuntaArvo() == 6) {
-            return lahtoY;
-        }
-        if (suunta.getSuuntaArvo() > 2 && suunta.getSuuntaArvo() < 6) {
-            return (lahtoY+1);
-        }
-        return (lahtoY-1);
-    }
 }

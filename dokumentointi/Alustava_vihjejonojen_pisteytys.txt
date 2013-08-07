@@ -1,0 +1,297 @@
+Alustava jonojen pisteytys:
+(p < 0) -> ei kiinnostava
+(p = 0) -> sininen "hälytys" (häilyvä)
+(p = 1) -> turkoosi/violetti "hälytys"
+(p > 1) -> punainen/vihreä hälytys
+
+-2 _
+-1 __
+-1 _x_
+-1 __x_
+ 0 _xx_
+ 0 __xx_
+ 1 _xxx_
+ 2 _xxxx_
+-2 _xo
+-1 _xxo
+ 0 _xxxo
+ 2 _xxxxo
+-2 __xo
+-1 __xxo
+ 0 __xxxo
+-1 __
+ 0 ___
+ 0 __x_
+ 0 ___x_
+ 1 __xx_
+ 1 ___xx_
+ 2 __xxx_
+ 3 __xxxx_
+-1 __xo
+ 0 __xxo
+ 1 __xxxo
+ 3 __xxxxo
+-1 ___xo
+ 0 ___xxo
+ 1 ___xxxo
+-1 _x_
+ 0 _x__
+ 0 _x_x_
+ 0 _x__x_
+ 1 _x_xx_
+ 1 _x__xx_
+ 2 _x_xxx_
+ 3 _x_xxxx_
+-1 _x_xo
+ 0 _x_xxo
+ 1 _x_xxxo
+ 3 _x_xxxxo
+-1 _x__xo
+ 0 _x__xxo
+ 1 _x__xxxo
+-1 _x__
+ 0 _x___
+ 0 _x__x_
+ 0 _x___x_
+ 1 _x__xx_
+ 1 _x___xx_
+ 2 _x__xxx_
+ 3 _x__xxxx_
+-1 _x__xo
+ 0 _x__xxo
+ 1 _x__xxxo
+ 3 _x__xxxxo
+-1 _x___xo
+ 0 _x___xxo
+ 1 _x___xxxo
+ 0 _xx_
+ 1 _xx__
+ 1 _xx_x_
+ 1 _xx__x_
+ 2 _xx_xx_
+ 2 _xx__xx_
+ 3 _xx_xxx_
+ 4 _xx_xxxx_
+ 0 _xx_xo
+ 1 _xx_xxo
+ 2 _xx_xxxo
+ 4 _xx_xxxxo
+ 0 _xx__xo
+ 1 _xx__xxo
+ 2 _xx__xxxo
+ 0 _xx__
+ 1 _xx___
+ 1 _xx__x_
+ 1 _xx___x_
+ 2 _xx__xx_
+ 2 _xx___xx_
+ 3 _xx__xxx_
+ 4 _xx__xxxx_
+ 0 _xx__xo
+ 1 _xx__xxo
+ 2 _xx__xxxo
+ 4 _xx__xxxxo
+ 0 _xx___xo
+ 1 _xx___xxo
+ 2 _xx___xxxo
+ 1 _xxx_
+ 2 _xxx__
+ 2 _xxx_x_
+ 2 _xxx__x_
+ 3 _xxx_xx_
+ 3 _xxx__xx_
+ 4 _xxx_xxx_
+ 5 _xxx_xxxx_
+ 1 _xxx_xo
+ 2 _xxx_xxo
+ 3 _xxx_xxxo
+ 5 _xxx_xxxxo
+ 1 _xxx__xo
+ 2 _xxx__xxo
+ 3 _xxx__xxxo
+ 2 _xxxx_
+ 3 _xxxx__
+ 3 _xxxx_x_
+ 3 _xxxx__x_
+ 4 _xxxx_xx_
+ 4 _xxxx__xx_
+ 5 _xxxx_xxx_
+ 6 _xxxx_xxxx_
+ 2 _xxxx_xo
+ 3 _xxxx_xxo
+ 4 _xxxx_xxxo
+ 6 _xxxx_xxxxo
+ 2 _xxxx__xo
+ 3 _xxxx__xxo
+ 4 _xxxx__xxxo
+-2 ox_
+-1 ox__
+-1 ox_x_
+-1 ox__x_
+ 0 ox_xx_
+ 0 ox__xx_
+ 1 ox_xxx_
+ 2 ox_xxxx_
+-2 ox_xo
+-1 ox_xxo
+ 0 ox_xxxo
+ 2 ox_xxxxo
+-2 ox__xo
+-1 ox__xxo
+ 0 ox__xxxo
+-1 oxx_
+ 0 oxx__
+ 0 oxx_x_
+ 0 oxx__x_
+ 1 oxx_xx_
+ 1 oxx__xx_
+ 2 oxx_xxx_
+ 3 oxx_xxxx_
+-1 oxx_xo
+ 0 oxx_xxo
+ 1 oxx_xxxo
+ 3 oxx_xxxxo
+-1 oxx__xo
+ 0 oxx__xxo
+ 1 oxx__xxxo
+ 0 oxxx_
+ 1 oxxx__
+ 1 oxxx_x_
+ 1 oxxx__x_
+ 2 oxxx_xx_
+ 2 oxxx__xx_
+ 3 oxxx_xxx_
+ 4 oxxx_xxxx_
+ 0 oxxx_xo
+ 1 oxxx_xxo
+ 2 oxxx_xxxo
+ 4 oxxx_xxxxo
+ 0 oxxx__xo
+ 1 oxxx__xxo
+ 2 oxxx__xxxo
+ 2 oxxxx_
+ 3 oxxxx__
+ 3 oxxxx_x_
+ 3 oxxxx__x_
+ 4 oxxxx_xx_
+ 4 oxxxx__xx_
+ 5 oxxxx_xxx_
+ 6 oxxxx_xxxx_
+ 2 oxxxx_xo
+ 3 oxxxx_xxo
+ 4 oxxxx_xxxo
+ 6 oxxxx_xxxxo
+ 2 oxxxx__xo
+ 3 oxxxx__xxo
+ 4 oxxxx__xxxo
+-2 ox__
+-1 ox___
+-1 ox__x_
+-1 ox___x_
+ 0 ox__xx_
+ 0 ox___xx_
+ 1 ox__xxx_
+ 2 ox__xxxx_
+-2 ox__xo
+-1 ox__xxo
+ 0 ox__xxxo
+ 2 ox__xxxxo
+-2 ox___xo
+-1 ox___xxo
+ 0 ox___xxxo
+-1 oxx__
+ 0 oxx___
+ 0 oxx__x_
+ 0 oxx___x_
+ 1 oxx__xx_
+ 1 oxx___xx_
+ 2 oxx__xxx_
+ 3 oxx__xxxx_
+-1 oxx__xo
+ 0 oxx__xxo
+ 1 oxx__xxxo
+ 3 oxx__xxxxo
+-1 oxx___xo
+ 0 oxx___xxo
+ 1 oxx___xxxo
+ 0 oxxx__
+ 1 oxxx___
+ 1 oxxx__x_
+ 1 oxxx___x_
+ 2 oxxx__xx_
+ 2 oxxx___xx_
+ 3 oxxx__xxx_
+ 4 oxxx__xxxx_
+ 0 oxxx__xo
+ 1 oxxx__xxo
+ 2 oxxx__xxxo
+ 4 oxxx__xxxxo
+ 0 oxxx___xo
+ 1 oxxx___xxo
+ 2 oxxx___xxxo
+
+koodi, millä ylläoleva saatiin:
+
+        ArrayList<String> aloitukset = new ArrayList<String>();
+        aloitukset.add("");
+        aloitukset.add("_");
+        aloitukset.add("_x");
+        aloitukset.add("_x_");
+        aloitukset.add("_xx");
+        aloitukset.add("_xx_");
+        aloitukset.add("_xxx");
+        aloitukset.add("_xxxx");
+        aloitukset.add("ox");
+        aloitukset.add("oxx");
+        aloitukset.add("oxxx");
+        aloitukset.add("oxxxx");
+        aloitukset.add("ox_");
+        aloitukset.add("oxx_");
+        aloitukset.add("oxxx_");
+
+        ArrayList<String> lopetukset = new ArrayList<String>();
+        lopetukset.add("_");
+        lopetukset.add("__");
+        lopetukset.add("_x_");
+        lopetukset.add("__x_");
+        lopetukset.add("_xx_");
+        lopetukset.add("__xx_");
+        lopetukset.add("_xxx_");
+        lopetukset.add("_xxxx_");
+        lopetukset.add("_xo");
+        lopetukset.add("_xxo");
+        lopetukset.add("_xxxo");
+        lopetukset.add("_xxxxo");
+        lopetukset.add("__xo");
+        lopetukset.add("__xxo");
+        lopetukset.add("__xxxo");
+        
+        ArrayList<Integer> arvot = new ArrayList<Integer>();
+        arvot.add(-1);
+        arvot.add(0);
+        arvot.add(0);
+        arvot.add(0);
+        arvot.add(1);
+        arvot.add(1);
+        arvot.add(2);
+        arvot.add(3);
+        arvot.add(-1);
+        arvot.add(0);
+        arvot.add(1);
+        arvot.add(3);
+        arvot.add(-1);
+        arvot.add(0);
+        arvot.add(1);
+        
+        for (int i = 0; i < aloitukset.size(); i++) {
+            String string = aloitukset.get(i);
+            for (int j = 0; j < lopetukset.size(); j++) {
+                String string1 = lopetukset.get(j);
+                int arvo = (arvot.get(i) + arvot.get(j));
+                String tyhja = "";
+                if (arvo >= 0) {
+                    tyhja = " ";
+                }
+                System.out.println(tyhja + arvo + " " + string + string1);
+            }
+        }
