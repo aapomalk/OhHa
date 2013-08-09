@@ -12,29 +12,21 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import tilastotJaTunnukset.*;
 
-public class TilastojenJaTunnustenTiedostoonTallentaja {
-    private FileWriter kirjoittaja;
+public class TilastojenJaTunnustenTallentaja {
     
     public void tallennaTiedostoon(TilastoTunnusMuistio muistio, String tiedosto, VirheidenKasittelija kasittelija) {
+        TiedostoonKirjoittaja kirjoittaja = new TiedostoonKirjoittaja();
         ArrayList<String> muistioTekstina = new ArrayList<String>();
         muistioTekstina = yleisetTilastotTekstiksi(muistio, muistioTekstina);
-        muistioTekstina.add(" ");
+        kirjoittaja.kirjoitaTiedostoon(muistioTekstina, ("Yleiset_tilastot_" + tiedosto), kasittelija);
+        
+        muistioTekstina = new ArrayList<String>();
         muistioTekstina = tunnuksetTekstiksi(muistio, muistioTekstina);
-        muistioTekstina.add(" ");
+        kirjoittaja.kirjoitaTiedostoon(muistioTekstina, ("Tunnus_tilastot_" + tiedosto), kasittelija);
+        
+        muistioTekstina = new ArrayList<String>();
         muistioTekstina = tunnusparitTekstiksi(muistio, muistioTekstina);
-        kirjoitaTiedostoon(muistioTekstina, tiedosto, kasittelija);
-    }
-    
-    private void kirjoitaTiedostoon(ArrayList<String> muistio, String tiedosto, VirheidenKasittelija kasittelija) {
-        try {
-            kirjoittaja = new FileWriter(tiedosto);
-            for (String string : muistio) {
-                kirjoittaja.write(string + "\n");
-            }
-            kirjoittaja.close();
-        } catch (Exception e) {
-            kasittelija.tilastojenTallennuksessaOngelmia();
-        }
+        kirjoittaja.kirjoitaTiedostoon(muistioTekstina, ("Tunnuspari_tilastot_" + tiedosto), kasittelija);
     }
     
     private ArrayList<String> tunnusparitTekstiksi(TilastoTunnusMuistio muistio, ArrayList<String> lista) {

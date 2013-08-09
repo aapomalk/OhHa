@@ -29,3 +29,6 @@ Projektin Viidensuora tuntikirjanpito:
 07.08. (yhteensä 04h 35min)
 	noin klo 13:00-15:15; Vihje luokan rakentelua.
 	noin klo 21:45-24:05; Vihje -luokan nollaus, MerkkienJonojen löytäjälle tärkeä uudistus, vihje -pisteytys aluilleen
+09.08. (yhteensä h min)
+	noin klo 18:25-19:00; Tiedonetsimistä liittyen peliin Viidensuora
+	noin klo 19:00-20:50; Tiedostojen käsittelyn uudistus ja pelit_ja_tilastot/ -kansioon tiedostot

@@ -16,13 +16,13 @@ import viidensuora.RistiNollaMuistio;
  *
  * @author Aapo
  */
-public class PelitilanteenTiedostostaLukijaTest {
-    private PelitilanteenTiedostoonTallentaja kirjoittaja;
+public class PelitilanteenLukijaTest {
+    private PelitilanteenTallentaja kirjoittaja;
     private VirheidenKasittelija kasittelija;
     private RistiNollaMuistio muistio;
-    private PelitilanteenTiedostostaLukija lukija;
+    private PelitilanteenLukija lukija;
     
-    public PelitilanteenTiedostostaLukijaTest() {
+    public PelitilanteenLukijaTest() {
     }
     
     @BeforeClass
@@ -37,8 +37,8 @@ public class PelitilanteenTiedostostaLukijaTest {
     public void setUp() {
         muistio = new RistiNollaMuistio();
         kasittelija = new VirheidenKasittelijaTeksti("tyhja");
-        kirjoittaja = new PelitilanteenTiedostoonTallentaja();
-        lukija = new PelitilanteenTiedostostaLukija();
+        kirjoittaja = new PelitilanteenTallentaja();
+        lukija = new PelitilanteenLukija();
     }
     
     @After

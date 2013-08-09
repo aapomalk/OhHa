@@ -18,13 +18,13 @@ import viidensuora.Laatu;
  *
  * @author Aapo
  */
-public class TilastojenTiedostostaLukijaTest {
+public class TilastojenLukijaTest {
     private TilastoTunnusMuistio muistio;
     private VirheidenKasittelija kasittelija;
-    private TilastojenJaTunnustenTiedostoonTallentaja tallentaja;
-    private TilastojenTiedostostaLukija lukija;
+    private TilastojenJaTunnustenTallentaja tallentaja;
+    private TilastojenLukija lukija;
     
-    public TilastojenTiedostostaLukijaTest() {
+    public TilastojenLukijaTest() {
     }
     
     @BeforeClass
@@ -39,8 +39,8 @@ public class TilastojenTiedostostaLukijaTest {
     public void setUp() {
         muistio = new TilastoTunnusMuistio();
         kasittelija = new VirheidenKasittelijaTeksti("TekstiKayttoliittyma");
-        tallentaja = new TilastojenJaTunnustenTiedostoonTallentaja();
-        lukija = new TilastojenTiedostostaLukija();
+        tallentaja = new TilastojenJaTunnustenTallentaja();
+        lukija = new TilastojenLukija();
     }
     
     @After

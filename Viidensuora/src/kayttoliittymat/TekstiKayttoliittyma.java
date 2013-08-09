@@ -22,8 +22,8 @@ public class TekstiKayttoliittyma {
     private ArrayList<Laatu> viisiNollaa;
     private ReunimmaisetKoordinaatit rajaaja;
     private Scanner lukija;
-    private PelitilanteenTiedostoonTallentaja peliSave;
-    private PelitilanteenTiedostostaLukija peliLoad;
+    private PelitilanteenTallentaja peliSave;
+    private PelitilanteenLukija peliLoad;
     private VirheidenKasittelija kasittelija;
     private TilastoTunnusMuistio tilastot;
     private boolean jatketaan;
@@ -32,11 +32,11 @@ public class TekstiKayttoliittyma {
         loytaja = new MerkkienJononLoytaja();
         jatketaan = true;
         kasittelija = new VirheidenKasittelijaTeksti("TekstiKayttoliittyma");
-        TilastojenTiedostostaLukija aloitus = new TilastojenTiedostostaLukija();
+        TilastojenLukija aloitus = new TilastojenLukija();
         tilastot = aloitus.lataaTilastot("Tilastot.txt", kasittelija);
         tulostaTilastot();
-        peliSave = new PelitilanteenTiedostoonTallentaja();
-        peliLoad = new PelitilanteenTiedostostaLukija();
+        peliSave = new PelitilanteenTallentaja();
+        peliLoad = new PelitilanteenLukija();
         muistio = new RistiNollaMuistio();
         loytajienAlustus();
         rajaaja = new ReunimmaisetKoordinaatit();
@@ -74,7 +74,7 @@ public class TekstiKayttoliittyma {
             }
         }
         
-        TilastojenJaTunnustenTiedostoonTallentaja lopetus = new TilastojenJaTunnustenTiedostoonTallentaja();
+        TilastojenJaTunnustenTallentaja lopetus = new TilastojenJaTunnustenTallentaja();
         lopetus.tallennaTiedostoon(tilastot, "Tilastot.txt", kasittelija);
         System.out.println("Kiitos pelista");
     }

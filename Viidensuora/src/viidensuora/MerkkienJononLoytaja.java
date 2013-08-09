@@ -29,6 +29,11 @@ public class MerkkienJononLoytaja {
         return katseleYmparille(merkit, merkit.get(merkit.size()-1), jono);
     }
     
+    public boolean tarkastaMerkki(ArrayList<Merkki> merkit, Merkki merkki,
+            ArrayList<Laatu> jonoEteen, ArrayList<Laatu> jonoTaakse) {
+        return katseleYmparille(merkit, merkki, jonoEteen, jonoTaakse);
+    }
+    
     private boolean katseleYmparille(ArrayList<Merkki> merkit, Merkki merkki,
             ArrayList<Laatu> jono) {
         for (Suunta suunta : Suunta.values()) { 

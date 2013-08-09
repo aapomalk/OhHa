@@ -122,4 +122,20 @@ public class MerkkienJononLoytajaTest {
         ArrayList<Merkki> loydetyt = loytaja.tarkasta(ruudukko.getMerkit(), ristiLista, ristiLista);
         assertEquals("loydettyja olisi pitanyt olla 2", 2, loydetyt.size());
     }
+    
+    @Test
+    public void testataanTarkastaMerkkiMetodia() {
+        for (int i = 0; i < 10; i++) {
+            ruudukko.lisaaRisti(i, i);
+            ruudukko.lisaaNolla(i+1, 0);
+        }
+        
+        for (int i = 0; i < ruudukko.getMerkit().size(); i+=2) {
+            if (i == 8 || i == 10) {
+                assertTrue("nyt olisi pitanyt toimia", loytaja.tarkastaMerkki(ruudukko.getMerkit(), ruudukko.getMerkit().get(i), ristiLista, ristiLista));
+            } else {
+                assertFalse("nyt ei olisi pitanyt loytya", loytaja.tarkastaMerkki(ruudukko.getMerkit(), ruudukko.getMerkit().get(i), ristiLista, ristiLista));
+            }
+        }
+    }
 }
