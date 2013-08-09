@@ -30,4 +30,9 @@ public class Merkki {
     public Laatu getLaatu() {
         return this.laatu;
     }
+    
+    @Override
+    public String toString() {
+        return this.laatu + " " + this.x + " " +  this.y;
+    }
 }
