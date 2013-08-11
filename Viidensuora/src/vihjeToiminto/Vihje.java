@@ -40,21 +40,21 @@ public class Vihje {
     private void pisteytyslista() {
         pisteytyslista = new ArrayList<Integer>();
         
-        pisteytyslista.add(0);
-        pisteytyslista.add(1);
-        pisteytyslista.add(1);
-        pisteytyslista.add(2);
-        pisteytyslista.add(2);
-        pisteytyslista.add(3);
-        pisteytyslista.add(3);
-        pisteytyslista.add(4);
-        pisteytyslista.add(0);
-        pisteytyslista.add(1);
-        pisteytyslista.add(2);
-        pisteytyslista.add(3);
-        pisteytyslista.add(-1);
-        pisteytyslista.add(0);
-        pisteytyslista.add(2);
+        pisteytyslista.add(0);//        jonotMerkkeina.add("_");
+        pisteytyslista.add(1);//        jonotMerkkeina.add("_x_");
+        pisteytyslista.add(1);//        jonotMerkkeina.add("__x_");
+        pisteytyslista.add(3);//        jonotMerkkeina.add("_xx_");
+        pisteytyslista.add(2);//        jonotMerkkeina.add("__xx_");
+        pisteytyslista.add(5);//        jonotMerkkeina.add("_xxx_");
+        pisteytyslista.add(4);//        jonotMerkkeina.add("__xxx_");
+        pisteytyslista.add(7);//        jonotMerkkeina.add("_xxxx_");
+        pisteytyslista.add(0);//        jonotMerkkeina.add("_xo");
+        pisteytyslista.add(2);//        jonotMerkkeina.add("_xxo");
+        pisteytyslista.add(4);//        jonotMerkkeina.add("_xxxo");
+        pisteytyslista.add(6);//        jonotMerkkeina.add("_xxxxo");
+        pisteytyslista.add(0);//        jonotMerkkeina.add("__xo");
+        pisteytyslista.add(2);//        jonotMerkkeina.add("__xxo");
+        pisteytyslista.add(4);//        jonotMerkkeina.add("__xxxo");
     }
     
     public void lisaaVihjeetListoihin(ArrayList<Merkki> merkit, Laatu laatu) {
@@ -76,27 +76,6 @@ public class Vihje {
     }
     
     private void loytyykoMerkistaVihjepaikka(Merkki merkki, ArrayList<Merkki> merkit, boolean onkoRistille) {
-        ArrayList<Merkki> koodiSininen1;
-        ArrayList<Merkki> koodiSininen2;
-        ArrayList<Merkki> koodiTurkoosi;
-        ArrayList<Merkki> koodiVioletti;
-        ArrayList<Merkki> koodiPunainen;
-        ArrayList<Merkki> koodiVihrea;
-        if (onkoRistille) {
-            koodiSininen1 = this.getEhkaHyodyllinen();
-            koodiSininen2 = this.getHairitseVastustajaa();
-            koodiTurkoosi = this.getRakennaHyokkays();
-            koodiVioletti = this.getVaroVastustajaa();
-            koodiPunainen = this.getTaytyyEstaa();
-            koodiVihrea = this.getVarmaVoitto();
-        } else {
-            koodiSininen2 = this.getEhkaHyodyllinen();
-            koodiSininen1 = this.getHairitseVastustajaa();
-            koodiVioletti = this.getRakennaHyokkays();
-            koodiTurkoosi = this.getVaroVastustajaa();
-            koodiVihrea = this.getTaytyyEstaa();
-            koodiPunainen = this.getVarmaVoitto();
-        }
         
         for (int i = 0; i < puolikkaatJonotRistille.size(); i++) {
             for (int j = i; j < puolikkaatJonotNollalle.size(); j++) {
@@ -105,25 +84,43 @@ public class Vihje {
                     boolean risti = this.etsija.tarkastaMerkki(merkit, merkki, puolikkaatJonotRistille.get(i), puolikkaatJonotRistille.get(j));
                     boolean nolla = this.etsija.tarkastaMerkki(merkit, merkki, puolikkaatJonotNollalle.get(i), puolikkaatJonotNollalle.get(j));
                     if (arvo == 1) {
-                        if (risti) {
-                            koodiSininen1.add(merkki);
-                        }
-                        if (nolla) {
-                            koodiSininen2.add(merkki);
+                        if ((risti && onkoRistille) || (nolla && !onkoRistille)) {
+                            this.ehkaHyodyllinen.add(merkki);
                         }
                     } else if (arvo == 2) {
-                        if (risti) {
-                            koodiTurkoosi.add(merkki);
+                        if ((risti && onkoRistille) || (nolla && !onkoRistille)) {
+                            this.ehkaHyodyllinen.add(merkki);
                         }
-                        if (nolla) {
-                            koodiVioletti.add(merkki);
+                        if ((nolla && onkoRistille) || (risti && !onkoRistille)) {
+                            this.hairitseVastustajaa.add(merkki);
                         }
-                    } else if (arvo > 2) {
-                        if (risti) {
-                            koodiVihrea.add(merkki);
+                    } else if (arvo == 3) {
+                        if ((risti && onkoRistille) || (nolla && !onkoRistille)) {
+                            this.rakennaHyokkays.add(merkki);
                         }
-                        if (nolla) {
-                            koodiPunainen.add(merkki);
+                        if ((nolla && onkoRistille) || (risti && !onkoRistille)) {
+                            this.hairitseVastustajaa.add(merkki);
+                        }
+                    } else if (arvo == 4) {
+                        if ((risti && onkoRistille) || (nolla && !onkoRistille)) {
+                            this.rakennaHyokkays.add(merkki);
+                        }
+                        if ((nolla && onkoRistille) || (risti && !onkoRistille)) {
+                            this.varoVastustajaa.add(merkki);
+                        }
+                    } else if (arvo == 5) {
+                        if ((risti && onkoRistille) || (nolla && !onkoRistille)) {
+                            this.varmaVoitto.add(merkki);
+                        }
+                        if ((nolla && onkoRistille) || (risti && !onkoRistille)) {
+                            this.varoVastustajaa.add(merkki);
+                        }
+                    } else if (arvo >= 6) {
+                        if ((risti && onkoRistille) || (nolla && !onkoRistille)) {
+                            this.varmaVoitto.add(merkki);
+                        }
+                        if ((nolla && onkoRistille) || (risti && !onkoRistille)) {
+                            this.taytyyEstaa.add(merkki);
                         }
                     }
                 }
