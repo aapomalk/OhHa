@@ -1,0 +1,349 @@
+Vihreat:
+_xxx_
+_xxxx_
+oxxxx_
+_xxx_x_
+_xxx__x_
+_xxxx_x_
+oxxx_x_
+oxxxx_x_
+oxxx__x_
+_xxx__x_
+_xxx___x_
+_xxxx__x_
+oxxx__x_
+oxxxx__x_
+oxxx___x_
+_xx_xx_
+_xx__xx_
+_xxx_xx_
+_xxx__xx_
+_xxxx_xx_
+oxx_xx_
+oxxx_xx_
+oxxxx_xx_
+oxx__xx_
+oxxx__xx_
+_xxx__xx_
+_xxx___xx_
+_xxxx__xx_
+oxxx__xx_
+oxxxx__xx_
+oxxx___xx_
+_xxx_xxx_
+_xxx__xxx_
+_xxxx_xxx_
+ox_xxx_
+oxx_xxx_
+oxxx_xxx_
+oxxxx_xxx_
+ox__xxx_
+oxx__xxx_
+oxxx__xxx_
+_xxx___xxx_
+_xxxx__xxx_
+oxx__xxx_
+oxxx__xxx_
+oxxxx__xxx_
+oxx___xxx_
+oxxx___xxx_
+_xxxx_xxxx_
+ox_xxxx_
+oxx_xxxx_
+oxxx_xxxx_
+oxxxx_xxxx_
+ox__xxxx_
+oxx__xxxx_
+oxxx__xxxx_
+oxxxx_xo
+oxxx_xxo
+oxxxx_xxo
+oxxx__xxo
+oxxx_xxxo
+oxxxx_xxxo
+oxx__xxxo
+oxxx__xxxo
+oxxxx_xxxxo
+ox__xxxxo
+oxx__xxxxo
+oxxx__xxxxo
+oxxx___xxo
+oxxx___xxxo
+
+Punaiset:
+_xxxx_
+oxxxx_
+_xxx_x_
+_xxxx_x_
+oxxxx_x_
+_xxx__x_
+_xxxx__x_
+oxxxx__x_
+_xx_xx_
+_xxx_xx_
+_xxx__xx_
+_xxxx_xx_
+oxxx_xx_
+oxxxx_xx_
+oxxx__xx_
+_xxx__xx_
+_xxx___xx_
+_xxxx__xx_
+oxxx__xx_
+oxxxx__xx_
+oxxx___xx_
+_xxx_xxx_
+_xxx__xxx_
+_xxxx_xxx_
+oxx_xxx_
+oxxx_xxx_
+oxxxx_xxx_
+oxx__xxx_
+oxxx__xxx_
+_xxx___xxx_
+_xxxx__xxx_
+oxx__xxx_
+oxxx__xxx_
+oxxxx__xxx_
+oxx___xxx_
+oxxx___xxx_
+_xxxx_xxxx_
+ox_xxxx_
+oxx_xxxx_
+oxxx_xxxx_
+oxxxx_xxxx_
+ox__xxxx_
+oxx__xxxx_
+oxxx__xxxx_
+oxxxx_xo
+oxxx_xxo
+oxxxx_xxo
+oxxx__xxo
+oxxx_xxxo
+oxxxx_xxxo
+oxx__xxxo
+oxxx__xxxo
+oxxxx_xxxxo
+ox__xxxxo
+oxx__xxxxo
+oxxx__xxxxo
+oxxx___xxo
+oxxx___xxxo
+
+Turkoosit:
+_xx_
+_xxx__
+oxxx_
+oxxx__
+_xx_x_
+_xx__x_
+oxx_x_
+oxx__x_
+_xx__x_
+_xx___x_
+oxx__x_
+oxx___x_
+ox_xx_
+ox__xx_
+_xx___xx_
+oxx__xx_
+oxx___xx_
+ox__xxx_
+ox___xxx_
+oxxx_xo
+oxxx__xo
+oxx_xxo
+oxx__xxo
+ox__xxxo
+oxxx___xo
+oxx___xxo
+
+Violetit:
+_xxx_
+_xxx__
+oxxx_
+oxxx__
+_xx_x_
+_xxx__x_
+oxxx_x_
+oxxx__x_
+_xx__x_
+_xxx___x_
+oxxx__x_
+oxxx___x_
+_xx__xx_
+oxx_xx_
+oxx__xx_
+_xx___xx_
+oxx__xx_
+oxx___xx_
+ox_xxx_
+ox__xxx_
+ox__xxx_
+ox___xxx_
+oxxx_xo
+oxxx__xo
+oxx_xxo
+oxx__xxo
+ox__xxxo
+oxxx___xo
+oxx___xxo
+
+Sininen1:
+_x_
+_x__
+_xx__
+oxx_
+oxx__
+_x_x_
+_x__x_
+ox_x_
+ox__x_
+_x___x_
+ox__x_
+ox___x_
+ox__xx_
+ox___xx_
+oxx_xo
+oxx__xo
+ox__xxo
+oxx___xo
+
+Sininen2:
+_xx_
+_xx__
+oxx_
+oxx__
+_x_x_
+_x__x_
+_xx__x_
+oxx_x_
+oxx__x_
+_x___x_
+_xx___x_
+oxx__x_
+oxx___x_
+ox_xx_
+ox__xx_
+ox__xx_
+ox___xx_
+oxx_xo
+oxx__xo
+ox__xxo
+oxx___xo
+
+Koodi, jolla ylläoleva toteutettiin:
+
+        ArrayList<String> aloitukset = new ArrayList<String>();
+        aloitukset.add("");
+        aloitukset.add("_x");
+        aloitukset.add("_x_");
+        aloitukset.add("_xx");
+        aloitukset.add("_xx_");
+        aloitukset.add("_xxx");
+        aloitukset.add("_xxx_");
+        aloitukset.add("_xxxx");
+        aloitukset.add("ox");
+        aloitukset.add("oxx");
+        aloitukset.add("oxxx");
+        aloitukset.add("oxxxx");
+        aloitukset.add("ox_");
+        aloitukset.add("oxx_");
+        aloitukset.add("oxxx_");
+
+        ArrayList<String> lopetukset = new ArrayList<String>();
+        lopetukset.add("_");
+        lopetukset.add("_x_");
+        lopetukset.add("__x_");
+        lopetukset.add("_xx_");
+        lopetukset.add("__xx_");
+        lopetukset.add("_xxx_");
+        lopetukset.add("__xxx_");
+        lopetukset.add("_xxxx_");
+        lopetukset.add("_xo");
+        lopetukset.add("_xxo");
+        lopetukset.add("_xxxo");
+        lopetukset.add("_xxxxo");
+        lopetukset.add("__xo");
+        lopetukset.add("__xxo");
+        lopetukset.add("__xxxo");
+
+        ArrayList<Integer> arvot = new ArrayList<Integer>();
+        arvot.add(0);//        jonotMerkkeina.add("_");
+        arvot.add(1);//        jonotMerkkeina.add("_x_");
+        arvot.add(1);//        jonotMerkkeina.add("__x_");
+        arvot.add(3);//        jonotMerkkeina.add("_xx_");
+        arvot.add(2);//        jonotMerkkeina.add("__xx_");
+        arvot.add(5);//        jonotMerkkeina.add("_xxx_");
+        arvot.add(4);//        jonotMerkkeina.add("__xxx_");
+        arvot.add(7);//        jonotMerkkeina.add("_xxxx_");
+        arvot.add(0);//        jonotMerkkeina.add("_xo");
+        arvot.add(2);//        jonotMerkkeina.add("_xxo");
+        arvot.add(4);//        jonotMerkkeina.add("_xxxo");
+        arvot.add(6);//        jonotMerkkeina.add("_xxxxo");
+        arvot.add(0);//        jonotMerkkeina.add("__xo");
+        arvot.add(2);//        jonotMerkkeina.add("__xxo");
+        arvot.add(4);//        jonotMerkkeina.add("__xxxo");
+
+        ArrayList<String> vihrea = new ArrayList<String>();
+        ArrayList<String> punainen = new ArrayList<String>();
+        ArrayList<String> turkoosi = new ArrayList<String>();
+        ArrayList<String> violetti = new ArrayList<String>();
+        ArrayList<String> sininen1 = new ArrayList<String>();
+        ArrayList<String> sininen2 = new ArrayList<String>();
+
+        for (int i = 0; i < lopetukset.size(); i++) {
+            String string = lopetukset.get(i);
+            for (int j = i; j < aloitukset.size(); j++) {
+                String string1 = aloitukset.get(j);
+                int arvo = (arvot.get(i) + arvot.get(j));
+                if (arvo == 1) {
+                    sininen1.add(string1 + string);
+                } else if (arvo == 2) {
+                    sininen1.add(string1 + string);
+                    sininen2.add(string1 + string);
+                } else if (arvo == 3) {
+                    turkoosi.add(string1 + string);
+                    sininen2.add(string1 + string);
+                } else if (arvo == 4) {
+                    turkoosi.add(string1 + string);
+                    violetti.add(string1 + string);
+                } else if (arvo == 5) {
+                    vihrea.add(string1 + string);
+                    violetti.add(string1 + string);
+                } else if (arvo >= 6) {
+                    vihrea.add(string1 + string);
+                    punainen.add(string1 + string);
+                }
+            }
+        }
+        
+        System.out.println("Vihreat:");
+        for (String string : vihrea) {
+            System.out.println(string);
+        }
+        
+        System.out.println("\nPunaiset:");
+        for (String string : punainen) {
+            System.out.println(string);
+        }
+        
+        System.out.println("\nTurkoosit:");
+        for (String string : turkoosi) {
+            System.out.println(string);
+        }
+        
+        System.out.println("\nVioletit:");
+        for (String string : violetti) {
+            System.out.println(string);
+        }
+        
+        System.out.println("\nSininen1:");
+        for (String string : sininen1) {
+            System.out.println(string);
+        }
+        
+        System.out.println("\nSininen2:");
+        for (String string : sininen2) {
+            System.out.println(string);
+        }

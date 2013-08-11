@@ -33,5 +33,7 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 18:25-19:00; Tiedonetsimistä liittyen peliin Viidensuora
 	noin klo 19:00-20:50; Tiedostojen käsittelyn uudistus ja pelit_ja_tilastot/ -kansioon tiedostot
 	noin klo 21:10-22:50; Vihjetoiminnon rakentelua ja vihjepisteytys uusiksi
-11.08. (yhteensä 01h 40min)
+11.08. (yhteensä 02h 20min)
 	noin klo 13:30-15:10; Vihjetoiminnon kenties viimeistely
+	noin klo 21:15-21:40; Tilastojen lataamisen debuggaus
+	noin klo 21:40-21:55; Säätöä

@@ -64,7 +64,11 @@ public class TilastojenLukijaTest {
         tallentaja.tallennaTiedostoon(muistio, "Testi4.txt", kasittelija);
         
         TilastoTunnusMuistio muistio2 = lukija.lataaTilastot("Testi4.txt", kasittelija);
-        tallentaja.tallennaTiedostoon(muistio2, "Testi5.txt", kasittelija);
-        System.out.println("Vertaile Testi4.txt ja Testi5.txt -tiedostoja kasin");
+//        tallentaja.tallennaTiedostoon(muistio2, "Testi5.txt", kasittelija);
+//        System.out.println("Vertaile Testi4.txt ja Testi5.txt -tiedostoja kasin");
+        assertEquals("tilastojen olisi pitanyt olla samat", muistio.getNollienVoitot(), muistio2.getNollienVoitot());
+        assertEquals("myos ristien voitot olisi pitanyt olla samat", muistio.getRistienVoitot(), muistio2. getRistienVoitot());
+        assertEquals("tunnusparien olisi pitanyt olla samat", muistio.getTunnusParit().get(0).getTunnus1().getTunnus(), 
+                muistio2.getTunnusParit().get(0).getTunnus1().getTunnus());
     }
 }

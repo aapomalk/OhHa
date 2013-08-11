@@ -15,11 +15,6 @@ import tilastotJaTunnukset.*;
 public class TilastojenLukija {
 
     public TilastoTunnusMuistio lataaTilastot(String tiedostoNimi, VirheidenKasittelija kasittelija) {
-        TilastoTunnusMuistio muistio = lueTiedosto(tiedostoNimi, kasittelija);
-        return muistio;
-    }
-
-    private TilastoTunnusMuistio lueTiedosto(String tiedostoNimi, VirheidenKasittelija kasittelija) {
         TiedostostaLukija lukija = new TiedostostaLukija();
         
         ArrayList<String> luettu = new ArrayList<String>();
@@ -40,7 +35,7 @@ public class TilastojenLukija {
     private ArrayList<ArrayList<String>> paloitteleRivit(ArrayList<String> tiedot) {
         
         ArrayList<ArrayList<String>> enemmanPaloiksi = new ArrayList<ArrayList<String>>();
-        for (int i = 1; i < tiedot.size(); i++) {
+        for (int i = 0; i < tiedot.size(); i++) {
             Scanner paloittelija = new Scanner(tiedot.get(i));
             ArrayList<String> apu = new ArrayList<String>();
             while (paloittelija.hasNext()) {
