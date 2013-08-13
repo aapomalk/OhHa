@@ -37,3 +37,5 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 13:30-15:10; Vihjetoiminnon kenties viimeistely
 	noin klo 21:15-21:40; Tilastojen lataamisen debuggaus
 	noin klo 21:40-21:55; Säätöä
+13.08. (yhteensä 01h 35min)
+	noin klo 11:15-12:50; Graafinen valikko aluilleen ja graafisen käyttöliittymän suunnittelua

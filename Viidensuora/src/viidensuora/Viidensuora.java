@@ -8,7 +8,7 @@ package viidensuora;
  *
  * @author Aapo
  */
-import kayttoliittymat.TekstiKayttoliittyma;
+import kayttoliittymat.*;
 
 public class Viidensuora {
 
@@ -16,8 +16,10 @@ public class Viidensuora {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        TekstiKayttoliittyma meh = new TekstiKayttoliittyma();
-        meh.kaynnista();
+//        TekstiKayttoliittyma meh = new TekstiKayttoliittyma();
+//        meh.kaynnista();
+        
+        GraafinenValikko valikko = new GraafinenValikko();
+        valikko.run();
     }
 }

@@ -32,6 +32,7 @@ Pelin pelattavat ominaisuudet:
 	*vihjenappula aloittelijoille (mihin seuraavaksi ehk‰ kannattaisi laittaa oma merkki)
 	*tallenna peli -nappula (pikapeliss‰ yksi tallennuspaikka, samoin kullakin tunnusparilla yksi)
 	*takaisin valikkoon -nappula (kysyy pelin tallennushalukkuudesta, jonka j‰lkeen siirryt‰‰n takaisin valikkoon)
+	*peru siirto -nappula (poistaa edellisen merkin, kysyy jonkun kysymyksen tjtn)
 
 Pelin tilastoihin tallennettava tiedot:
 -yleiset:
