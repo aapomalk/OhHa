@@ -8,39 +8,17 @@ package kayttoliittymat;
  *
  * @author aapomalk
  */
-import java.util.ArrayList;
 import java.util.Scanner;
 import tiedostojenKasittely.*;
-import tilastotJaTunnukset.*;
 import viidensuora.*;
 
-public class TekstiKayttoliittyma {
-
-    private RistiNollaMuistio muistio;
-    private MerkkienJononLoytaja loytaja;
-    private ArrayList<Laatu> viisiRistia;
-    private ArrayList<Laatu> viisiNollaa;
-    private ReunimmaisetKoordinaatit rajaaja;
+public class TekstiKayttoliittyma extends Kayttoliittyma {
     private Scanner lukija;
-    private PelitilanteenTallentaja peliSave;
-    private PelitilanteenLukija peliLoad;
-    private VirheidenKasittelija kasittelija;
-    private TilastoTunnusMuistio tilastot;
-    private boolean jatketaan;
 
     public TekstiKayttoliittyma() {
-        loytaja = new MerkkienJononLoytaja();
-        jatketaan = true;
-        kasittelija = new VirheidenKasittelijaTeksti("TekstiKayttoliittyma");
-        TilastojenLukija aloitus = new TilastojenLukija();
-        tilastot = aloitus.lataaTilastot("Tilastot.txt", kasittelija);
-        tulostaTilastot();
-        peliSave = new PelitilanteenTallentaja();
-        peliLoad = new PelitilanteenLukija();
-        muistio = new RistiNollaMuistio();
-        loytajienAlustus();
-        rajaaja = new ReunimmaisetKoordinaatit();
+        super(new VirheidenKasittelijaTeksti());
         lukija = new Scanner(System.in);
+        tulostaTilastot();
     }
     
     private void tulostaTilastot() {
@@ -49,16 +27,6 @@ public class TekstiKayttoliittyma {
         System.out.println("Ristien voitot: " + tilastot.getRistienVoitot());
         System.out.println("Nollien voitot: " + tilastot.getNollienVoitot());
         System.out.println("Pelien tallennusten maara: " + tilastot.getPelienTallennustenMaara());
-    }
-
-    private void loytajienAlustus() {
-        this.viisiRistia = new ArrayList<Laatu>();
-        this.viisiNollaa = new ArrayList<Laatu>();
-        for (int i = 0; i < 5; i++) {
-            viisiRistia.add(Laatu.RISTI);
-            viisiNollaa.add(Laatu.NOLLA);
-        }
-        
     }
 
     public void kaynnista() {
@@ -74,8 +42,7 @@ public class TekstiKayttoliittyma {
             }
         }
         
-        TilastojenJaTunnustenTallentaja lopetus = new TilastojenJaTunnustenTallentaja();
-        lopetus.tallennaTiedostoon(tilastot, "Tilastot.txt", kasittelija);
+        super.tallennaTilastot();
         System.out.println("Kiitos pelista");
     }
     
@@ -199,22 +166,5 @@ public class TekstiKayttoliittyma {
 
         }
         System.out.println("");
-    }
-
-    private boolean tarkistaVoitto() {
-        if (muistio.getEdellinenMerkkiRisti()) {
-            if (this.loytaja.tarkastaViimeinen(muistio.getMerkit(), viisiRistia)) {
-                System.out.println("Risti voitti");
-                tilastot.peliPelattu(muistio.nollienMaara(), Laatu.RISTI);
-                return true;
-            }
-        } else {
-            if (this.loytaja.tarkastaViimeinen(muistio.getMerkit(), viisiNollaa)) {
-                System.out.println("Nolla voitti");
-                tilastot.peliPelattu(muistio.nollienMaara(), Laatu.NOLLA);
-                return true;
-            }
-        }
-        return false;
     }
 }

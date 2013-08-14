@@ -37,7 +37,7 @@ public class PelitilanteenTallentajaTest {
     @Before
     public void setUp() {
         muistio = new RistiNollaMuistio();
-        kasittelija = new VirheidenKasittelijaTeksti("tyhja");
+        kasittelija = new VirheidenKasittelijaTeksti();
         kirjoittaja = new PelitilanteenTallentaja();
     }
     

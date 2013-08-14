@@ -19,7 +19,7 @@ public class Viidensuora {
 //        TekstiKayttoliittyma meh = new TekstiKayttoliittyma();
 //        meh.kaynnista();
         
-        GraafinenValikko valikko = new GraafinenValikko();
+        GraafinenKayttoliittyma valikko = new GraafinenKayttoliittyma();
         valikko.run();
     }
 }

@@ -94,7 +94,7 @@ public class TilastojenLukija {
     }
 
     private ArrayList<Tunnus> kokoaTunnukset(ArrayList<ArrayList<String>> tunnuksia) {
-        int indeksi = 2;
+        int indeksi = 0;
         ArrayList<Tunnus> tunnukset = new ArrayList<Tunnus>();
         for (ArrayList<String> lista : tunnuksia) {
             if (tunnuksia.get(indeksi).size() < 6) {

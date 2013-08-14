@@ -39,3 +39,5 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 21:40-21:55; Säätöä
 13.08. (yhteensä 01h 35min)
 	noin klo 11:15-12:50; Graafinen valikko aluilleen ja graafisen käyttöliittymän suunnittelua
+14.08. (yhteensä h min)
+	noin klo 12:55-15:40; Graafiseen käyttöliittymään alustava Tilasto-näkymä, tunnusten luominen onnistuu, tilastojen tiedostosta lukeminen virhe korjattu

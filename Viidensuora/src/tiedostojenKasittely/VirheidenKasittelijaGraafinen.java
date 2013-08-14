@@ -6,36 +6,33 @@ package tiedostojenKasittely;
 
 /**
  *
- * @author Aapo
+ * @author aapomalk
  */
-public class VirheidenKasittelijaTeksti implements VirheidenKasittelija {
-
-    public VirheidenKasittelijaTeksti() {
-    }
+public class VirheidenKasittelijaGraafinen implements VirheidenKasittelija {
 
     @Override
     public void virheTiedostoonKirjoittamisessa() {
-        System.out.println("Tallentaminen ei onnistunut");
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void virheFileWriterinLuomisessa() {
-        System.out.println("Tallentamisen alustuksessa tapahtui virhe");
-
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void virheScannerinJaTiedostonKanssa() {
-        System.out.println("Tiedoston lataamisessa tapahtui virhe");
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void tiedostoOliKorruptoitunut() {
-        System.out.println("Tiedosto oli korruptoitunut, lataaminen epäonnistui");
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void tilastojenTallennuksessaOngelmia() {
-        System.out.println("Tilastojen tallennuksessa sattui virhe");
+        throw new UnsupportedOperationException("Not supported yet.");
     }
+    
 }

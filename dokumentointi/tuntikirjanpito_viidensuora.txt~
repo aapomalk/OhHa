@@ -26,3 +26,16 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 14:40-15:15; Virheiden käsittelijän rajapinnaksi muuttaminen (jotta käyttöliittymän vaihto onnistuu helposti) ja MerkkienJononLöytäjän optimointi (tarkistaa vain lisätyn merkin, vanha toiminto vain vihjenappia ajatellen) ja testien keventäminen (edellisellä)
 	noin klo 15:15-16:30; TyhjienMerkkienLisaaja ja -Test, sekä käsin tekstikäyttöliittymän/pelin testausta
 	noin klo 22:45-23:20; Luokkakaavion päivitys ajankohtaiseksi
+07.08. (yhteensä 04h 35min)
+	noin klo 13:00-15:15; Vihje luokan rakentelua.
+	noin klo 21:45-24:05; Vihje -luokan nollaus, MerkkienJonojen löytäjälle tärkeä uudistus, vihje -pisteytys aluilleen
+09.08. (yhteensä 04h 05min)
+	noin klo 18:25-19:00; Tiedonetsimistä liittyen peliin Viidensuora
+	noin klo 19:00-20:50; Tiedostojen käsittelyn uudistus ja pelit_ja_tilastot/ -kansioon tiedostot
+	noin klo 21:10-22:50; Vihjetoiminnon rakentelua ja vihjepisteytys uusiksi
+11.08. (yhteensä 02h 20min)
+	noin klo 13:30-15:10; Vihjetoiminnon kenties viimeistely
+	noin klo 21:15-21:40; Tilastojen lataamisen debuggaus
+	noin klo 21:40-21:55; Säätöä
+13.08. (yhteensä 01h 35min)
+	noin klo 11:15-12:50; Graafinen valikko aluilleen ja graafisen käyttöliittymän suunnittelua

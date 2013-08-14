@@ -38,7 +38,7 @@ public class TilastojenLukijaTest {
     @Before
     public void setUp() {
         muistio = new TilastoTunnusMuistio();
-        kasittelija = new VirheidenKasittelijaTeksti("TekstiKayttoliittyma");
+        kasittelija = new VirheidenKasittelijaTeksti();
         tallentaja = new TilastojenJaTunnustenTallentaja();
         lukija = new TilastojenLukija();
     }
@@ -64,6 +64,8 @@ public class TilastojenLukijaTest {
         tallentaja.tallennaTiedostoon(muistio, "Testi4.txt", kasittelija);
         
         TilastoTunnusMuistio muistio2 = lukija.lataaTilastot("Testi4.txt", kasittelija);
+        tallentaja.tallennaTiedostoon(muistio2, "Testi5.txt", kasittelija);
+        System.out.println("Tarkista Testi4.txt:t ja Testi5.txt:t kasin");
 //        tallentaja.tallennaTiedostoon(muistio2, "Testi5.txt", kasittelija);
 //        System.out.println("Vertaile Testi4.txt ja Testi5.txt -tiedostoja kasin");
         assertEquals("tilastojen olisi pitanyt olla samat", muistio.getNollienVoitot(), muistio2.getNollienVoitot());

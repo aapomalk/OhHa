@@ -36,7 +36,7 @@ public class PelitilanteenLukijaTest {
     @Before
     public void setUp() {
         muistio = new RistiNollaMuistio();
-        kasittelija = new VirheidenKasittelijaTeksti("tyhja");
+        kasittelija = new VirheidenKasittelijaTeksti();
         kirjoittaja = new PelitilanteenTallentaja();
         lukija = new PelitilanteenLukija();
     }
