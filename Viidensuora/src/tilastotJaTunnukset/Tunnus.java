@@ -8,7 +8,7 @@ package tilastotJaTunnukset;
  *
  * @author Aapo
  */
-public class Tunnus {
+public class Tunnus implements Comparable {
     private String tunnus;
     private int pelatutPelit;
     private int voitot;
@@ -85,6 +85,15 @@ public class Tunnus {
      */
     public int getVihjenapinKaytot() {
         return vihjenapinKaytot;
+    }
+
+    @Override
+    public int compareTo(Object t) {
+        if (t.getClass() != Tunnus.class) {
+            return 0;
+        }
+        Tunnus apu = (Tunnus) t;
+        return this.tunnus.compareToIgnoreCase(apu.tunnus);
     }
     
     

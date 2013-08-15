@@ -1,11 +1,11 @@
 Aapo 0 0.0 0 0 0
-testi 0 0.0 0 0 0
-jhota 0 0.0 0 0 0
-zd 0 0.0 0 0 0
-a 0 0.0 0 0 0
-aer 0 0.0 0 0 0
-wse45tgs 0 0.0 0 0 0
-ea 0 0.0 0 0 0
+testi 1 2.3 4 5 6
+jhota 2 0.0 0 0 0
+zd 0 3.0 0 0 0
+a 0 0.4 0 0 0
+aer 0 0.0 5 0 0
+wse45tgs 0 0.0 0 6 0
+ea 0 0.0 0 0 7
 r 0 0.0 0 0 0
 se 0 0.0 0 0 0
 rgse 0 0.0 0 0 0
@@ -50,3 +50,5 @@ bsdfsger 0 0.0 0 0 0
 redsfgsdr 0 0.0 0 0 0
 sddsbd 0 0.0 0 0 0
 rdsfgsdf 0 0.0 0 0 0
+testataanviela 0 0.0 0 0 0
+sdfa 0 0.0 0 0 0

@@ -41,6 +41,7 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 11:15-12:50; Graafinen valikko aluilleen ja graafisen käyttöliittymän suunnittelua
 14.08. (yhteensä 02h 45min)
 	noin klo 12:55-15:40; Graafiseen käyttöliittymään alustava Tilasto-näkymä, tunnusten luominen onnistuu, tilastojen tiedostosta lukeminen virhe korjattu
-15.08. (yhteensä 01h 55min)
+15.08. (yhteensä 05h 45min)
 	noin klo 11:25-13:20; Scrolli yrityksiä, ja tilastoja eteenpäin
 	noin klo 14:50-15:25; Scrolli epäonnistuu edelleen...
+	noin klo 21:50-01:15; Scrolli luovutettu, Tunnus -tilastojen selaus tyydyttävän näköistä, vaikka välillä nappulat villiintyvät muutettaessa ruudun kokoa
