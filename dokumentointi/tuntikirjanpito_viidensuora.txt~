@@ -3,11 +3,11 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 14:00-17:30; Aloitusluento ja valmistelutehtävien tekemistä
 	noin klo 22:30-23:45; Git:n tutustumista, ohjelmien lataamista ja yhteydenmuodostus kotikoneelta
 31.07. (yhteensä 05h 20min)
-1h20min	noin klo 09:20-10:40; ViidensuoraTest luotu ja ohja-kertausta
-1h20min	noin klo 13:00-14:20; Erikoisen ongelman pohdintaa ja ViidensuoraTest oikeannimiseen packageen
-0h30min	noin klo 14:30-15:00; Testien ja Debuggerin harjoittelua
-0h45min	noin klo 20:10-20:55; RistiNollaMuistio, -Test, Merkki ja Laatu.java tehty, eli koodausta
-2h25min	noin klo 21:30-23:55; Lisää koodausta, Tarkastaja ja TarkastajaTest, pitkään ongelmaa pienen bugin kanssa
+	noin klo 09:20-10:40; ViidensuoraTest luotu ja ohja-kertausta
+	noin klo 13:00-14:20; Erikoisen ongelman pohdintaa ja ViidensuoraTest oikeannimiseen packageen
+	noin klo 14:30-15:00; Testien ja Debuggerin harjoittelua
+	noin klo 20:10-20:55; RistiNollaMuistio, -Test, Merkki ja Laatu.java tehty, eli koodausta
+	noin klo 21:30-23:55; Lisää koodausta, Tarkastaja ja TarkastajaTest, pitkään ongelmaa pienen bugin kanssa
 02.08. (yhteensä 03h 30min)
 	noin klo 11:00-12:00; Koodaus jatkuu, ReunimmaisetKoordinaatit, -Test ja vähän muitakin testejä
 	noin klo 12:10-13:40; Alkeellinen tekstikäyttöliittymä ja käsin testausta
@@ -39,3 +39,7 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 21:40-21:55; Säätöä
 13.08. (yhteensä 01h 35min)
 	noin klo 11:15-12:50; Graafinen valikko aluilleen ja graafisen käyttöliittymän suunnittelua
+14.08. (yhteensä 02h 45min)
+	noin klo 12:55-15:40; Graafiseen käyttöliittymään alustava Tilasto-näkymä, tunnusten luominen onnistuu, tilastojen tiedostosta lukeminen virhe korjattu
+15.08. (yhteensä 01h 55min)
+	noin klo 11:25-13:20; Scrolli yrityksiä, ja tilastoja eteenpäin
