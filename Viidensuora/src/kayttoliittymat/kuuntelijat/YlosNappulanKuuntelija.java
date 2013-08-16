@@ -17,18 +17,24 @@ public class YlosNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
     private Integer lahtoIndeksi;
     private int maksIndeksi;
+    private boolean trueTunnuksilleFalsePareille;
 
-    public YlosNappulanKuuntelija(GraafinenKayttoliittyma liittyma, Integer lahtoIndeksi, int maksIndeksi) {
+    public YlosNappulanKuuntelija(GraafinenKayttoliittyma liittyma, Integer lahtoIndeksi, int maksIndeksi, boolean trueTunnuksilleFalsePareille) {
         this.liittyma = liittyma;
         this.lahtoIndeksi = lahtoIndeksi;
         this.maksIndeksi = maksIndeksi;
+        this.trueTunnuksilleFalsePareille = trueTunnuksilleFalsePareille;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (lahtoIndeksi < (maksIndeksi - 35)) {
             lahtoIndeksi = lahtoIndeksi + 5;
-            liittyma.luoKomponentitTunnusTilasto(this.liittyma.getFrame().getContentPane(), lahtoIndeksi);
+            if (trueTunnuksilleFalsePareille) {
+                liittyma.luoKomponentitTunnusTilasto(this.liittyma.getFrame().getContentPane(), lahtoIndeksi);
+            } else {
+                liittyma.tulostaTunnuspariTilastoja(lahtoIndeksi, liittyma.getFrame().getContentPane());
+            }
             liittyma.getFrame().pack();
         }
     }

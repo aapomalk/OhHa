@@ -19,12 +19,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 import kayttoliittymat.kuuntelijat.*;
 import tiedostojenKasittely.VirheidenKasittelijaGraafinen;
-import viidensuora.Laatu;
 import tilastotJaTunnukset.Tunnus;
+import tilastotJaTunnukset.TunnusPari;
 
 public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable {
 
@@ -52,8 +51,12 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
             JOptionPane.showMessageDialog(frame, "Tunnuksen pituus taytyy olla 3-20 merkkia ilman valia");
             return;
         }
-        super.tilastot.lisaaTunnus(tunnus);
-        super.tallennaTilastot();
+        boolean onnistuiko = super.tilastot.lisaaTunnus(tunnus);
+        if (onnistuiko) {
+            super.tallennaTilastot();
+        } else {
+            JOptionPane.showMessageDialog(frame, "Kirjoittamasi tunnus oli jo olemassa,\nlisaaminen epaonnistui");
+        }
     }
 
     public void palaaValikkoon() {
@@ -76,28 +79,39 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     }
 
     public void luoKomponentitTunnusTilasto(Container container, int lahtoIndeksi) {
+        if (lahtoIndeksi != 0 && container.getComponentCount() >= 0) {
+            container.remove(container.getComponentCount() - 1);
+        }
         if (lahtoIndeksi == 0) {
             container.setLayout(new BorderLayout());
-            container.add(luoTunnusNappuloita(), BorderLayout.WEST);
+            container.add(luoTunnusNappuloita(true), BorderLayout.WEST);
             container.add(jarjestyksenVaihtajaNappulat(), BorderLayout.SOUTH);
-            container.add(jarjestyksenSelausNappulat(lahtoIndeksi), BorderLayout.NORTH);
+            container.add(jarjestyksenSelausNappulat(lahtoIndeksi, true), BorderLayout.NORTH);
         } else if (lahtoIndeksi < 0) {
             lahtoIndeksi = 0;
         }
-
         container.add(tulostaTunnusTilastoja(lahtoIndeksi), BorderLayout.CENTER);
     }
 
-    private JPanel jarjestyksenSelausNappulat(int tilastoIndeksi) {
+    private JPanel jarjestyksenSelausNappulat(int tilastoIndeksi, boolean trueTunnuksilleFalsePareille) {
         JPanel nappulat = new JPanel(new GridLayout(1, 6));
         nappulat.add(new JLabel(" "));
         nappulat.add(new JLabel(" "));
 
         JButton alasRullaa = new JButton("V");
-        YlosNappulanKuuntelija ylosKuuntelija = new YlosNappulanKuuntelija(this, tilastoIndeksi, this.tilastot.getTunnukset().size());
-        alasRullaa.addActionListener(ylosKuuntelija);
         JButton ylosRullaa = new JButton("A");
-        ylosRullaa.addActionListener(new AlasNappulanKuuntelija(this, tilastoIndeksi, ylosKuuntelija));
+        
+        int listaMax;
+        if (trueTunnuksilleFalsePareille) {
+            listaMax = this.tilastot.getTunnukset().size();
+        } else {
+            listaMax = this.tilastot.getTunnusParit().size();
+        }
+        
+        YlosNappulanKuuntelija ylosKuuntelija = new YlosNappulanKuuntelija(this, tilastoIndeksi, listaMax, trueTunnuksilleFalsePareille);
+        ylosRullaa.addActionListener(new AlasNappulanKuuntelija(this, tilastoIndeksi, ylosKuuntelija, trueTunnuksilleFalsePareille));
+
+        alasRullaa.addActionListener(ylosKuuntelija);
 
         nappulat.add(alasRullaa);
         nappulat.add(new JLabel(" "));
@@ -117,7 +131,7 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         JButton ristilla = new JButton("Ristilla");
         JButton pituuksienKa = new JButton("Pituuksien ka");
         JButton vihjeNappi = new JButton("Vihjenappi");
-        
+
         tunnus.addActionListener(new JarjestaTunnusNappulanKuuntelija(this));
         pelienLkm.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.PELIT));
         voitot.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.VOITOT));
@@ -172,37 +186,144 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         return tunnusTilastot;
     }
 
-    private JPanel luoTunnusNappuloita() {
+    private JPanel luoTunnusNappuloita(boolean trueTunnustilastotFalseTunnuspari) {
         JPanel nappulat = new JPanel(new GridLayout(5, 1));
         JButton valikkoon = new JButton("takaisin valikkoon");
-        JButton naytaYleiset = new JButton("nayta yleiset tilastot");
-        JButton naytaTunnusParit = new JButton("nayta tunnusparien tilastot");
-
         valikkoon.addActionListener(new ValikkoonNappulanKuuntelija(this));
-        naytaYleiset.addActionListener(new TilastoNappulanKuuntelija(this));
-
         nappulat.add(valikkoon);
+
+        if (!trueTunnustilastotFalseTunnuspari) {
+            JButton naytaTunnukset = new JButton("nayta tunnus tilastot");
+            naytaTunnukset.addActionListener(new NaytaTunnuksetNappulanKuuntelija(this));
+            nappulat.add(new JLabel());
+            nappulat.add(naytaTunnukset);
+        }
+
+        JButton naytaYleiset = new JButton("nayta yleiset tilastot");
+        naytaYleiset.addActionListener(new TilastoNappulanKuuntelija(this));
         nappulat.add(new JLabel());
         nappulat.add(naytaYleiset);
-        nappulat.add(new JLabel());
-        nappulat.add(naytaTunnusParit);
+
+        if (trueTunnustilastotFalseTunnuspari) {
+            JButton naytaTunnusParit = new JButton("nayta tunnusparien tilastot");
+            naytaTunnusParit.addActionListener(new NaytaTunnusparitNappulanKuuntelija(this));
+            nappulat.add(new JLabel());
+            nappulat.add(naytaTunnusParit);
+        }
+
         return nappulat;
     }
 
     public void meneTunnuspariTilastoihin() {
         frame.getContentPane().removeAll();
+        frame.repaint();
         luoKomponentitTunnuspariTilasto(frame.getContentPane());
         frame.pack();
     }
 
     private void luoKomponentitTunnuspariTilasto(Container container) {
+
+        container.setLayout(new BorderLayout());
+        container.add(luoTunnusNappuloita(false), BorderLayout.WEST);
+        container.add(jarjestyksenVaihtajaNappulatPareille(), BorderLayout.SOUTH);
+        container.add(jarjestyksenSelausNappulat(0, false), BorderLayout.NORTH);
+
+        tulostaTunnuspariTilastoja(0, container);
+    }
+
+    private JPanel jarjestyksenVaihtajaNappulatPareille() {
+        JPanel nappulat = new JPanel(new GridLayout(1, 7));
+        nappulat.add(new JLabel(" "));
+
+        JButton tunnus1 = new JButton("Tunnus1");
+        JButton tunnus2 = new JButton("Tunnus2");
+        JButton pelienLkm = new JButton("Pelien lkm");
+        JButton voitot1 = new JButton("1Voitot");
+        JButton ristilla1 = new JButton("1Ristilla");
+        JButton voitot2 = new JButton("2Voitot");
+        JButton ristilla2 = new JButton("2Ristilla");
+        JButton pituuksienKa = new JButton("Pituus ka");
+        JButton tallennukset = new JButton("Tallennuksia");
+
+        tunnus1.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.TUNNUS1_PARI));
+        tunnus2.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.TUNNUS2_PARI));
+        pelienLkm.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.PELIT_PARI));
+        voitot1.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.TUNNUS1_VOITOT));
+        ristilla1.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.TUNNUS1_RISTIT));
+        voitot2.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.TUNNUS2_VOITOT));
+        ristilla2.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.TUNNUS2_RISTIT));
+        pituuksienKa.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.PITUUS_PARI));
+        tallennukset.addActionListener(new JarjestaTunnusNappulanKuuntelija(this, TunnusTilastoKategoriat.TALLENNUKSET_PARI));
+
+        nappulat.add(tunnus1);
+        nappulat.add(tunnus2);
+        nappulat.add(pelienLkm);
+        nappulat.add(voitot1);
+        nappulat.add(ristilla1);
+        nappulat.add(voitot2);
+        nappulat.add(ristilla2);
+        nappulat.add(pituuksienKa);
+        nappulat.add(tallennukset);
+
+        return nappulat;
+    }
+
+    public void tulostaTunnuspariTilastoja(int lahtoIndeksi, Container container) {
+        if (lahtoIndeksi != 0 && container.getComponentCount() >= 0) {
+            container.remove(container.getComponentCount() - 1);
+            if (lahtoIndeksi < 0) {
+                lahtoIndeksi = 0;
+            }
+        }
+        JPanel tunnusPariTilastoja = new JPanel();
+        tunnusPariTilastoja.setLayout(new BoxLayout(tunnusPariTilastoja, BoxLayout.PAGE_AXIS));
+        tunnusPariTilastoja.add(tulostaOtsikotTunnusPariTilastot());
+        for (int i = lahtoIndeksi; i < super.tilastot.getTunnusParit().size(); i++) {
+            tunnusPariTilastoja.add(tulostaTunnusPariTilastot(super.tilastot.getTunnusParit().get(i)));
+        }
+
+        container.add(tunnusPariTilastoja);
+    }
+
+    private JPanel tulostaOtsikotTunnusPariTilastot() {
+        JPanel otsikot = new JPanel(new GridLayout(1, 9));
+
+        otsikot.add(new JLabel("Tunnus1"));
+        otsikot.add(new JLabel("Tunnus2"));
+        otsikot.add(new JLabel("Pelit"));
+        otsikot.add(new JLabel("1Voitot"));
+        otsikot.add(new JLabel("1Ristilla"));
+        otsikot.add(new JLabel("2Voitot"));
+        otsikot.add(new JLabel("2Ristilla"));
+        otsikot.add(new JLabel("Pituus ka"));
+        otsikot.add(new JLabel("Tallennuksia"));
+
+        return otsikot;
+    }
+
+    private JPanel tulostaTunnusPariTilastot(TunnusPari tunnusPari) {
+        JPanel tunnusPariTilastot = new JPanel(new GridLayout(1, 9));
+
+        tunnusPariTilastot.add(new JLabel("" + tunnusPari.getTunnus1().getTunnus()));
+        tunnusPariTilastot.add(new JLabel("" + tunnusPari.getTunnus2().getTunnus()));
+        tunnusPariTilastot.add(new JLabel("" + tunnusPari.getPelatutPelit()));
+        tunnusPariTilastot.add(new JLabel("" + tunnusPari.getTunnus1nVoitot()));
+        tunnusPariTilastot.add(new JLabel("" + tunnusPari.getTunnus1nRistiPelit()));
+        tunnusPariTilastot.add(new JLabel("" + tunnusPari.getTunnus2nVoitot()));
+        tunnusPariTilastot.add(new JLabel("" + tunnusPari.getTunnus2nRistiPelit()));
+        tunnusPariTilastot.add(new JLabel("" + tunnusPari.getPelienKeskimaarainenPituus()));
+        tunnusPariTilastot.add(new JLabel("" + tunnusPari.getTallennustenLukumaara()));
+
+        return tunnusPariTilastot;
     }
 
     private void luoKomponentitTilasto(Container container) {
-        container.setLayout(new GridLayout(1, 3));
+        container.setLayout(new GridLayout(1, 5));
         container.add(luoNappulat());
+        container.add(new JLabel(" "));
         container.add(tulostaTilastoOtsikot());
         container.add(tulostaTilastoja());
+        container.add(new JLabel(" "));
     }
 
     private JPanel luoNappulat() {
@@ -213,6 +334,7 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
 
         valikkoon.addActionListener(new ValikkoonNappulanKuuntelija(this));
         naytaTunnukset.addActionListener(new NaytaTunnuksetNappulanKuuntelija(this));
+        naytaTunnusParit.addActionListener(new NaytaTunnusparitNappulanKuuntelija(this));
 
         nappulat.add(valikkoon);
         nappulat.add(new JLabel());
@@ -279,8 +401,12 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     public JFrame getFrame() {
         return frame;
     }
-    
+
     public ArrayList<Tunnus> getTunnukset() {
         return super.tilastot.getTunnukset();
+    }
+
+    public ArrayList<TunnusPari> getTunnusParit() {
+        return super.tilastot.getTunnusParit();
     }
 }

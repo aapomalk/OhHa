@@ -10,7 +10,7 @@ package tilastotJaTunnukset;
  */
 import viidensuora.Laatu;
 
-public class TunnusPari {
+public class TunnusPari implements Comparable {
 
     private Tunnus tunnus1;
     private Tunnus tunnus2;
@@ -150,5 +150,14 @@ public class TunnusPari {
      */
     public int getTallennustenLukumaara() {
         return tallennustenLukumaara;
+    }
+
+    @Override
+    public int compareTo(Object t) {
+        if (t.getClass() != TunnusPari.class) {
+            return 0;
+        }
+        TunnusPari apu = (TunnusPari) t;
+        return this.tunnus1.getTunnus().compareToIgnoreCase(apu.getTunnus1().getTunnus());
     }
 }

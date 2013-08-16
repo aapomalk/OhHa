@@ -36,13 +36,14 @@ public class TilastoTunnusMuistio {
         this(new ArrayList<Tunnus>(), new ArrayList<TunnusPari>(), 0, 0.0, 0, 0, 0);
     }
     
-    public void lisaaTunnus(String tunnusNimi) {
+    public boolean lisaaTunnus(String tunnusNimi) {
         for (Tunnus tunnus : getTunnukset()) {
             if (tunnus.getTunnus().equals(tunnusNimi)) {
-                return;
+                return false;
             }
         }
         this.getTunnukset().add(new Tunnus(tunnusNimi));
+        return true;
     }
     
     public void lisaaTunnusPari(Tunnus tunnus1, Tunnus tunnus2) {

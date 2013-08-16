@@ -45,3 +45,5 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 11:25-13:20; Scrolli yrityksiä, ja tilastoja eteenpäin
 	noin klo 14:50-15:25; Scrolli epäonnistuu edelleen...
 	noin klo 21:50-01:15; Scrolli luovutettu, Tunnus -tilastojen selaus tyydyttävän näköistä, vaikka välillä nappulat villiintyvät muutettaessa ruudun kokoa
+16.08. (yhteensä h min)
+	noin klo 17:50-20:10; Tunnusparien tilastot näyttäisi toimivan

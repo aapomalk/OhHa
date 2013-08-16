@@ -9,5 +9,17 @@ package kayttoliittymat.kuuntelijat;
  * @author Aapo
  */
 public enum TunnusTilastoKategoriat {
-    TUNNUS, PELIT, VOITOT, RISTIT, PITUUS, VIHJEET;
+    TUNNUS(true), PELIT(true), VOITOT(true), RISTIT(true), PITUUS(true), VIHJEET(true),
+    TUNNUS1_PARI(false), TUNNUS2_PARI(false), PELIT_PARI(false), TUNNUS1_VOITOT(false), TUNNUS1_RISTIT(false),
+    TUNNUS2_VOITOT(false), TUNNUS2_RISTIT(false), PITUUS_PARI(false), TALLENNUKSET_PARI(false);
+    
+    private final boolean trueTunnusFalsePari;
+    
+    private TunnusTilastoKategoriat(boolean trueTunnusFalsePari) {
+        this.trueTunnusFalsePari = trueTunnusFalsePari;
+    }
+    
+    public boolean getTrueTunnusFalsePari() {
+        return this.trueTunnusFalsePari;
+    }
 }
