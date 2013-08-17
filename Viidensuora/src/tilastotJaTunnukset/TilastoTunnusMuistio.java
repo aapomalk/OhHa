@@ -46,15 +46,16 @@ public class TilastoTunnusMuistio {
         return true;
     }
     
-    public void lisaaTunnusPari(Tunnus tunnus1, Tunnus tunnus2) {
+    public boolean lisaaTunnusPari(Tunnus tunnus1, Tunnus tunnus2) {
         for (TunnusPari tunnusPari : getTunnusParit()) {
             if ((tunnusPari.getTunnus1().equals(tunnus1) || tunnusPari.getTunnus2().equals(tunnus1))
                     && (tunnusPari.getTunnus1().equals(tunnus2) || tunnusPari.getTunnus2().equals(tunnus2))
                     && (!tunnus1.equals(tunnus2))) {
-                return;
+                return false;
             }
         }
         this.getTunnusParit().add(new TunnusPari(tunnus1, tunnus2));
+        return true;
     }
     
     public void peliTallennettu() {
