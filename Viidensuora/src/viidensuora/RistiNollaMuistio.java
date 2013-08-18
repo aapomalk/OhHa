@@ -4,12 +4,13 @@
  */
 package viidensuora;
 
+import java.util.ArrayList;
 /**
- *
+ * Pelin olennaisin luokka, vastaa merkkien muistamisesta,
+ * ja niiden säännönmukaisista sijoituksista
+ * @see viidensuora.Merkki
  * @author Aapo
  */
-import java.util.ArrayList;
-
 public class RistiNollaMuistio {
     private ArrayList<Merkki> merkit;
     private boolean edellinenMerkkiRisti;

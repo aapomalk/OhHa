@@ -5,7 +5,7 @@
 package tiedostojenKasittely;
 
 /**
- *
+ * Graafisen käyttöliittymän ikioma virheidenkäsittelijä
  * @author aapomalk
  */
 public class VirheidenKasittelijaGraafinen implements VirheidenKasittelija {

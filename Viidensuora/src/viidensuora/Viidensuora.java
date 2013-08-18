@@ -4,12 +4,11 @@
  */
 package viidensuora;
 
+import kayttoliittymat.*;
 /**
- *
+ * Projektin main- luokka, kaynnistaa valitun kayttoliittyman
  * @author Aapo
  */
-import kayttoliittymat.*;
-
 public class Viidensuora {
 
     /**

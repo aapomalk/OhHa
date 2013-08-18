@@ -5,7 +5,9 @@
 package tiedostojenKasittely;
 
 /**
- *
+ * Tekstikäyttöliittymän ikioma virheidenkäsittelijä, tulostaa virheilmoituksen
+ * virheen sattuessa
+ * @see kayttoliittymat.TekstiKayttoliittyma
  * @author Aapo
  */
 public class VirheidenKasittelijaTeksti implements VirheidenKasittelija {

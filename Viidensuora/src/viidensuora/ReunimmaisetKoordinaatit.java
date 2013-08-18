@@ -4,12 +4,13 @@
  */
 package viidensuora;
 
-/**
- *
- * @author aapomalk
- */
 import java.util.ArrayList;
 
+/**
+ * Etsii reunimmaisten merkkien koordinaatit, ehdoton apu kentän rajaamisessa
+ * @see viidensuora.Merkki
+ * @author aapomalk
+ */
 public class ReunimmaisetKoordinaatit {
 
     private int pieninX;

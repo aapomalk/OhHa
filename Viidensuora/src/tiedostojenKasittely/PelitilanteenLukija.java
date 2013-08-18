@@ -4,14 +4,15 @@
  */
 package tiedostojenKasittely;
 
-/**
- *
- * @author Aapo
- */
 import java.util.ArrayList;
 import java.util.Scanner;
 import viidensuora.RistiNollaMuistio;
 
+/**
+ * Tiedostostalukijaa hyväksikäyttäen lataa pelitilanteen tiedostosta
+ * @see TiedostostaLukija
+ * @author Aapo
+ */
 public class PelitilanteenLukija {
     
     public void lataaPelitilanne(String tiedostonNimi, VirheidenKasittelija kasittelija, RistiNollaMuistio muistio) {

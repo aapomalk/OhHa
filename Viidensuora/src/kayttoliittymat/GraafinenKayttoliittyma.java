@@ -4,10 +4,6 @@
  */
 package kayttoliittymat;
 
-/**
- *
- * @author Aapo
- */
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -25,6 +21,12 @@ import tiedostojenKasittely.VirheidenKasittelijaGraafinen;
 import tilastotJaTunnukset.Tunnus;
 import tilastotJaTunnukset.TunnusPari;
 
+/**
+ * Jottei merkkejä tarvitsisi syöttää koordinaattikerrallaan, toisinkuin teksti-
+ * versiossa.
+ * @see TekstiKayttoliittyma
+ * @author Aapo
+ */
 public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable {
 
     private JFrame frame;

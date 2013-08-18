@@ -4,15 +4,19 @@
  */
 package vihjeToiminto;
 
-/**
- *
- * @author aapomalk
- */
 import java.util.ArrayList;
 import viidensuora.Laatu;
 import viidensuora.Merkki;
 import viidensuora.MerkkienJononLoytaja;
 
+/**
+ * Nimensä mukaisesti luokan ainut tarkoitus on antaa vihjeitä pisteyttämällä
+ * tyhjiä koordinaatteja
+ * @see vihjeToiminto.TyhjienMerkkienLisaaja
+ * @see viidensuora.Laatu
+ * @see viidensuora.MerkkienJononLoytaja
+ * @author aapomalk
+ */
 public class Vihje {
 
     private TyhjienMerkkienLisaaja taydentaja;

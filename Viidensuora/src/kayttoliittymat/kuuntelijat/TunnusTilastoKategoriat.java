@@ -5,7 +5,8 @@
 package kayttoliittymat.kuuntelijat;
 
 /**
- *
+ * Olennainen osa tilastojen järjestelijöitten toimintaa, jotta nappuloiden
+ * kuuntelijoita olisi kaksitoista kappaletta vähemmän.
  * @author Aapo
  */
 public enum TunnusTilastoKategoriat {

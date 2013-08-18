@@ -4,14 +4,15 @@
  */
 package kayttoliittymat;
 
-/**
- *
- * @author aapomalk
- */
 import java.util.Scanner;
 import tiedostojenKasittely.*;
 import viidensuora.*;
 
+/**
+ * Rakennusvaiheen käyttöliittymä, koska tekstimuotoista käyttöliittymää on 
+ * helpompi muokata tarpeen vaatiessa.
+ * @author aapomalk
+ */
 public class TekstiKayttoliittyma extends Kayttoliittyma {
     private Scanner lukija;
 

@@ -4,13 +4,16 @@
  */
 package tilastotJaTunnukset;
 
-/**
- *
- * @author Aapo
- */
 import java.util.ArrayList;
 import viidensuora.Laatu;
 
+/**
+ * Sanalla sanottuna tilastot, sisältää yleiset tilastot, listan kaikista
+ * tunnuksista ja toisen listan tunnuspareista
+ * @see tilastotJaTunnukset.Tunnus
+ * @see tilastotJaTunnukset.TunnusPari
+ * @author Aapo
+ */
 public class TilastoTunnusMuistio {
     private ArrayList<Tunnus> tunnukset;
     private ArrayList<TunnusPari> tunnusParit;

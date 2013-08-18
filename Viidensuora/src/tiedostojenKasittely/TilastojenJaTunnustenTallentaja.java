@@ -4,14 +4,16 @@
  */
 package tiedostojenKasittely;
 
-/**
- *
- * @author Aapo
- */
-import java.io.FileWriter;
 import java.util.ArrayList;
 import tilastotJaTunnukset.*;
 
+/**
+ * Tiedostoonkirjoittajan avulla tallentaa kaikki tilastot tunnuksineen kolmeen
+ * tiedostoon
+ * @see TiedostoonKirjoittaja
+ * @see tilastotJaTunnukset.TilastoTunnusMuistio
+ * @author Aapo
+ */
 public class TilastojenJaTunnustenTallentaja {
     
     public void tallennaTiedostoon(TilastoTunnusMuistio muistio, String tiedosto, VirheidenKasittelija kasittelija) {

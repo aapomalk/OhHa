@@ -4,14 +4,16 @@
  */
 package kayttoliittymat.peliGraafisetToimijat;
 
-/**
- *
- * @author Aapo
- */
 import javax.swing.JButton;
 import viidensuora.Laatu;
 import viidensuora.RistiNollaMuistio;
 
+/**
+ * Graafisen pelitoiminnon perusyksikkö, sama kuin paperilla pelattaessa ruutu.
+ * Sisältää yhden JButton -tyyppisen nappulan, jolle oma kuuntelija.
+ * @see RuutuNappulanKuuntelija
+ * @author Aapo
+ */
 public class RuutuNappula {
     
     private int x;

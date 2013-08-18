@@ -4,14 +4,14 @@
  */
 package kayttoliittymat.kuuntelijat;
 
-/**
- *
- * @author aapomalk
- */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import kayttoliittymat.GraafinenKayttoliittyma;
 
+/**
+ * Siirrytäänkö katsomaan tilastoja?
+ * @author aapomalk
+ */
 public class TilastoNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
     

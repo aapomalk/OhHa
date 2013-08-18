@@ -5,7 +5,7 @@
 package tilastotJaTunnukset;
 
 /**
- *
+ * Olennainen osa tilastoja, sisältää yksilöllisen pelaajan tilastot
  * @author Aapo
  */
 public class Tunnus implements Comparable {

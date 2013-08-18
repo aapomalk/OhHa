@@ -4,14 +4,17 @@
  */
 package kayttoliittymat.kuuntelijat;
 
-/**
- *
- * @author Aapo
- */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import kayttoliittymat.GraafinenKayttoliittyma;
 
+/**
+ * Olennainen osa Tunnus- ja Tunnusparitilastoja, Ylösnappulan ohella hallitsee
+ * näytettäviä tilastoja. Itse nappulat Graafisessakäyttöliittymässä
+ * @see kayttoliittymat.GraafinenKayttoliittyma
+ * @see YlosNappulanKuuntelija
+ * @author Aapo
+ */
 public class AlasNappulanKuuntelija implements ActionListener {
 
     private GraafinenKayttoliittyma liittyma;

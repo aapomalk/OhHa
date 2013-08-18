@@ -4,15 +4,15 @@
  */
 package kayttoliittymat.kuuntelijat;
 
-/**
- *
- * @author aapomalk
- */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import kayttoliittymat.GraafinenKayttoliittyma;
 
+/**
+ * Haluat siis yrittää syöttää uutta tunnusta?
+ * @author aapomalk
+ */
 public class TunnusNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
     

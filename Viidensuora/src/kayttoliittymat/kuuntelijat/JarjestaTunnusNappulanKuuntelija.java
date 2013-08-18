@@ -4,16 +4,17 @@
  */
 package kayttoliittymat.kuuntelijat;
 
-/**
- *
- * @author Aapo
- */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
 import kayttoliittymat.GraafinenKayttoliittyma;
 import tunnustenJaParienJarjestelijat.*;
 
+/**
+ * 'Minä' mahdollistan mitä monimuotoisimmat järjestykset tunnuksille ja
+ * tunnuspareille, erityisesti siis tilastoja tarkasteltaessa.
+ * @author Aapo
+ */
 public class JarjestaTunnusNappulanKuuntelija implements ActionListener {
 
     private GraafinenKayttoliittyma liittyma;

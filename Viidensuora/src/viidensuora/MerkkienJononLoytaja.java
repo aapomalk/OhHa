@@ -4,12 +4,14 @@
  */
 package viidensuora;
 
-/**
- *
- * @author Aapo
- */
 import java.util.ArrayList;
 
+/**
+ * Peli ei päättyisi ilman kyseistä luokkaa, sekä viidensuora että vihjeet
+ * löytyvät 'minun' avustuksella
+ * @see vihjeToiminto.Vihje
+ * @author Aapo
+ */
 public class MerkkienJononLoytaja {
     
     public ArrayList<Merkki> tarkasta(ArrayList<Merkki> merkit,

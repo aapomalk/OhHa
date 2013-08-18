@@ -4,14 +4,17 @@
  */
 package tiedostojenKasittely;
 
-/**
- *
- * @author Aapo
- */
 import java.util.ArrayList;
 import java.util.Scanner;
 import tilastotJaTunnukset.*;
 
+/**
+ * Tiedostostalukijan avulla käy läpi kolme tekstitiedostoa, jotka sisältävät
+ * kaikki tilastot, ja tallentaa ne muistioon
+ * @see tilastotJaTunnukset.TilastoTunnusMuistio
+ * @see TiedostostaLukija
+ * @author Aapo
+ */
 public class TilastojenLukija {
 
     public TilastoTunnusMuistio lataaTilastot(String tiedostoNimi, VirheidenKasittelija kasittelija) {

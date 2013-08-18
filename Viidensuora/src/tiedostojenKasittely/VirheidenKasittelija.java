@@ -5,7 +5,10 @@
 package tiedostojenKasittely;
 
 /**
- *
+ * Rajapinta, joka määrittelee kaikkien virheidenkäsittelijöiden tarvittavat
+ * metodit
+ * @see VirheidenKasittelijaTeksti
+ * @see VirheidenKasittelijaGraafinen
  * @author aapomalk
  */
 public interface VirheidenKasittelija {

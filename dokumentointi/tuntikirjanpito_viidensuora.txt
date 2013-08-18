@@ -49,3 +49,5 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 17:50-20:10; Tunnusparien tilastot näyttäisi toimivan
 17.08. (yhteensä 01h 20min)
 	noin klo 17:50-19:10; Graafinen pelitoiminnallisuus aluilleen
+18.08. (yhteensä 01h 10min)
+	noin klo 12:00-13:10; JavaDoc kaikille luokille

@@ -4,15 +4,17 @@
  */
 package vihjeToiminto;
 
-/**
- *
- * @author aapomalk
- */
 import java.util.ArrayList;
 import viidensuora.Laatu;
 import viidensuora.Merkki;
 import viidensuora.Suunta;
 
+/**
+ * Vihjetoiminnossa olennainen apuväline, jotta läpikäytävien merkkien määrä olisi
+ * rajattu, lisätään valmiitten merkkien ympärille yksi 'kerros' tyhjiä merkkejä
+ * @see viidensuora.Laatu
+ * @author aapomalk
+ */
 public class TyhjienMerkkienLisaaja {
     
     public void lisaaTyhjatMerkit(ArrayList<Merkki> merkit) {

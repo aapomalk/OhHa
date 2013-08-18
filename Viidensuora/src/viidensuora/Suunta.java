@@ -5,7 +5,8 @@
 package viidensuora;
 
 /**
- *
+ * Olennainen osa merkkien jonojen löytämisessä, ehdoton apu suunnistuksessa
+ * @see viidensuora.MerkkienJononLoytaja
  * @author Aapo
  */
 public enum Suunta {

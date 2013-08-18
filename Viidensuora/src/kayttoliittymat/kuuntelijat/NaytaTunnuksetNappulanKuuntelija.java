@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import kayttoliittymat.GraafinenKayttoliittyma;
 
 /**
- *
+ * Ja nyt sitten tunnusten tilastoja, vai?
  * @author aapomalk
  */
 public class NaytaTunnuksetNappulanKuuntelija implements ActionListener {

@@ -4,13 +4,13 @@
  */
 package tunnustenJaParienJarjestelijat;
 
-/**
- *
- * @author Aapo
- */
 import java.util.Comparator;
 import tilastotJaTunnukset.*;
 
+/**
+ * Nimi kertoo kaiken
+ * @author Aapo
+ */
 public class TunnuksetVoittojenMukaanJarjestykseen implements Comparator<Tunnus> {
 
     @Override

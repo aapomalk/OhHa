@@ -17,7 +17,10 @@ import viidensuora.ReunimmaisetKoordinaatit;
 import viidensuora.RistiNollaMuistio;
 
 /**
- *
+ * Jotta siirtymä käyttöliittymien välillä olisi helpompi, ja jotta copy-paste
+ * pysyisi minimissään.
+ * @see GraafinenKayttoliittyma
+ * @see TekstiKayttoliittyma
  * @author aapomalk
  */
 public class Kayttoliittyma {

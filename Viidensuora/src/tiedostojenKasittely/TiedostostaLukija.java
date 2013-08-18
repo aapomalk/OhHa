@@ -4,14 +4,17 @@
  */
 package tiedostojenKasittely;
 
-/**
- *
- * @author Aapo
- */
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Yksinkertaisuudessaan lukee tiedostoja kansiosta pelit_ja_tilastot/
+ * . Virheidenkäsittelijä käsittelee mahdollisen virhetilanteen joko graafisesti
+ * tai tekstimuodossa, riippuen käytettävästä käyttöliittymästä
+ * @see VirheidenKasittelija
+ * @author Aapo
+ */
 public class TiedostostaLukija {
 
     public ArrayList<String> lueTiedosto(String tiedostonNimi, VirheidenKasittelija kasittelija) {

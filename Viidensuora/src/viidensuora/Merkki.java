@@ -5,7 +5,10 @@
 package viidensuora;
 
 /**
- *
+ * Ristinollamuistion ohella olennaisin tiedonsäilyttävä palanen, sisältää
+ * koordinaatit ja laadun
+ * @see viidensuora.Laatu
+ * @see viidensuora.RistiNollaMuistio
  * @author Aapo
  */
 public class Merkki {

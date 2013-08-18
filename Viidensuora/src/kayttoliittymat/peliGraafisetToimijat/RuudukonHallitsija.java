@@ -4,10 +4,6 @@
  */
 package kayttoliittymat.peliGraafisetToimijat;
 
-/**
- *
- * @author Aapo
- */
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -15,6 +11,11 @@ import viidensuora.Laatu;
 import viidensuora.Merkki;
 import viidensuora.RistiNollaMuistio;
 
+/**
+ * Nimensä mukaisesti hallitsee ruudukkoa, siirtää, päivittää ja rakentaa.
+ * @see RuutuNappula
+ * @author Aapo
+ */
 public class RuudukonHallitsija {
     private ArrayList<ArrayList<RuutuNappula>> ruudukko;
     

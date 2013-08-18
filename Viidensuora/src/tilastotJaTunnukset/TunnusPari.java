@@ -4,12 +4,13 @@
  */
 package tilastotJaTunnukset;
 
-/**
- *
- * @author Aapo
- */
 import viidensuora.Laatu;
 
+/**
+ * Sisältää kaksi tunnusta ja näiden välisten pelien tilastoja
+ * @see tilastotJaTunnukset.Tunnus
+ * @author Aapo
+ */
 public class TunnusPari implements Comparable {
 
     private Tunnus tunnus1;

@@ -4,14 +4,14 @@
  */
 package kayttoliittymat.kuuntelijat;
 
-/**
- *
- * @author aapomalk
- */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import kayttoliittymat.GraafinenKayttoliittyma;
 
+/**
+ * Kuuntelee, että pitäisikö siirtyä valikkoon, ja välittää käskyn eteenpäin
+ * @author aapomalk
+ */
 public class ValikkoonNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
     

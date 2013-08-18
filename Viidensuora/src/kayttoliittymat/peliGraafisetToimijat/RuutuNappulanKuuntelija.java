@@ -4,14 +4,14 @@
  */
 package kayttoliittymat.peliGraafisetToimijat;
 
-/**
- *
- * @author Aapo
- */
-import kayttoliittymat.peliGraafisetToimijat.RuutuNappula;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Ruutunappulan sisältämän JButton -nappulan henkilökohtainen tapahtumankuuntelija
+ * @see RuutuNappula
+ * @author Aapo
+ */
 public class RuutuNappulanKuuntelija implements ActionListener {
     private RuutuNappula ruutu;
     

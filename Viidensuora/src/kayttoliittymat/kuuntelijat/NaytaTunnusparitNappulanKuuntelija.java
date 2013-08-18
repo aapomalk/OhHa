@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import kayttoliittymat.GraafinenKayttoliittyma;
 
 /**
- *
+ * Vai että tunnusparien tilastoja pitäisi nähdä?
  * @author aapomalk
  */
 public class NaytaTunnusparitNappulanKuuntelija implements ActionListener {

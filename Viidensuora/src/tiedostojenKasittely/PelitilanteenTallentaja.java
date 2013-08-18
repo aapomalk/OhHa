@@ -4,13 +4,14 @@
  */
 package tiedostojenKasittely;
 
-/**
- *
- * @author Aapo
- */
 import java.util.ArrayList;
 import viidensuora.Merkki;
 
+/**
+ * Tiedostoonkirjoittajaa hyväksikäyttäen tallentaa pelitilanteen tekstitiedostoon
+ * @see TiedostoonKirjoittaja
+ * @author Aapo
+ */
 public class PelitilanteenTallentaja {
     
     public void tallennaPelitilanne(ArrayList<Merkki> merkit, String tiedosto, VirheidenKasittelija kasittelija) {

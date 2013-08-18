@@ -4,13 +4,15 @@
  */
 package tiedostojenKasittely;
 
-/**
- *
- * @author Aapo
- */
 import java.io.FileWriter;
 import java.util.ArrayList;
 
+/**
+ * Lukee tiedostoja kansiosta pelit_ja_tilastot/. Virheidenkäsittelijälle
+ * välitetään tapahtuneet virheet
+ * @see VirheidenKasittelija
+ * @author Aapo
+ */
 public class TiedostoonKirjoittaja {
     private FileWriter kirjoittaja;
     
