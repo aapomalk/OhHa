@@ -15,7 +15,12 @@ import java.util.ArrayList;
  */
 public class TiedostoonKirjoittaja {
     private FileWriter kirjoittaja;
-    
+    /**
+     * @see TiedostoonKirjoittaja
+     * @param tekstit tiedostoon kirjoitettavat tekstirivit listana
+     * @param tiedostoNimi käyttäjän syöttämä tiedostonnimi, johon rivit kirjoitetaan
+     * @param kasittelija käyttäjän syöttämä virheidenkäsittelijä
+     */
     public void kirjoitaTiedostoon(ArrayList<String> tekstit, String tiedostoNimi, VirheidenKasittelija kasittelija) {
         try {
             kirjoittaja = new FileWriter("pelit_ja_tilastot/" + tiedostoNimi);

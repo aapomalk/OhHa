@@ -12,7 +12,12 @@ import tilastotJaTunnukset.*;
  * @author Aapo
  */
 public class TunnuksetVihjeidenMukaanJarjestykseen implements Comparator<Tunnus> {
-
+    /**
+     * Vertaillaan tunnuksia käytettyjen vihjekertojen perusteella
+     * @param t
+     * @param t1
+     * @return 
+     */
     @Override
     public int compare(Tunnus t, Tunnus t1) {
         return t.getVihjenapinKaytot() - t1.getVihjenapinKaytot();

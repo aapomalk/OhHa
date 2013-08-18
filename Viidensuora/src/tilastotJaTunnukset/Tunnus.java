@@ -15,11 +15,22 @@ public class Tunnus implements Comparable {
     private int ristillaPelatutPelit;
     private double pelienKeskimaarainenPituus;
     private int vihjenapinKaytot;
-    
+    /**
+     * Luodaan uusi tunnus tilastoarvoilla 0
+     * @param tunnus 
+     */
     public Tunnus(String tunnus) {
         this(tunnus, 0, 0.0, 0, 0, 0);
     }
-    
+    /**
+     * Luodaan uusi tunnus tiedostosta luettujen arvojen perusteella
+     * @param tunnusNimi
+     * @param pelit
+     * @param pelienKeskimaarainenPituus
+     * @param ristillaPelatut
+     * @param vihjenapinKaytot
+     * @param voittoja 
+     */
     public Tunnus(String tunnusNimi, int pelit, double pelienKeskimaarainenPituus, int ristillaPelatut, 
              int vihjenapinKaytot, int voittoja) {
     this.tunnus = tunnusNimi;
@@ -86,7 +97,11 @@ public class Tunnus implements Comparable {
     public int getVihjenapinKaytot() {
         return vihjenapinKaytot;
     }
-
+    /**
+     * Tunnusten luonnollinen vertailujärjestys liittyy niiden nimeen
+     * @param t käyttäjän antama verrattava olio
+     * @return 
+     */
     @Override
     public int compareTo(Object t) {
         if (t.getClass() != Tunnus.class) {

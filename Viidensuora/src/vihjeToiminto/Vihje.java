@@ -30,7 +30,11 @@ public class Vihje {
     private ArrayList<ArrayList<Laatu>> puolikkaatJonotRistille;
     private ArrayList<ArrayList<Laatu>> puolikkaatJonotNollalle;
     private ArrayList<Integer> pisteytyslista;
-
+    /**
+     * Alustetaan kaikki tarvittavat komponentit: MerkkienJononloytaja,
+     * kaikki puolikkaat jonot sekä ristille, että nollalle, nollataan
+     * vihjelistat ja luodaan pisteytyslistat
+     */
     public Vihje() {
         etsija = new MerkkienJononLoytaja();
         puolikkaatJonotRistille = new ArrayList<ArrayList<Laatu>>();
@@ -60,7 +64,11 @@ public class Vihje {
         pisteytyslista.add(2);//        jonotMerkkeina.add("__xxo");
         pisteytyslista.add(4);//        jonotMerkkeina.add("__xxxo");
     }
-    
+    /**
+     * Asettaa vihjelistoihin löydetyt merkit pisteytyksen mukaan
+     * @param merkit näistä etsitään vihjattavia merkkien jonoja
+     * @param laatu kumpi on hyökkäämässä, vaikuttaa pisteytykseen
+     */
     public void lisaaVihjeetListoihin(ArrayList<Merkki> merkit, Laatu laatu) {
         nollaaListat();
         int indeksi = merkit.size() - 1;
@@ -192,6 +200,7 @@ public class Vihje {
     }
 
     /**
+     * Vihjelista merkeistä, joiden koordinaatteihin voisi olla hyödyllistä laittaa
      * @return the ehkaHyodyllinen
      */
     public ArrayList<Merkki> getEhkaHyodyllinen() {
@@ -199,6 +208,8 @@ public class Vihje {
     }
 
     /**
+     * Vihjelista merkeistä, joiden koordinaatteihin laittamalla saadaan kenties
+     * hyökkäys aikaiseksi
      * @return the rakennaHyokkays
      */
     public ArrayList<Merkki> getRakennaHyokkays() {
@@ -206,6 +217,7 @@ public class Vihje {
     }
 
     /**
+     * Vihjelista merkeistä, joiden koordinaatteihin laittamalla pitäisi tulla varma voitto
      * @return the varmaVoitto
      */
     public ArrayList<Merkki> getVarmaVoitto() {
@@ -213,6 +225,8 @@ public class Vihje {
     }
 
     /**
+     * Vihjelista merkeistä, joiden koordinaatteihin laittamalla vastustaja saattaa
+     * häiriintyä
      * @return the hairitseVastustajaa
      */
     public ArrayList<Merkki> getHairitseVastustajaa() {
@@ -220,6 +234,8 @@ public class Vihje {
     }
 
     /**
+     * Vihjelista merkeistä, joiden koordinaatteihin laittamalla estetään rakennettavat
+     * hyökkäykset
      * @return the varoVastustajaa
      */
     public ArrayList<Merkki> getVaroVastustajaa() {
@@ -227,6 +243,8 @@ public class Vihje {
     }
 
     /**
+     * Vihjelista merkeistä, joiden koordinaatteihin laittamalla estetään mahdollisesti
+     * vastustajaa saamasta varmaa voittoa
      * @return the taytyyEstaa
      */
     public ArrayList<Merkki> getTaytyyEstaa() {

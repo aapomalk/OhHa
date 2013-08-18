@@ -22,7 +22,16 @@ public class TilastoTunnusMuistio {
     private int nollienVoitot;
     private double pelienKeskimaarainenPituus;
     private int pelienTallennustenMaara;
-    
+    /**
+     * Luodaan uusi Tilasto tiedostosta luettujen arvojen perusteella
+     * @param tunnukset
+     * @param tunnusParit
+     * @param nollienVoitot
+     * @param pelienKeskimaarainenPituus
+     * @param pelienMaara
+     * @param pelienTallennustenMaara
+     * @param ristienVoitot 
+     */
     public TilastoTunnusMuistio(ArrayList<Tunnus> tunnukset, ArrayList<TunnusPari> tunnusParit,
             int nollienVoitot, double pelienKeskimaarainenPituus, int pelienMaara, int pelienTallennustenMaara,
             int ristienVoitot) {
@@ -34,11 +43,18 @@ public class TilastoTunnusMuistio {
         this.pelienKeskimaarainenPituus = pelienKeskimaarainenPituus;
         this.pelienTallennustenMaara = pelienTallennustenMaara;
     }
-    
+    /**
+     * Luodaan uusi tyhjä tilasto, missä ei ole valmiiksi tunnuksia, tunnuspareja
+     * tai yleisiä tilastojakaan (paitsi arvolla 0)
+     */
     public TilastoTunnusMuistio() {
         this(new ArrayList<Tunnus>(), new ArrayList<TunnusPari>(), 0, 0.0, 0, 0, 0);
     }
-    
+    /**
+     * Luodaan TilastoTunnusMuistioon uusi tunnus
+     * @param tunnusNimi käyttäjän syöttämä teksti, josta tehdään tunnuksen nimi
+     * @return true jos nimi lisättiin, false jos kyseinen nimi oli jo jollain tunnuksella
+     */
     public boolean lisaaTunnus(String tunnusNimi) {
         for (Tunnus tunnus : getTunnukset()) {
             if (tunnus.getTunnus().equals(tunnusNimi)) {
@@ -48,7 +64,13 @@ public class TilastoTunnusMuistio {
         this.getTunnukset().add(new Tunnus(tunnusNimi));
         return true;
     }
-    
+    /**
+     * Luodaan olion sisälle uusi Tunnuspari käyttäen valmiita tunnuksia
+     * @param tunnus1 käyttäjän syöttämä tunnus
+     * @param tunnus2 käyttäjän syöttämä tunnus
+     * @return true jos lisääminen tehtiin, false jos samoista tunnuksista muodostuva
+     * tunnuspari oli jo olemassa, tai jos tunnukset olivat samat
+     */
     public boolean lisaaTunnusPari(Tunnus tunnus1, Tunnus tunnus2) {
         for (TunnusPari tunnusPari : getTunnusParit()) {
             if ((tunnusPari.getTunnus1().equals(tunnus1) || tunnusPari.getTunnus2().equals(tunnus1))
@@ -60,11 +82,17 @@ public class TilastoTunnusMuistio {
         this.getTunnusParit().add(new TunnusPari(tunnus1, tunnus2));
         return true;
     }
-    
+    /**
+     * Tallennettaessa peliä lisätään pelien tallennusten lukumäärää yhdellä
+     */
     public void peliTallennettu() {
         this.pelienTallennustenMaara++;
     }
-    
+    /**
+     * Tallennettaessa tunnusparin peliä, lisätään tallennusten lukumäärää
+     * sekä yleisiin, että tunnusparin tilastoihin
+     * @param tunnusPari 
+     */
     public void peliTallennettu(TunnusPari tunnusPari) {
         peliTallennettu();
         tunnusPari.lisaaTallennus();
@@ -73,7 +101,11 @@ public class TilastoTunnusMuistio {
     private void lisaaPelattuPeli() {
         this.pelienMaara++;
     }
-    
+    /**
+     * Pelin päätyttyä lisätään yleisiin tilastoihin pelin pituus ja voittajan laatu
+     * @param pelinPituus
+     * @param voittajanLaatu 
+     */
     public void peliPelattu(double pelinPituus, Laatu voittajanLaatu) {
         lisaaPelattuPeli();
         if (voittajanLaatu.equals(Laatu.RISTI)) {
@@ -84,7 +116,14 @@ public class TilastoTunnusMuistio {
         this.pelienKeskimaarainenPituus = ((this.getPelienKeskimaarainenPituus() * (this.getPelienMaara() - 1) 
                 + pelinPituus) / this.getPelienMaara());
     }
-    
+    /**
+     * Pelin päätyttyä muokataan sekä yleisiä tilastoja, että myös tunnusparin ja tunnusten
+     * tilastoja
+     * @param pelinPituus
+     * @param voittajanLaatu
+     * @param voittaja
+     * @param tunnusPari 
+     */
     public void peliPelattu(double pelinPituus, Laatu voittajanLaatu, Tunnus voittaja, TunnusPari tunnusPari) {
         peliPelattu(pelinPituus, voittajanLaatu);
         tunnusPari.kerroKumpiVoitti(voittaja, voittajanLaatu, pelinPituus);

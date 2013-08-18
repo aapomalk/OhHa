@@ -13,7 +13,15 @@ import java.util.ArrayList;
  * @author Aapo
  */
 public class MerkkienJononLoytaja {
-    
+    /**
+     * Etsitään annetusta Merkkien listasta haluttuja jonoja
+     * @param merkit mistä etsitään merkkien jonoja
+     * @param jonoEteen merkkien jonon ensimmäinen puolikas
+     * @param jonoTaakse merkkien jonon toinen puolikas, katsottaessa taakse
+     * päin
+     * @return löydetyt merkit, joista suunnistettaessa eteen ja taakse, löydetään
+     * halutut jonot
+     */
     public ArrayList<Merkki> tarkasta(ArrayList<Merkki> merkit,
             ArrayList<Laatu> jonoEteen, ArrayList<Laatu> jonoTaakse) {
         ArrayList<Merkki> loydetyt = new ArrayList<Merkki>();
@@ -26,11 +34,25 @@ public class MerkkienJononLoytaja {
         
         return loydetyt;
     }
-    
+    /**
+     * Etsitään vain viimeisestä merkistä lähtien, yhteen suuntaan kerrallaan,
+     * ei jaettua jonoa
+     * @param merkit joista merkkien jonoa etsitään
+     * @param jono mitä jonoa etsitään
+     * @return true jos löytyi, false jos ei löytynyt
+     */
     public boolean tarkastaViimeinen(ArrayList<Merkki> merkit, ArrayList<Laatu> jono) {
         return katseleYmparille(merkit, merkit.get(merkit.size()-1), jono);
     }
-    
+    /**
+     * Tarkastetaan tietystä merkistä lähtien, eteen ja taakse suunnistaen samaan
+     * aikaan
+     * @param merkit joista merkkien jonoja etsitään
+     * @param merkki kyseisestä merkistä lähtien kahteen suuntaan kerrallaan
+     * @param jonoEteen jonon puolikas eteen, mitä etsitään
+     * @param jonoTaakse jonon puolikas taaksepäin, mitä etsitään samaan aikaan
+     * @return true jos molemmat jonot edestä ja takaa löytyivät, false jos ei
+     */
     public boolean tarkastaMerkki(ArrayList<Merkki> merkit, Merkki merkki,
             ArrayList<Laatu> jonoEteen, ArrayList<Laatu> jonoTaakse) {
         return katseleYmparille(merkit, merkki, jonoEteen, jonoTaakse);

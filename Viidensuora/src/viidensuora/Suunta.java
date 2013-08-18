@@ -28,11 +28,17 @@ public enum Suunta {
         this.yMuutos = yMuutos;
         
     }
-    
+    /**
+     * Kutsutaan siirryttäessä viereiseen koordinaattiin
+     * @return xMuutos Palauttaa suunnalle ominaisen x-koordinaatin muutoksen
+     */
     public int getXmuutos() {
         return this.xMuutos;
     }
-    
+    /**
+     * Kutsutaan siirryttäessä viereiseen koordinaattiin
+     * @return yMuutos Palauttaa suunnalle ominaisen y-koordinaatin muutoksen
+     */
     public int getYmuutos() {
         return this.yMuutos;
     }

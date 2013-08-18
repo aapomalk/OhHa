@@ -19,7 +19,10 @@ import viidensuora.RistiNollaMuistio;
 public class RuudukonHallitsija {
     private ArrayList<ArrayList<RuutuNappula>> ruudukko;
     
-    
+    /**
+     * Alustetaan ruudukko
+     * @param muistio käyttäjän syöttämä RistiNollaMuistio tallennetaan RuutuNappuloihin
+     */
     public RuudukonHallitsija(RistiNollaMuistio muistio) {
         this.ruudukko = new ArrayList<ArrayList<RuutuNappula>>();
         rakennaRuudukko(muistio);
@@ -34,7 +37,10 @@ public class RuudukonHallitsija {
             this.ruudukko.add(riviNappuloita);
         }
     }
-    
+    /**
+     * Päivitetään RuutuNappuloiden tekstit vastaamaan nykyistä pelitilannetta
+     * @param merkit käyttäjän syöttämä lista merkeistä
+     */
     public void paivitaRuudukonXjaOtilanteet(ArrayList<Merkki> merkit) {
         for (ArrayList<RuutuNappula> arrayList : ruudukko) {
             for (RuutuNappula ruutuNappula : arrayList) {
@@ -57,7 +63,10 @@ public class RuudukonHallitsija {
             }
         }
     }
-    
+    /**
+     * Siirretään ruudukkoa x-suunnassa
+     * @param dx käyttäjän syöttämä x-suuntaisen muutoksen suuruus
+     */
     public void siirraRuudukkoaXsuunnassa(int dx) {
         for (ArrayList<RuutuNappula> arrayList : ruudukko) {
             for (RuutuNappula ruutuNappula : arrayList) {
@@ -65,7 +74,10 @@ public class RuudukonHallitsija {
             }
         }
     }
-    
+    /**
+     * Siirretään ruudukkoa y-suunnassa
+     * @param dy käyttäjän syöttämä y-suuntaisen muutoksen suuruus
+     */
     public void siirraRuudukkoaYsuunnassa(int dy) {
         for (ArrayList<RuutuNappula> arrayList : ruudukko) {
             for (RuutuNappula ruutuNappula : arrayList) {
@@ -73,7 +85,11 @@ public class RuudukonHallitsija {
             }
         }
     }
-    
+    /**
+     * Luodaan RuutuNappuloiden JButtoneista uusi JPanel, joka palautetaan käyttäjälle
+     * GraafistaKäyttöliittymää ajatellen
+     * @return ruudut nappuloina
+     */
     public JPanel palautaRuudukkoJPanelina() {
         JPanel ruudut = new JPanel(new GridLayout(1, 15));
         for (int i = 0; i < ruudukko.size(); i++) {

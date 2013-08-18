@@ -19,7 +19,10 @@ public enum TunnusTilastoKategoriat {
     private TunnusTilastoKategoriat(boolean trueTunnusFalsePari) {
         this.trueTunnusFalsePari = trueTunnusFalsePari;
     }
-    
+    /**
+     * 
+     * @return true jos kyseessä tunnus, false jos tunnuspari
+     */
     public boolean getTrueTunnusFalsePari() {
         return this.trueTunnusFalsePari;
     }

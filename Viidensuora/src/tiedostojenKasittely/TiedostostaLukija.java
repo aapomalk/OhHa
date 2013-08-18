@@ -16,7 +16,12 @@ import java.util.Scanner;
  * @author Aapo
  */
 public class TiedostostaLukija {
-
+    /**
+     * @see TiedostostaLukija
+     * @param tiedostonNimi käyttäjän syöttämä tiedostonnimi, jonka tulisi löytyä tietystä kansiosta
+     * @param kasittelija käyttäjän syöttämä virheidenkäsittelijä
+     * @return lista tiedoston tekstiriveistä
+     */
     public ArrayList<String> lueTiedosto(String tiedostonNimi, VirheidenKasittelija kasittelija) {
         ArrayList<String> palautettava = new ArrayList<String>();
         try {

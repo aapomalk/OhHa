@@ -18,7 +18,10 @@ public class TilastoNappulanKuuntelija implements ActionListener {
     public TilastoNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;
     }
-    
+    /**
+     * käsketään käyttöliittymää menemään tilastonäkymään
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         liittyma.meneTilastoNakymaan();

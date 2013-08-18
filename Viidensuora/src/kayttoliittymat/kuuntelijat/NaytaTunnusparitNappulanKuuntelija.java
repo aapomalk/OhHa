@@ -18,7 +18,10 @@ public class NaytaTunnusparitNappulanKuuntelija implements ActionListener {
     public NaytaTunnusparitNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;
     }
-    
+    /**
+     * käsketään käyttöliittymää menemään tunnusparien tilastoihin
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         liittyma.meneTunnuspariTilastoihin();

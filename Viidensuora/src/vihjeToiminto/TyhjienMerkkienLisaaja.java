@@ -16,7 +16,10 @@ import viidensuora.Suunta;
  * @author aapomalk
  */
 public class TyhjienMerkkienLisaaja {
-    
+    /**
+     * Lisää käyttäjän antamaan listaan tyhjiä merkkejä valmiiden merkkien viereen
+     * @param merkit käyttäjän antama lista, johon lisätään tyhjiä merkkejä
+     */
     public void lisaaTyhjatMerkit(ArrayList<Merkki> merkit) {
         for (int i = merkit.size()-1; i >= 0; i--) {
             lisaaTyhjaViereiseen(merkit, merkit.get(i));

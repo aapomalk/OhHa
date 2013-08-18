@@ -12,7 +12,12 @@ import tilastotJaTunnukset.*;
  * @author Aapo
  */
 public class TunnusParitTunnus2RistienMukaanJarjestykseen implements Comparator<TunnusPari> {
-
+    /**
+     * Vertaillaan tunnusparien toisten tunnusten ristipelien määrää
+     * @param t
+     * @param t1
+     * @return 
+     */
     @Override
     public int compare(TunnusPari t, TunnusPari t1) {
         return t.getTunnus2nRistiPelit() - t1.getTunnus2nRistiPelit();

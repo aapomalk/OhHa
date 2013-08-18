@@ -12,7 +12,12 @@ import tilastotJaTunnukset.*;
  * @author Aapo
  */
 public class TunnusParitPelipituudenMukaanJarjestykseen implements Comparator<TunnusPari> {
-
+    /**
+     * Vertaillaan tunnuspareja pelien keskimääräisen pituuden mukaan
+     * @param t
+     * @param t1
+     * @return 
+     */
     @Override
     public int compare(TunnusPari t, TunnusPari t1) {
         return (int) ((t.getPelienKeskimaarainenPituus() - t1.getPelienKeskimaarainenPituus())*10);

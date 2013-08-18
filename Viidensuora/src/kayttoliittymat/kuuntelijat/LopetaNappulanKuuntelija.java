@@ -13,7 +13,10 @@ import javax.swing.JOptionPane;
  * @author aapomalk
  */
 public class LopetaNappulanKuuntelija implements ActionListener {
-    
+    /**
+     * kysytään käyttäjältä, haluaako tämä varmasti lopettaa, jos kyllä: suljetaan ohjelma
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (JOptionPane.showConfirmDialog(null, "Haluatko varmasti lopettaa?") == 0) {

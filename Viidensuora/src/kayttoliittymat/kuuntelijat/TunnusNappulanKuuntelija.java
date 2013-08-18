@@ -19,7 +19,10 @@ public class TunnusNappulanKuuntelija implements ActionListener {
     public TunnusNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;
     }
-    
+    /**
+     * kysytään käyttäjältä tunnuksen nimeä ja käsketään käyttöliittymän luoda uusi tunnus
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         String tunnus = JOptionPane.showInputDialog(liittyma.getFrame(),

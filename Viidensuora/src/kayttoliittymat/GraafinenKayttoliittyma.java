@@ -30,11 +30,16 @@ import tilastotJaTunnukset.TunnusPari;
 public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable {
 
     private JFrame frame;
-
+    /**
+     * alustetaan yliluokka virheidenkäsittelijällä(graafinen)
+     */
     public GraafinenKayttoliittyma() {
         super(new VirheidenKasittelijaGraafinen());
     }
-
+    /**
+     * rajapinnan Runnable vaatima metodi, jolla käynnistetään käyttöliittymä
+     * @see Runnable
+     */
     @Override
     public void run() {
         frame = new JFrame("Viidensuora");
@@ -47,7 +52,11 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         frame.pack();
         frame.setVisible(true);
     }
-
+    /**
+     * luodaan tunnus, mikäli tekstin pituus on 3-20 merkkiä ja ilman välilyöntejä,
+     * lisäksi tunnus ei saa olla jo olemassa, eli ei samannimisiä tunnuksia
+     * @param tunnus käyttäjän syöttämä ehdotus uudeksi tunnukseksi
+     */
     public void luoTunnus(String tunnus) {
         if (tunnus == null || tunnus.length() > 20 || tunnus.length() < 3 || tunnus.contains(" ")) {
             JOptionPane.showMessageDialog(frame, "Tunnuksen pituus taytyy olla 3-20 merkkia ilman valia");
@@ -60,26 +69,38 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
             JOptionPane.showMessageDialog(frame, "Kirjoittamasi tunnus oli jo olemassa,\nlisaaminen epaonnistui");
         }
     }
-
+    /**
+     * palataan takaisin alkuvalikkoon
+     */
     public void palaaValikkoon() {
         frame.getContentPane().removeAll();
         luoKomponentitValikko(frame.getContentPane());
         frame.pack();
     }
-
+    /**
+     * mennään tilastojen alkunäkymään
+     */
     public void meneTilastoNakymaan() {
         frame.getContentPane().removeAll();
         luoKomponentitTilasto(frame.getContentPane());
         frame.pack();
     }
-
+    /**
+     * mennään tilastoissa tunnusosioon
+     */
     public void meneTunnusTilastoihin() {
         frame.getContentPane().removeAll();
         frame.repaint();
         luoKomponentitTunnusTilasto(frame.getContentPane(), 0);
         frame.pack();
     }
-
+    /**
+     * luodaan tunnustilastojen komponentit, jos lähtöindeksi on tasan nolla,
+     * luodaan myös nappulat (joita ei haluta luoda uudestaan), jos lähtöindeksi
+     * ei ole nolla, poistetaan vanhat tilastotulostukset uusien tieltä
+     * @param container käyttäjän syöttämä Container
+     * @param lahtoIndeksi käyttäjän syöttämä lähtöindeksi, jolla on suuri merkitys
+     */
     public void luoKomponentitTunnusTilasto(Container container, int lahtoIndeksi) {
         if (lahtoIndeksi != 0 && container.getComponentCount() >= 0) {
             container.remove(container.getComponentCount() - 1);
@@ -215,7 +236,9 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
 
         return nappulat;
     }
-
+    /**
+     * mennään tilastoissa tunnuspari osioon
+     */
     public void meneTunnuspariTilastoihin() {
         frame.getContentPane().removeAll();
         frame.repaint();
@@ -269,7 +292,14 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
 
         return nappulat;
     }
-
+    /**
+     * Tulostetaan tunnusparitilastot, jos lähtöindeksi ei ole nolla, poistetaan
+     * vanhat tulostukset uusien tieltä. Nappulat luotiin aikaisemmin, joten
+     * niiden uudelleenluomisen vaaraa ei ole
+     * @param lahtoIndeksi käyttäjän syöttämä lähtöindeksi, edelleen tärkeä merkitys
+     * onko tasan nolla vai jotain muuta, myös negatiivinen on hyväksyttävä
+     * @param container käyttäjän syöttämä Container
+     */
     public void tulostaTunnuspariTilastoja(int lahtoIndeksi, Container container) {
         if (lahtoIndeksi != 0 && container.getComponentCount() >= 0) {
             container.remove(container.getComponentCount() - 1);

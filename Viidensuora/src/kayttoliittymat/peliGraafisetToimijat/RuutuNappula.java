@@ -21,7 +21,13 @@ public class RuutuNappula {
     private Laatu seuraavaLaatu;
     private RistiNollaMuistio muistio;
     private JButton nappula;
-    
+    /**
+     * Konstruktori, alustetaan oliomuuttujat
+     * @param x käyttäjän syöttämä alkuperäinen x-koordinaatti
+     * @param y käyttäjän syöttämä alkuperäinen y-koordinaatti
+     * @param muistio RistiNollaMuistio, johon nappula yrittää listä merkkiä
+     * sitä paintettaessa
+     */
     public RuutuNappula(int x, int y, RistiNollaMuistio muistio) {
         this.x = x;
         this.y = y;
@@ -30,15 +36,23 @@ public class RuutuNappula {
         this.nappula = new JButton();
         this.nappula.addActionListener(new RuutuNappulanKuuntelija(this));
     }
-    
+    /**
+     * muutetaan x-koordinaattia käyttäjän syötteen mukaisesti
+     * @param dx käyttäjän syöttämä x-koordinaatin muutos
+     */
     public void siirraXsuunnassa(int dx) {
         this.x += dx;
     }
-    
+    /**
+     * muutetaan y-koordinaattia käyttäjän syötteen mukaisesti
+     * @param dy käyttäjän syöttämä y-koordinaatin muutos
+     */
     public void siirraYsuunnassa(int dy) {
         this.y += dy;
     }
-    
+    /**
+     * Vuoro on juuri päättynyt, seuraavaksi yritetään syöttää muistiolle toisentyyppistä merkkiä
+     */
     public void vaihdaSeuraavanLaatua() {
         if (seuraavaLaatu.equals(Laatu.RISTI)) {
             seuraavaLaatu = Laatu.NOLLA;
@@ -46,7 +60,10 @@ public class RuutuNappula {
             seuraavaLaatu = Laatu.RISTI;
         }
     }
-    
+    /**
+     * Muutetaan nappulan päällä lukevaa kirjoitusta
+     * @param kirjoitus käyttäjän syöttämä kirjoitus
+     */
     public void muutaKirjoitus(String kirjoitus) {
         this.nappula = new JButton(kirjoitus);
         this.nappula.addActionListener(new RuutuNappulanKuuntelija(this));

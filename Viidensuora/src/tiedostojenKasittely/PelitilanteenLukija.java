@@ -14,7 +14,12 @@ import viidensuora.RistiNollaMuistio;
  * @author Aapo
  */
 public class PelitilanteenLukija {
-    
+    /**
+     * @see PelitilanteenLukija
+     * @param tiedostonNimi käyttäjän syöttämä tiedoston nimi, josta tiedot pitäisi löytyä
+     * @param kasittelija käyttäjän syöttämä virheidenkäsittelijä
+     * @param muistio käyttäjän syöttämä RistiNollaMuistio, jonka sisältö korvataan tiedostosta löytyvällä
+     */
     public void lataaPelitilanne(String tiedostonNimi, VirheidenKasittelija kasittelija, RistiNollaMuistio muistio) {
         tyhjennaMuistio(muistio);
         lueTiedosto(muistio, kasittelija, tiedostonNimi);

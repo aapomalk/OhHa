@@ -14,11 +14,17 @@ import kayttoliittymat.GraafinenKayttoliittyma;
  */
 public class ValikkoonNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
-    
+    /**
+     * 
+     * @param liittyma tallennetaan viite kuuntelijaan
+     */
     public ValikkoonNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;
     }
-    
+    /**
+     * nappulaa painettaessa käsketään käyttöliittymää palaamaan valikkoon
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         liittyma.palaaValikkoon();

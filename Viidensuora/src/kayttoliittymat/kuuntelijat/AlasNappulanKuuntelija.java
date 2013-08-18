@@ -21,14 +21,25 @@ public class AlasNappulanKuuntelija implements ActionListener {
     private Integer lahtoIndeksi;
     private YlosNappulanKuuntelija ylos;
     private boolean trueTunnuksilleFalsePareille;
-
+    /**
+     * tallennetaan käyttöliittymän viite, sekä tilastojen lähtöindeksi, 
+     * vastaava ylösnappulan viite ja kummista tilastoista on kyse
+     * @param liittyma käyttäjän syöttämä graafisen käyttöliittymän viite
+     * @param lahtoIndeksi käyttäjän syöttämä lähtöindeksi
+     * @param ylos käyttäjän syöttämä vastaaava ylösnappulan kuuntelija
+     * @param trueTunnuksilleFalsePareille käyttäjä syöttää true tai false, 
+     * riippuen kummista tilastoista on kyse
+     */
     public AlasNappulanKuuntelija(GraafinenKayttoliittyma liittyma, Integer lahtoIndeksi, YlosNappulanKuuntelija ylos, boolean trueTunnuksilleFalsePareille) {
         this.liittyma = liittyma;
         this.lahtoIndeksi = lahtoIndeksi;
         this.ylos = ylos;
         this.trueTunnuksilleFalsePareille = trueTunnuksilleFalsePareille;
     }
-
+    /**
+     * siirrytään viisi pykälää "alas" tilastoissa, mikäli nykyinen lähtöindeksi on yli nolla
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         lahtoIndeksi = ylos.getLahtoIndeksi();

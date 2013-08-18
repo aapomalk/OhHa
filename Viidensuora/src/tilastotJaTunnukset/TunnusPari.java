@@ -22,11 +22,26 @@ public class TunnusPari implements Comparable {
     private int tunnus2nRistiPelit;
     private double pelienKeskimaarainenPituus;
     private int tallennustenLukumaara;
-
+    /**
+     * Luodaan uusi tunnuspari syöttämällä kaikkiin tilastoihin arvo 0
+     * @param tunnus1
+     * @param tunnus2 
+     */
     public TunnusPari(Tunnus tunnus1, Tunnus tunnus2) {
         this(tunnus1, tunnus2, 0, 0, 0, 0, 0, 0.0, 0);
     }
-
+    /**
+     * Luodaan uusi tunnuspari tiedostosta luettujen arvojen perusteella
+     * @param tunnus1
+     * @param tunnus2
+     * @param pelatutPelit
+     * @param tunnus1nVoitot
+     * @param tunnus1nRistiPelit
+     * @param tunnus2nVoitot
+     * @param tunnus2nRistiPelit
+     * @param pelienKeskimaarainenPituus
+     * @param tallennustenLukumaara 
+     */
     public TunnusPari(Tunnus tunnus1, Tunnus tunnus2, int pelatutPelit, int tunnus1nVoitot,
             int tunnus1nRistiPelit, int tunnus2nVoitot, int tunnus2nRistiPelit,
             double pelienKeskimaarainenPituus, int tallennustenLukumaara) {
@@ -152,7 +167,11 @@ public class TunnusPari implements Comparable {
     public int getTallennustenLukumaara() {
         return tallennustenLukumaara;
     }
-
+    /**
+     * Tunnusparien luonnollinen vertailujärjestys on ensimmäisten tunnusten nimet
+     * @param t käyttäjän antama syöte, jota verrataan kyseiseen tunnuspariin
+     * @return 
+     */
     @Override
     public int compareTo(Object t) {
         if (t.getClass() != TunnusPari.class) {

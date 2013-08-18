@@ -35,7 +35,11 @@ public class Kayttoliittyma {
     protected VirheidenKasittelija kasittelija;
     protected TilastoTunnusMuistio tilastot;
     protected boolean jatketaan;
-
+    /**
+     * alustetaan molempien käyttöliittymien tarvittavat oliomuuttujat ja otetaan
+     * talteen käyttäjän syöttämä virheidenkäsittelijä
+     * @param kasittelija käyttäjän syöttämä virheidenkäsittelijä, joko graafinen tai teksti
+     */
     public Kayttoliittyma(VirheidenKasittelija kasittelija) {
         loytaja = new MerkkienJononLoytaja();
         jatketaan = true;

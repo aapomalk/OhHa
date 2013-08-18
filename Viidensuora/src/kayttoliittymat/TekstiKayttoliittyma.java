@@ -15,7 +15,10 @@ import viidensuora.*;
  */
 public class TekstiKayttoliittyma extends Kayttoliittyma {
     private Scanner lukija;
-
+    /**
+     * Luodaan tekstikäyttöliittymä, asetetaan yliluokkaan tekstityyppinen
+     * virheidenkäsittelijä ja tulostetaan heti alkuun tilastot
+     */
     public TekstiKayttoliittyma() {
         super(new VirheidenKasittelijaTeksti());
         lukija = new Scanner(System.in);
@@ -29,7 +32,9 @@ public class TekstiKayttoliittyma extends Kayttoliittyma {
         System.out.println("Nollien voitot: " + tilastot.getNollienVoitot());
         System.out.println("Pelien tallennusten maara: " + tilastot.getPelienTallennustenMaara());
     }
-
+    /**
+     * käynnistetään tekstikäyttöliittymä, jonka jälkeen peliä hallitsee käyttäjän syötteet
+     */
     public void kaynnista() {
         while (true) {
             kysyKoordinaatteja();

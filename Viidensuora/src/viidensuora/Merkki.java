@@ -15,7 +15,12 @@ public class Merkki {
     private int x;
     private int y;
     private Laatu laatu;
-    
+    /**
+     * Luotaessa uusi merkki, tälle asetetaan pysyvästi koordinaatit ja tyyppi
+     * @param x käyttäjän antama x-koordinaatti, joka asetetaan pysyvästi
+     * @param y käyttäjän antama y-koordinaatti, joka asetetaan pysyvästi
+     * @param laatu käyttäjän antama laatu, jota ei voi enää vaihtaa
+     */
     public Merkki(int x, int y, viidensuora.Laatu laatu) {
         this.x = x;
         this.y = y;
@@ -33,7 +38,9 @@ public class Merkki {
     public Laatu getLaatu() {
         return this.laatu;
     }
-    
+    /**
+     * @return palautetaan merkkijono muotoa "laatu x y"
+     */
     @Override
     public String toString() {
         return this.laatu + " " + this.x + " " +  this.y;

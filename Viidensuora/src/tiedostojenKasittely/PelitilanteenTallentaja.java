@@ -13,7 +13,12 @@ import viidensuora.Merkki;
  * @author Aapo
  */
 public class PelitilanteenTallentaja {
-    
+    /**
+     * @see PelitilanteenTallentaja
+     * @param merkit käyttäjän syöttämät merkit, jotka tullaan tallentamaan tiedostoon
+     * @param tiedosto käyttäjän syöttämä tiedoston nimi, johon aiotaan tallentaa
+     * @param kasittelija käyttäjän syöttämä virheidenkäsittelijä
+     */
     public void tallennaPelitilanne(ArrayList<Merkki> merkit, String tiedosto, VirheidenKasittelija kasittelija) {
         if (merkit.isEmpty()) {
             return;

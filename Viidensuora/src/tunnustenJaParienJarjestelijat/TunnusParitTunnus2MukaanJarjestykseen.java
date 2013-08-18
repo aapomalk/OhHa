@@ -12,7 +12,12 @@ import tilastotJaTunnukset.*;
  * @author Aapo
  */
 public class TunnusParitTunnus2MukaanJarjestykseen implements Comparator<TunnusPari> {
-
+    /**
+     * Vertaillaan tunnusparien toisten tunnusten nimiä
+     * @param t
+     * @param t1
+     * @return 
+     */
     @Override
     public int compare(TunnusPari t, TunnusPari t1) {
         return t.getTunnus2().getTunnus().compareToIgnoreCase(t1.getTunnus2().getTunnus());

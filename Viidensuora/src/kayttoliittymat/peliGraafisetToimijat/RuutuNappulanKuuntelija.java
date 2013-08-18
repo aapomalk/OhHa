@@ -14,11 +14,18 @@ import java.awt.event.ActionListener;
  */
 public class RuutuNappulanKuuntelija implements ActionListener {
     private RuutuNappula ruutu;
-    
+    /**
+     * Konstruktorissa asetetaan kuuntelijan sitältämään RuutuNappulaan käyttäjän syöte
+     * @param ruutu käyttäjän syöttämä RuutuNappula, joka tallennetaan kuuntelijan sisään
+     */
     public RuutuNappulanKuuntelija(RuutuNappula ruutu) {
         this.ruutu = ruutu;
     }
-    
+    /**
+     * Kuuntelija saa signaalin, kun nappulaa, jonka sisällä se on painetaan
+     * @param ae nappulan syöttämä tapahtumakoodi, jota ei käsitellä, koska
+     * tapahtumia on käytännössä vain yksi
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         this.ruutu.nappulaaPainettu();

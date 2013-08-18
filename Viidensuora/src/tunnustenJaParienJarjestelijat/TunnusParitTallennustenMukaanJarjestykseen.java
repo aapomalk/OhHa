@@ -12,7 +12,12 @@ import tilastotJaTunnukset.*;
  * @author Aapo
  */
 public class TunnusParitTallennustenMukaanJarjestykseen implements Comparator<TunnusPari> {
-
+    /**
+     * Vertaillaan tunnuspareja niiden tekemien tallennusten mukaan
+     * @param t
+     * @param t1
+     * @return 
+     */
     @Override
     public int compare(TunnusPari t, TunnusPari t1) {
         return t.getTallennustenLukumaara() - t1.getTallennustenLukumaara();

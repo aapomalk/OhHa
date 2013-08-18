@@ -15,7 +15,12 @@ import tilastotJaTunnukset.*;
  * @author Aapo
  */
 public class TilastojenJaTunnustenTallentaja {
-    
+    /**
+     * @see TilastojenJaTunnustenTallentaja
+     * @param muistio käyttäjän antamat tilastot, jotka tullaan tallentamaan tiedostoihin
+     * @param tiedosto käyttäjän syöttämä tiedostonnimi, johon tilastot tallennetaan
+     * @param kasittelija käyttäjän syöttämä virheidenkäsittelijä
+     */
     public void tallennaTiedostoon(TilastoTunnusMuistio muistio, String tiedosto, VirheidenKasittelija kasittelija) {
         TiedostoonKirjoittaja kirjoittaja = new TiedostoonKirjoittaja();
         ArrayList<String> muistioTekstina = new ArrayList<String>();

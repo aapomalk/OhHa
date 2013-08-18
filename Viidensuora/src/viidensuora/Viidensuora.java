@@ -12,6 +12,7 @@ import kayttoliittymat.*;
 public class Viidensuora {
 
     /**
+     * Käynnistää käyttöliittymän, valinta kirjoitetaan koodiin
      * @param args the command line arguments
      */
     public static void main(String[] args) {

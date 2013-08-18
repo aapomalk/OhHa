@@ -14,12 +14,19 @@ import java.util.ArrayList;
 public class RistiNollaMuistio {
     private ArrayList<Merkki> merkit;
     private boolean edellinenMerkkiRisti;
-    
+    /**
+     * Konstruktori luo ArrayListin merkit ja asettaa edellinenMerkkiRisti
+     * muuttujaan arvon false
+     */
     public RistiNollaMuistio() {
         this.merkit = new ArrayList<Merkki>();
         this.edellinenMerkkiRisti = false;
     }
-    
+    /**
+     * Lisää ristin muistioon, mikäli on ristin vuoro, ja ruutu ei ole varattu
+     * @param x syötettävän merkin x-koordinaatti
+     * @param y syötettävän merkin y-koordinaatti
+     */
     public void lisaaRisti(int x, int y) {
         if (!edellinenMerkkiRisti && !onkoRuutuVarattu(x, y)) {
             merkit.add(new Merkki(x, y, Laatu.RISTI));
@@ -35,18 +42,29 @@ public class RistiNollaMuistio {
         }
         return false;
     }
-    
+    /**
+     * Lisää nollan muistioon, mikäli on nollan vuoro, ja ruutu ei ole varattu
+     * @param x syötettävän merkin x-koordinaatti
+     * @param y syötettävän merkin y-koordinaatti
+     */
     public void lisaaNolla(int x, int y) {
         if (edellinenMerkkiRisti && !onkoRuutuVarattu(x, y)) {
             merkit.add(new Merkki(x, y, Laatu.NOLLA));
             edellinenMerkkiRisti = false;
         }
     }
-    
+    /**
+     * Laskee ristien määrän private metodilla merkkienMaara(Laatu laatu)
+     * @return ristienMaara, joka on laskettu metodilla merkkienMaara
+     */
     public int ristienMaara() {
         return merkkienMaara(Laatu.RISTI);
     }
-    
+    /**
+     * Laskee kyseisen laatuisten merkkien määrän
+     * @param laatu tämäntyyppistä merkkiä etsitään
+     * @return merkkien määrä
+     */
     private int merkkienMaara(Laatu laatu) {
         int maara = 0;
         
@@ -58,11 +76,18 @@ public class RistiNollaMuistio {
         
         return maara;
     }
-    
+    /**
+     * Laskee nollien määrän private metodilla merkkienMaara(Laatu laatu)
+     * @return nollienMaara, joka on laskettu metodilla merkkienMaara
+     */
     public int nollienMaara() {
         return merkkienMaara(Laatu.NOLLA);
     }
-    
+    /**
+     * Kopioi merkit uuteen ArrayList -listaan ja palauttaa sen, jolloin
+     * muistion listaa ei voi sabotoida
+     * @return merkit -listan kopio
+     */
     public ArrayList<Merkki> getMerkit() {
         ArrayList<Merkki> merkitKopio = new ArrayList<Merkki>();
         merkitKopio.addAll(merkit);
@@ -72,7 +97,9 @@ public class RistiNollaMuistio {
     public boolean getEdellinenMerkkiRisti() {
         return this.edellinenMerkkiRisti;
     }
-    
+    /**
+     * Ainut tapa muokata merkit -listan sisältöä, on perua viimeinen siirto
+     */
     public void peruSiirto() {
         if (!this.merkit.isEmpty()) {
             this.merkit.remove(this.merkit.size()-1);

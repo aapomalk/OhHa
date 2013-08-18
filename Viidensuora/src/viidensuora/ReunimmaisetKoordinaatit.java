@@ -17,7 +17,9 @@ public class ReunimmaisetKoordinaatit {
     private int suurinX;
     private int pieninY;
     private int suurinY;
-
+    /**
+     * Asettaa reunamuuttujiin arvon nolla
+     */
     public ReunimmaisetKoordinaatit() {
         tyhjaLista();
     }
@@ -28,7 +30,11 @@ public class ReunimmaisetKoordinaatit {
         pieninY = 0;
         suurinY = 0;
     }
-
+    /**
+     * Asetetaan reunamuuttujiin pienimmät ja suurimmat koordinaatit, mitä listan
+     * merkeistä löydetään
+     * @param merkit käyttäjän antama lista
+     */
     public void etsiKoordinaatit(ArrayList<Merkki> merkit) {
         if (merkit.isEmpty()) {
             tyhjaLista();

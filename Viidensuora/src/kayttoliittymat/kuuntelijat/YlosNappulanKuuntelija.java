@@ -21,14 +21,23 @@ public class YlosNappulanKuuntelija implements ActionListener {
     private Integer lahtoIndeksi;
     private int maksIndeksi;
     private boolean trueTunnuksilleFalsePareille;
-
+    /**
+     * Alustetaan kuuntelijan oliomuuttujat
+     * @param liittyma käytettävä käyttöliittymä (graafinen)
+     * @param lahtoIndeksi mistä indeksistä lähdetään tulostamaan tilastoja (tunnus tai tunnuspari)
+     * @param maksIndeksi mikä on kyseisten tilastojen maksimi-indeksi
+     * @param trueTunnuksilleFalsePareille kummista tilastoista on kyse
+     */
     public YlosNappulanKuuntelija(GraafinenKayttoliittyma liittyma, Integer lahtoIndeksi, int maksIndeksi, boolean trueTunnuksilleFalsePareille) {
         this.liittyma = liittyma;
         this.lahtoIndeksi = lahtoIndeksi;
         this.maksIndeksi = maksIndeksi;
         this.trueTunnuksilleFalsePareille = trueTunnuksilleFalsePareille;
     }
-
+    /**
+     * nappia painettaessa muokataan lähtöindeksiä ja tulostetaan tilastot uudestaan
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (lahtoIndeksi < (maksIndeksi - 35)) {
@@ -42,11 +51,11 @@ public class YlosNappulanKuuntelija implements ActionListener {
         }
     }
     
-    public int getLahtoIndeksi() {
+    int getLahtoIndeksi() {
         return this.lahtoIndeksi;
     }
     
-    public void setLahtoIndeksi(int indeksi) {
+    void setLahtoIndeksi(int indeksi) {
         this.lahtoIndeksi = indeksi;
     }
 }

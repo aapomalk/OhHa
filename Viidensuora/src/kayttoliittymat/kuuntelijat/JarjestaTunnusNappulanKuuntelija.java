@@ -20,18 +20,29 @@ public class JarjestaTunnusNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
     private boolean kumpiOliViimeksi;
     private TunnusTilastoKategoriat kategoria;
-
+    /**
+     * tallennetaan käyttöliittymän viite kuuntelijaan ja asetetaan kategoriaksi tunnus
+     * @param liittyma 
+     */
     public JarjestaTunnusNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;
         kumpiOliViimeksi = false;
         kategoria = TunnusTilastoKategoriat.TUNNUS;
     }
-
+    /**
+     * tallennetaan kättöliittymän viite ja asetetaan kategoriaksi käyttäjän syöte
+     * @param liittyma käyttäjän syöttämä graafinen käyttöliittymä
+     * @param kategoria käyttäjän syöttämä kategoria
+     */
     public JarjestaTunnusNappulanKuuntelija(GraafinenKayttoliittyma liittyma, TunnusTilastoKategoriat kategoria) {
         this(liittyma);
         this.kategoria = kategoria;
     }
-
+    /**
+     * Järjestetään kategorian mukaiset tilastot kategorian mukaiseen järjestykseen
+     * ja käsketään käyttöliittymää päivittämään tilastot näkymä
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (kumpiOliViimeksi) {

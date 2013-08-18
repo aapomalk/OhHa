@@ -16,7 +16,12 @@ import tilastotJaTunnukset.*;
  * @author Aapo
  */
 public class TilastojenLukija {
-
+    /**
+     * @see TilastojenLukija
+     * @param tiedostoNimi käyttäjän syöttämä tiedoston nimi
+     * @param kasittelija käyttäjän syöttämä virheidenkäsittelijä
+     * @return palautetaan joko tyhjä tai täytetty TilastoTunnusMuistio
+     */
     public TilastoTunnusMuistio lataaTilastot(String tiedostoNimi, VirheidenKasittelija kasittelija) {
         TiedostostaLukija lukija = new TiedostostaLukija();
         
