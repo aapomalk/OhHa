@@ -2,28 +2,28 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package kayttoliittymat.kuuntelijat;
+package kayttoliittymat.kuuntelijat.tilastot;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import kayttoliittymat.GraafinenKayttoliittyma;
 
 /**
- * Vai että tunnusparien tilastoja pitäisi nähdä?
+ * Ja nyt sitten tunnusten tilastoja, vai?
  * @author aapomalk
  */
-public class NaytaTunnusparitNappulanKuuntelija implements ActionListener {
+public class NaytaTunnuksetNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
     
-    public NaytaTunnusparitNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
+    public NaytaTunnuksetNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;
     }
     /**
-     * käsketään käyttöliittymää menemään tunnusparien tilastoihin
+     * käsketään käyttöliittymää menemään tunnusten tilastoihin
      * @param e 
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        liittyma.meneTunnuspariTilastoihin();
+        liittyma.meneTunnusTilastoihin();
     }
 }

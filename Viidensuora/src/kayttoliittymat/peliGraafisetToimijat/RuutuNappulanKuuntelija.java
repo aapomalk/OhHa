@@ -14,12 +14,14 @@ import java.awt.event.ActionListener;
  */
 public class RuutuNappulanKuuntelija implements ActionListener {
     private RuutuNappula ruutu;
+    private PeliHallitsija hallitsija;
     /**
      * Konstruktorissa asetetaan kuuntelijan sitältämään RuutuNappulaan käyttäjän syöte
      * @param ruutu käyttäjän syöttämä RuutuNappula, joka tallennetaan kuuntelijan sisään
      */
-    public RuutuNappulanKuuntelija(RuutuNappula ruutu) {
+    public RuutuNappulanKuuntelija(RuutuNappula ruutu, PeliHallitsija hallitsija) {
         this.ruutu = ruutu;
+        this.hallitsija = hallitsija;
     }
     /**
      * Kuuntelija saa signaalin, kun nappulaa, jonka sisällä se on painetaan
@@ -29,6 +31,7 @@ public class RuutuNappulanKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         this.ruutu.nappulaaPainettu();
+        this.hallitsija.paivitaPelikentta();
     }
     
 }

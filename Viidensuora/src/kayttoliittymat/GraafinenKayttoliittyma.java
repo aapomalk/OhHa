@@ -4,6 +4,17 @@
  */
 package kayttoliittymat;
 
+import kayttoliittymat.kuuntelijat.tilastot.ValikkoonNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.tilastot.JarjestaTunnusNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.tilastot.NaytaTunnuksetNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.tilastot.TunnusTilastoKategoriat;
+import kayttoliittymat.kuuntelijat.tilastot.NaytaTunnusparitNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.tilastot.YlosNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.tilastot.AlasNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.valikko.TunnusNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.valikko.TilastoNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.valikko.LopetaNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.valikko.PikapeliNappulanKuuntelija;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -16,7 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
-import kayttoliittymat.kuuntelijat.*;
+import kayttoliittymat.peliGraafisetToimijat.PeliHallitsija;
 import tiedostojenKasittely.VirheidenKasittelijaGraafinen;
 import tilastotJaTunnukset.Tunnus;
 import tilastotJaTunnukset.TunnusPari;
@@ -245,6 +256,15 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         luoKomponentitTunnuspariTilasto(frame.getContentPane());
         frame.pack();
     }
+    
+    public void menePikapeliin() {
+        frame.getContentPane().removeAll();
+        frame.repaint();
+        PeliHallitsija hallitsija = new PeliHallitsija(super.muistio, this.frame);
+        frame.getContentPane().setLayout(new BorderLayout());
+        frame.getContentPane().add(hallitsija.kaynistaPeli());
+        frame.pack();
+    }
 
     private void luoKomponentitTunnuspariTilasto(Container container) {
 
@@ -412,7 +432,8 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         JButton tilastotNappula = new JButton("tilastot");
         JButton luoTunnus = new JButton("luo tunnus");
         JButton lopeta = new JButton("lopeta");
-
+        
+        pikapeli.addActionListener(new PikapeliNappulanKuuntelija(this));
         TilastoNappulanKuuntelija tilastoKuuntelija = new TilastoNappulanKuuntelija(this);
         tilastotNappula.addActionListener(tilastoKuuntelija);
         luoTunnus.addActionListener(new TunnusNappulanKuuntelija(this));

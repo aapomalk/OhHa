@@ -27,16 +27,16 @@ public class RuudukonHallitsija {
      * @param muistio käyttäjän syöttämä RistiNollaMuistio tallennetaan
      * RuutuNappuloihin
      */
-    public RuudukonHallitsija(RistiNollaMuistio muistio) {
+    public RuudukonHallitsija(RistiNollaMuistio muistio, PeliHallitsija pelihallitsija) {
         this.ruudukko = new ArrayList<ArrayList<RuutuNappula>>();
-        rakennaRuudukko(muistio);
+        rakennaRuudukko(muistio, pelihallitsija);
     }
 
-    private void rakennaRuudukko(RistiNollaMuistio muistio) {
+    private void rakennaRuudukko(RistiNollaMuistio muistio, PeliHallitsija pelihallitsija) {
         for (int y = 0; y < 15; y++) {
             ArrayList<RuutuNappula> riviNappuloita = new ArrayList<RuutuNappula>();
             for (int x = 0; x < 15; x++) {
-                riviNappuloita.add(new RuutuNappula(x, y, muistio, this));
+                riviNappuloita.add(new RuutuNappula(x, y, muistio, this, pelihallitsija));
             }
             this.ruudukko.add(riviNappuloita);
         }
@@ -114,7 +114,7 @@ public class RuudukonHallitsija {
      * @return ruudut nappuloina
      */
     public JPanel palautaRuudukkoJPanelina() {
-        JPanel ruudut = new JPanel(new GridLayout(1, 15));
+        JPanel ruudut = new JPanel(new GridLayout(15, 1));
         for (int i = 0; i < ruudukko.size(); i++) {
             ruudut.add(rakennaRiviRuudukkoa(i));
         }
@@ -127,5 +127,13 @@ public class RuudukonHallitsija {
             ruudut.add(ruudukko.get(rivi).get(i).getNappula());
         }
         return ruudut;
+    }
+    
+    public void vaihdaVuoroa() {
+        for (ArrayList<RuutuNappula> arrayList : ruudukko) {
+            for (RuutuNappula ruutuNappula : arrayList) {
+                ruutuNappula.vaihdaSeuraavanLaatua();
+            }
+        }
     }
 }

@@ -54,5 +54,6 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 15:10-16:50; JavaDoc melkein kaikille public metodeille
 	noin klo 18:50-20:30; Nykyiseen, Graafiseen versioon p‰ivitetty Luokkakaavio. Tikku-ukko n‰ytt‰‰ mielest‰ni oikein hyv‰lt‰; D
 	noin klo 21:30-22:05; Sekvenssikaavioista lukemista (tiedonhaku)
-20.08. (yhteens‰ 02h 10min)
+20.08. (yhteens‰ 04h 05min)
 	noin klo 13:10-15:20; Dian harjoittelua ja ensimm‰inen sekvenssikaavio
+	noin klo 17:25-19:20; Peliominaisuuden aloittaminen

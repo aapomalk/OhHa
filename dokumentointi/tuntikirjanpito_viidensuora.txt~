@@ -41,5 +41,19 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 11:15-12:50; Graafinen valikko aluilleen ja graafisen käyttöliittymän suunnittelua
 14.08. (yhteensä 02h 45min)
 	noin klo 12:55-15:40; Graafiseen käyttöliittymään alustava Tilasto-näkymä, tunnusten luominen onnistuu, tilastojen tiedostosta lukeminen virhe korjattu
-15.08. (yhteensä 01h 55min)
+15.08. (yhteensä 05h 45min)
 	noin klo 11:25-13:20; Scrolli yrityksiä, ja tilastoja eteenpäin
+	noin klo 14:50-15:25; Scrolli epäonnistuu edelleen...
+	noin klo 21:50-01:15; Scrolli luovutettu, Tunnus -tilastojen selaus tyydyttävän näköistä, vaikka välillä nappulat villiintyvät muutettaessa ruudun kokoa
+16.08. (yhteensä 02h 20min)
+	noin klo 17:50-20:10; Tunnusparien tilastot näyttäisi toimivan
+17.08. (yhteensä 01h 20min)
+	noin klo 17:50-19:10; Graafinen pelitoiminnallisuus aluilleen
+18.08. (yhteensä 05h 05min)
+	noin klo 12:00-13:10; JavaDoc kaikille luokille
+	noin klo 15:10-16:50; JavaDoc melkein kaikille public metodeille
+	noin klo 18:50-20:30; Nykyiseen, Graafiseen versioon päivitetty Luokkakaavio. Tikku-ukko näyttää mielestäni oikein hyvältä; D
+	noin klo 21:30-22:05; Sekvenssikaavioista lukemista (tiedonhaku)
+20.08. (yhteensä 02h 10min)
+	noin klo 13:10-15:20; Dian harjoittelua ja ensimmäinen sekvenssikaavio
+	noin klo 16:30-
