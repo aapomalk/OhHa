@@ -13,32 +13,38 @@ import viidensuora.RistiNollaMuistio;
 
 /**
  * Nimensä mukaisesti hallitsee ruudukkoa, siirtää, päivittää ja rakentaa.
+ *
  * @see RuutuNappula
  * @author Aapo
  */
 public class RuudukonHallitsija {
+
     private ArrayList<ArrayList<RuutuNappula>> ruudukko;
-    
+
     /**
      * Alustetaan ruudukko
-     * @param muistio käyttäjän syöttämä RistiNollaMuistio tallennetaan RuutuNappuloihin
+     *
+     * @param muistio käyttäjän syöttämä RistiNollaMuistio tallennetaan
+     * RuutuNappuloihin
      */
     public RuudukonHallitsija(RistiNollaMuistio muistio) {
         this.ruudukko = new ArrayList<ArrayList<RuutuNappula>>();
         rakennaRuudukko(muistio);
     }
-    
+
     private void rakennaRuudukko(RistiNollaMuistio muistio) {
         for (int y = 0; y < 15; y++) {
             ArrayList<RuutuNappula> riviNappuloita = new ArrayList<RuutuNappula>();
             for (int x = 0; x < 15; x++) {
-                riviNappuloita.add(new RuutuNappula(x, y, muistio));
+                riviNappuloita.add(new RuutuNappula(x, y, muistio, this));
             }
             this.ruudukko.add(riviNappuloita);
         }
     }
+
     /**
      * Päivitetään RuutuNappuloiden tekstit vastaamaan nykyistä pelitilannetta
+     *
      * @param merkit käyttäjän syöttämä lista merkeistä
      */
     public void paivitaRuudukonXjaOtilanteet(ArrayList<Merkki> merkit) {
@@ -46,14 +52,8 @@ public class RuudukonHallitsija {
             for (RuutuNappula ruutuNappula : arrayList) {
                 boolean muuttuikoArvo = false;
                 for (Merkki merkki : merkit) {
-                    if (merkki.getX() == ruutuNappula.getX() && merkki.getY() == ruutuNappula.getY()) {
-                        if (merkki.getLaatu().equals(Laatu.RISTI)) {
-                            ruutuNappula.muutaKirjoitus("X");
-                            muuttuikoArvo = true;
-                        } else if (merkki.getLaatu().equals(Laatu.NOLLA)) {
-                            ruutuNappula.muutaKirjoitus("O");
-                            muuttuikoArvo = true;
-                        }
+                    muuttuikoArvo = muutaKirjoitus(ruutuNappula, merkki);
+                    if (muuttuikoArvo) {
                         break;
                     }
                 }
@@ -63,8 +63,27 @@ public class RuudukonHallitsija {
             }
         }
     }
+
+    private boolean muutaKirjoitus(RuutuNappula ruutuNappula, Merkki merkki) {
+        if (merkki.getX() == ruutuNappula.getX() && merkki.getY() == ruutuNappula.getY()) {
+            if (merkki.getLaatu().equals(Laatu.RISTI)) {
+                ruutuNappula.muutaKirjoitus("X");
+                return true;
+            } else if (merkki.getLaatu().equals(Laatu.NOLLA)) {
+                ruutuNappula.muutaKirjoitus("O");
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    void muutetaankoKirjoitus(RuutuNappula nappula, Merkki merkki) {
+        muutaKirjoitus(nappula, merkki);
+    }
+
     /**
      * Siirretään ruudukkoa x-suunnassa
+     *
      * @param dx käyttäjän syöttämä x-suuntaisen muutoksen suuruus
      */
     public void siirraRuudukkoaXsuunnassa(int dx) {
@@ -74,8 +93,10 @@ public class RuudukonHallitsija {
             }
         }
     }
+
     /**
      * Siirretään ruudukkoa y-suunnassa
+     *
      * @param dy käyttäjän syöttämä y-suuntaisen muutoksen suuruus
      */
     public void siirraRuudukkoaYsuunnassa(int dy) {
@@ -85,9 +106,11 @@ public class RuudukonHallitsija {
             }
         }
     }
+
     /**
-     * Luodaan RuutuNappuloiden JButtoneista uusi JPanel, joka palautetaan käyttäjälle
-     * GraafistaKäyttöliittymää ajatellen
+     * Luodaan RuutuNappuloiden JButtoneista uusi JPanel, joka palautetaan
+     * käyttäjälle GraafistaKäyttöliittymää ajatellen
+     *
      * @return ruudut nappuloina
      */
     public JPanel palautaRuudukkoJPanelina() {
@@ -97,7 +120,7 @@ public class RuudukonHallitsija {
         }
         return ruudut;
     }
-    
+
     private JPanel rakennaRiviRuudukkoa(int rivi) {
         JPanel ruudut = new JPanel(new GridLayout(1, 15));
         for (int i = 0; i < ruudukko.get(rivi).size(); i++) {

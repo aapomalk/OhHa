@@ -21,6 +21,7 @@ public class RuutuNappula {
     private Laatu seuraavaLaatu;
     private RistiNollaMuistio muistio;
     private JButton nappula;
+    private RuudukonHallitsija hallitsija;
     /**
      * Konstruktori, alustetaan oliomuuttujat
      * @param x käyttäjän syöttämä alkuperäinen x-koordinaatti
@@ -28,13 +29,14 @@ public class RuutuNappula {
      * @param muistio RistiNollaMuistio, johon nappula yrittää listä merkkiä
      * sitä paintettaessa
      */
-    public RuutuNappula(int x, int y, RistiNollaMuistio muistio) {
+    public RuutuNappula(int x, int y, RistiNollaMuistio muistio, RuudukonHallitsija hallitsija) {
         this.x = x;
         this.y = y;
         this.seuraavaLaatu = Laatu.RISTI;
         this.muistio = muistio;
         this.nappula = new JButton();
         this.nappula.addActionListener(new RuutuNappulanKuuntelija(this));
+        this.hallitsija = hallitsija;
     }
     /**
      * muutetaan x-koordinaattia käyttäjän syötteen mukaisesti
@@ -79,6 +81,7 @@ public class RuutuNappula {
         } else {
             muistio.lisaaNolla(getX(), getY());
         }
+        hallitsija.muutetaankoKirjoitus(this, muistio.getMerkit().get(muistio.getMerkit().size()-1));
     }
 
     /**
