@@ -36,7 +36,7 @@ public class RuudukonHallitsija {
         for (int y = 0; y < 15; y++) {
             ArrayList<RuutuNappula> riviNappuloita = new ArrayList<RuutuNappula>();
             for (int x = 0; x < 15; x++) {
-                riviNappuloita.add(new RuutuNappula(x, y, muistio, this, pelihallitsija));
+                riviNappuloita.add(new RuutuNappula(x, y, muistio, pelihallitsija));
             }
             this.ruudukko.add(riviNappuloita);
         }

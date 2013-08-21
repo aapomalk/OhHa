@@ -68,16 +68,14 @@ public class Kayttoliittyma {
         
     }
     
-    protected boolean tarkistaVoitto() {
+    public boolean tarkistaVoitto() {
         if (muistio.getEdellinenMerkkiRisti()) {
             if (this.loytaja.tarkastaViimeinen(muistio.getMerkit(), viisiRistia)) {
-                System.out.println("Risti voitti");
                 tilastot.peliPelattu(muistio.nollienMaara(), Laatu.RISTI);
                 return true;
             }
         } else {
             if (this.loytaja.tarkastaViimeinen(muistio.getMerkit(), viisiNollaa)) {
-                System.out.println("Nolla voitti");
                 tilastot.peliPelattu(muistio.nollienMaara(), Laatu.NOLLA);
                 return true;
             }

@@ -4,17 +4,6 @@
  */
 package kayttoliittymat;
 
-import kayttoliittymat.kuuntelijat.tilastot.ValikkoonNappulanKuuntelija;
-import kayttoliittymat.kuuntelijat.tilastot.JarjestaTunnusNappulanKuuntelija;
-import kayttoliittymat.kuuntelijat.tilastot.NaytaTunnuksetNappulanKuuntelija;
-import kayttoliittymat.kuuntelijat.tilastot.TunnusTilastoKategoriat;
-import kayttoliittymat.kuuntelijat.tilastot.NaytaTunnusparitNappulanKuuntelija;
-import kayttoliittymat.kuuntelijat.tilastot.YlosNappulanKuuntelija;
-import kayttoliittymat.kuuntelijat.tilastot.AlasNappulanKuuntelija;
-import kayttoliittymat.kuuntelijat.valikko.TunnusNappulanKuuntelija;
-import kayttoliittymat.kuuntelijat.valikko.TilastoNappulanKuuntelija;
-import kayttoliittymat.kuuntelijat.valikko.LopetaNappulanKuuntelija;
-import kayttoliittymat.kuuntelijat.valikko.PikapeliNappulanKuuntelija;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -27,6 +16,17 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+import kayttoliittymat.kuuntelijat.tilastot.AlasNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.tilastot.JarjestaTunnusNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.tilastot.NaytaTunnuksetNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.tilastot.NaytaTunnusparitNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.tilastot.TunnusTilastoKategoriat;
+import kayttoliittymat.kuuntelijat.tilastot.ValikkoonNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.tilastot.YlosNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.valikko.LopetaNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.valikko.PikapeliNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.valikko.TilastoNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.valikko.TunnusNappulanKuuntelija;
 import kayttoliittymat.peliGraafisetToimijat.PeliHallitsija;
 import tiedostojenKasittely.VirheidenKasittelijaGraafinen;
 import tilastotJaTunnukset.Tunnus;
@@ -260,7 +260,7 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     public void menePikapeliin() {
         frame.getContentPane().removeAll();
         frame.repaint();
-        PeliHallitsija hallitsija = new PeliHallitsija(super.muistio, this.frame);
+        PeliHallitsija hallitsija = new PeliHallitsija(super.muistio, this.frame, this);
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(hallitsija.kaynistaPeli());
         frame.pack();

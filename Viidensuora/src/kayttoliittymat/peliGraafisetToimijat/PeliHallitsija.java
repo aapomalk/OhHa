@@ -4,15 +4,16 @@
  */
 package kayttoliittymat.peliGraafisetToimijat;
 
-import javax.swing.JFrame;
-import java.awt.GridLayout;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import kayttoliittymat.kuuntelijat.peli.VuoronvaihtoNappulanKuuntelija;
 import tilastotJaTunnukset.*;
 import viidensuora.RistiNollaMuistio;
+import kayttoliittymat.Kayttoliittyma;
 
 /**
  * Jottei kaikki koodi olisi kayttoliittymassa
@@ -25,21 +26,23 @@ public class PeliHallitsija {
     private Tunnus ristiPelaaja;
     private RistiNollaMuistio muistio;
     private JFrame frame;
+    private Kayttoliittyma liittyma;
     /**
      * Alustetaan ruudukko, tunnuspari ja JPanel.
      * @param pari
      * @param muistio 
      */
-    public PeliHallitsija(TunnusPari pari, RistiNollaMuistio muistio, JFrame frame) {
+    public PeliHallitsija(TunnusPari pari, RistiNollaMuistio muistio, JFrame frame, Kayttoliittyma liittyma) {
         this.pari = pari;
         this.muistio = muistio;
         ruudukko = new RuudukonHallitsija(muistio, this);
         naytto = new JPanel(new BorderLayout());
         this.frame = frame;
+        this.liittyma = liittyma;
     }
     
-    public PeliHallitsija(RistiNollaMuistio muistio, JFrame frame) {
-        this(null, muistio, frame);
+    public PeliHallitsija(RistiNollaMuistio muistio, JFrame frame, Kayttoliittyma liittyma) {
+        this(null, muistio, frame, liittyma);
     }
     
     private void kysyRistiPelaaja() {
@@ -81,6 +84,20 @@ public class PeliHallitsija {
         this.naytto.remove(this.naytto.getComponent(1));
         this.naytto.add(lisaaPelikenttaJaNuolet());
         this.frame.pack();
+    }
+    
+    public void paivitaKenttaJaTarkistaVoitto() {
+        this.paivitaPelikentta();
+        boolean voitto = this.liittyma.tarkistaVoitto();
+        if (voitto) {
+            String merkki;
+            if (muistio.getEdellinenMerkkiRisti()) {
+                merkki = "ristilla pelannut";
+            } else {
+                merkki = "nollalla pelannut";
+            }
+            JOptionPane.showMessageDialog(frame, "Peli paattyi, onnittelut " + merkki);
+        }
     }
     
     private JPanel lisaaNappulat() {

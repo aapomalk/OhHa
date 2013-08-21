@@ -24,14 +24,17 @@ public class RistiNollaMuistio {
     }
     /**
      * Lisää ristin muistioon, mikäli on ristin vuoro, ja ruutu ei ole varattu
-     * @param x syötettävän merkin x-koordinaatti
-     * @param y syötettävän merkin y-koordinaatti
+     * @param x
+     * @param y
+     * @return true jos lisääminen onnituis, false jos epäonnistui
      */
-    public void lisaaRisti(int x, int y) {
+    public boolean lisaaRisti(int x, int y) {
         if (!edellinenMerkkiRisti && !onkoRuutuVarattu(x, y)) {
             merkit.add(new Merkki(x, y, Laatu.RISTI));
             edellinenMerkkiRisti = true;
+            return true;
         }
+        return false;
     }
     
     private boolean onkoRuutuVarattu(int x, int y) {
@@ -44,14 +47,17 @@ public class RistiNollaMuistio {
     }
     /**
      * Lisää nollan muistioon, mikäli on nollan vuoro, ja ruutu ei ole varattu
-     * @param x syötettävän merkin x-koordinaatti
-     * @param y syötettävän merkin y-koordinaatti
+     * @param x
+     * @param y
+     * @return true jos nollan lisääminen onnistui, false jos epäonnistui
      */
-    public void lisaaNolla(int x, int y) {
+    public boolean lisaaNolla(int x, int y) {
         if (edellinenMerkkiRisti && !onkoRuutuVarattu(x, y)) {
             merkit.add(new Merkki(x, y, Laatu.NOLLA));
             edellinenMerkkiRisti = false;
+            return true;
         }
+        return false;
     }
     /**
      * Laskee ristien määrän private metodilla merkkienMaara(Laatu laatu)
@@ -99,8 +105,9 @@ public class RistiNollaMuistio {
     }
     /**
      * Ainut tapa muokata merkit -listan sisältöä, on perua viimeinen siirto
+     * @return true jos peruminen onnistui, false jos merkkejä ei ollut
      */
-    public void peruSiirto() {
+    public boolean peruSiirto() {
         if (!this.merkit.isEmpty()) {
             this.merkit.remove(this.merkit.size()-1);
             if (this.edellinenMerkkiRisti) {
@@ -108,6 +115,8 @@ public class RistiNollaMuistio {
             } else {
                 this.edellinenMerkkiRisti = true;
             }
+            return true;
         }
+        return false;
     }
 }

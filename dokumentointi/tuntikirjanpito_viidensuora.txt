@@ -57,3 +57,5 @@ Projektin Viidensuora tuntikirjanpito:
 20.08. (yhteensä 04h 05min)
 	noin klo 13:10-15:20; Dian harjoittelua ja ensimmäinen sekvenssikaavio
 	noin klo 17:25-19:20; Peliominaisuuden aloittaminen
+21.08. (yhteensä 01h 25min)
+	noin klo 10:35-12:00; Sekvenssikaavioita/päivitystä ja viilausta ohjelmaan

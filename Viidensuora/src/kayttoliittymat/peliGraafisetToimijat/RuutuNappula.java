@@ -21,7 +21,6 @@ public class RuutuNappula {
     private Laatu seuraavaLaatu;
     private RistiNollaMuistio muistio;
     private JButton nappula;
-    private RuudukonHallitsija hallitsija;
     private PeliHallitsija pelihallitsija;
     /**
      * Konstruktori, alustetaan oliomuuttujat
@@ -30,14 +29,13 @@ public class RuutuNappula {
      * @param muistio RistiNollaMuistio, johon nappula yrittää listä merkkiä
      * sitä paintettaessa
      */
-    public RuutuNappula(int x, int y, RistiNollaMuistio muistio, RuudukonHallitsija hallitsija, PeliHallitsija pelihallitsija) {
+    public RuutuNappula(int x, int y, RistiNollaMuistio muistio, PeliHallitsija pelihallitsija) {
         this.x = x;
         this.y = y;
         this.seuraavaLaatu = Laatu.RISTI;
         this.muistio = muistio;
         this.nappula = new JButton();
-        this.nappula.addActionListener(new RuutuNappulanKuuntelija(this, pelihallitsija));
-        this.hallitsija = hallitsija;
+        this.nappula.addActionListener(new RuutuNappulanKuuntelija(this));
         this.pelihallitsija = pelihallitsija;
     }
     /**
@@ -70,7 +68,7 @@ public class RuutuNappula {
      */
     public void muutaKirjoitus(String kirjoitus) {
         this.nappula = new JButton(kirjoitus);
-        this.nappula.addActionListener(new RuutuNappulanKuuntelija(this, pelihallitsija));
+        this.nappula.addActionListener(new RuutuNappulanKuuntelija(this));
     }
     
     public JButton getNappula() {
@@ -78,12 +76,20 @@ public class RuutuNappula {
     }
     
     void nappulaaPainettu() {
+        boolean lisattiin;
         if (seuraavaLaatu.equals(Laatu.RISTI)) {
-            muistio.lisaaRisti(getX(), getY());
+            lisattiin = muistio.lisaaRisti(getX(), getY());
         } else {
-            muistio.lisaaNolla(getX(), getY());
+            lisattiin = muistio.lisaaNolla(getX(), getY());
         }
-        hallitsija.muutetaankoKirjoitus(this, muistio.getMerkit().get(muistio.getMerkit().size()-1));
+        if (lisattiin) {
+            if (seuraavaLaatu.equals(Laatu.RISTI)) {
+                muutaKirjoitus("X");
+            } else {
+                muutaKirjoitus("O");
+            }
+            pelihallitsija.paivitaKenttaJaTarkistaVoitto();
+        }
     }
 
     /**
