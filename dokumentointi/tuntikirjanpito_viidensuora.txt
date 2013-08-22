@@ -59,3 +59,5 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 17:25-19:20; Peliominaisuuden aloittaminen
 21.08. (yhteensä 01h 25min)
 	noin klo 10:35-12:00; Sekvenssikaavioita/päivitystä ja viilausta ohjelmaan
+22.08. (yhteensä 00h 40min)
+	noin klo 21:25-22:05; Luokkakaavion siirtäminen Dia -formaattiin
