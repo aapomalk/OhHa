@@ -53,7 +53,7 @@ public class Kayttoliittyma {
         rajaaja = new ReunimmaisetKoordinaatit();
     }
     
-    protected void tallennaTilastot() {
+    public void tallennaTilastot() {
         TilastojenJaTunnustenTallentaja lopetus = new TilastojenJaTunnustenTallentaja();
         lopetus.tallennaTiedostoon(tilastot, "Tilastot.txt", kasittelija);
     }
@@ -71,12 +71,10 @@ public class Kayttoliittyma {
     public boolean tarkistaVoitto() {
         if (muistio.getEdellinenMerkkiRisti()) {
             if (this.loytaja.tarkastaViimeinen(muistio.getMerkit(), viisiRistia)) {
-                tilastot.peliPelattu(muistio.nollienMaara(), Laatu.RISTI);
                 return true;
             }
         } else {
             if (this.loytaja.tarkastaViimeinen(muistio.getMerkit(), viisiNollaa)) {
-                tilastot.peliPelattu(muistio.nollienMaara(), Laatu.NOLLA);
                 return true;
             }
         }

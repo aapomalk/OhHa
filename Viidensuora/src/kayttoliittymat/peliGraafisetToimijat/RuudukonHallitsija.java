@@ -136,4 +136,20 @@ public class RuudukonHallitsija {
             }
         }
     }
+    
+    public int getRuudukonSuurinX() {
+        return this.ruudukko.get(0).get(this.ruudukko.get(0).size()-1).getX();
+    }
+    
+    public int getRuudukonPieninX() {
+        return this.ruudukko.get(0).get(0).getX();
+    }
+    
+    public int getRuudukonPieninY() {
+        return this.ruudukko.get(0).get(0).getY();
+    }
+    
+    public int getRuudukonSuurinY() {
+        return this.ruudukko.get(this.ruudukko.size()-1).get(0).getY();
+    }
 }

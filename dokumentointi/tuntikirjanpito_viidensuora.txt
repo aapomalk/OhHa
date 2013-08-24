@@ -61,3 +61,6 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 10:35-12:00; Sekvenssikaavioita/p‰ivityst‰ ja viilausta ohjelmaan
 22.08. (yhteens‰ 00h 40min)
 	noin klo 21:25-22:05; Luokkakaavion siirt‰minen Dia -formaattiin
+[23.08. klo 12- 24.08. klo 19: Koodikatselmoinnin tekemist‰, satunnainen aikam‰‰r‰]
+24.08. (yhteens‰ 02h 05min)
+	noin klo 19:10-21:15; Pikapeli -ominaisuus tallentamista ja vihjett‰ vaille valmiiksi

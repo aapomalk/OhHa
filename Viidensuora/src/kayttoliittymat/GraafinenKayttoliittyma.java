@@ -16,12 +16,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+import kayttoliittymat.kuuntelijat.ValikkoonNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.tilastot.AlasNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.tilastot.JarjestaTunnusNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.tilastot.NaytaTunnuksetNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.tilastot.NaytaTunnusparitNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.tilastot.TunnusTilastoKategoriat;
-import kayttoliittymat.kuuntelijat.tilastot.ValikkoonNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.tilastot.YlosNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.valikko.LopetaNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.valikko.PikapeliNappulanKuuntelija;
@@ -31,6 +31,7 @@ import kayttoliittymat.peliGraafisetToimijat.PeliHallitsija;
 import tiedostojenKasittely.VirheidenKasittelijaGraafinen;
 import tilastotJaTunnukset.Tunnus;
 import tilastotJaTunnukset.TunnusPari;
+import viidensuora.Laatu;
 
 /**
  * Jottei merkkejä tarvitsisi syöttää koordinaattikerrallaan, toisinkuin teksti-
@@ -257,12 +258,19 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         frame.pack();
     }
     
+    private void tyhjennaRistiNollaMuistio() {
+        while (super.muistio.ristienMaara() > 0) {
+            super.muistio.peruSiirto();
+        }
+    }
+    
     public void menePikapeliin() {
         frame.getContentPane().removeAll();
         frame.repaint();
+        tyhjennaRistiNollaMuistio();
         PeliHallitsija hallitsija = new PeliHallitsija(super.muistio, this.frame, this);
         frame.getContentPane().setLayout(new BorderLayout());
-        frame.getContentPane().add(hallitsija.kaynistaPeli());
+        frame.getContentPane().add(hallitsija.kaynnistaPeli());
         frame.pack();
     }
 
@@ -449,6 +457,14 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         valikko.add(new JLabel());
         valikko.add(lopeta);
         return valikko;
+    }
+    
+    public void lisaaTilastoihinPikapeli(double pelinPituus, Laatu laatu) {
+        super.tilastot.peliPelattu(pelinPituus, laatu);
+    }
+    
+    public void lisaaTilastoihinKaksinpeli(double pelinPituus, Laatu laatu, Tunnus voittajaTunnus, TunnusPari tunnusPari) {
+        super.tilastot.peliPelattu(pelinPituus, laatu, voittajaTunnus, tunnusPari);
     }
 
     public JFrame getFrame() {
