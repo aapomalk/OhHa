@@ -32,7 +32,8 @@ public class VuoronperumisNappulanKuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (JOptionPane.showConfirmDialog(null, "Haluatko varmasti perua siirron?\nPerumisen saa kumottua ainoastaan toistamalla peruttu siirto") == 0) {
             this.muistio.peruSiirto();
-            this.ruutuHallitsija.paivitaRuudukonXjaOtilanteet(this.muistio.getMerkit());
+            this.hallitsija.paivitaInfoteksti();
+            this.ruutuHallitsija.paivitaRuudukonKirjoitusTilanteet(this.muistio.getMerkit());
             this.hallitsija.paivitaPelikentta();
         }
     }

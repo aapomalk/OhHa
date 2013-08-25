@@ -259,19 +259,25 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     }
     
     private void tyhjennaRistiNollaMuistio() {
-        while (super.muistio.ristienMaara() > 0) {
-            super.muistio.peruSiirto();
+        while (super.getMuistio().ristienMaara() > 0) {
+            super.getMuistio().peruSiirto();
         }
     }
     
-    public void menePikapeliin() {
+    public void menePikapeliin(boolean tyhjennetaanko) {
         frame.getContentPane().removeAll();
         frame.repaint();
-        tyhjennaRistiNollaMuistio();
-        PeliHallitsija hallitsija = new PeliHallitsija(super.muistio, this.frame, this);
+        if (tyhjennetaanko) {
+            tyhjennaRistiNollaMuistio();
+        }
+        PeliHallitsija hallitsija = new PeliHallitsija(super.getMuistio(), this.frame, this);
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(hallitsija.kaynnistaPeli());
         frame.pack();
+    }
+    
+    public void menePikapeliin() {
+        this.menePikapeliin(true);
     }
 
     private void luoKomponentitTunnuspariTilasto(Container container) {
@@ -435,7 +441,7 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
 
     private JPanel luoValikko() {
         JPanel valikko = new JPanel(new GridLayout(2, 5));
-        JButton pikapeli = new JButton("pikapeli");
+        JButton pikapeli = new JButton("anonyymi peli");
         JButton kaksinpeli = new JButton("kaksinpeli");
         JButton tilastotNappula = new JButton("tilastot");
         JButton luoTunnus = new JButton("luo tunnus");

@@ -4,6 +4,8 @@
  */
 package tiedostojenKasittely;
 
+import javax.swing.JOptionPane;
+
 /**
  * Graafisen käyttöliittymän ikioma virheidenkäsittelijä
  * @author aapomalk
@@ -12,27 +14,27 @@ public class VirheidenKasittelijaGraafinen implements VirheidenKasittelija {
 
     @Override
     public void virheTiedostoonKirjoittamisessa() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        JOptionPane.showMessageDialog(null, "Tiedostoon kirjoittaminen epaonnistui");
     }
 
     @Override
     public void virheFileWriterinLuomisessa() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        JOptionPane.showMessageDialog(null, "Tiedostoon kirjoittaminen epaonnistui");
     }
 
     @Override
     public void virheScannerinJaTiedostonKanssa() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        JOptionPane.showMessageDialog(null, "Tiedoston lukeminen epaonnistui");
     }
 
     @Override
     public void tiedostoOliKorruptoitunut() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        JOptionPane.showMessageDialog(null, "Tiedosto oli korruptoitunut");
     }
 
     @Override
     public void tilastojenTallennuksessaOngelmia() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        JOptionPane.showMessageDialog(null, "Tilastojen tallennus epaonnistui");
     }
     
 }

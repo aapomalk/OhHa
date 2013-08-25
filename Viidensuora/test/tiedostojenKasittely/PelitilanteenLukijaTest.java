@@ -63,6 +63,12 @@ public class PelitilanteenLukijaTest {
     }
     
     @Test
+    public void kokeillaanLukeaOlematonta() {
+        lukija.lataaPelitilanne("Testi_jota_ei_ole_olemassa.txt", kasittelija, muistio);
+        assertEquals("muistioon ei olisi pitanyt tallentua mitaan", 0, muistio.ristienMaara());
+    }
+    
+    @Test
     public void tyhjentyykoMuistio() {
         muistio.lisaaRisti(0, 0);
         lukija.tyhjennaMuistio(muistio);

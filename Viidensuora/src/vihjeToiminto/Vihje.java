@@ -26,6 +26,9 @@ public class Vihje {
     private ArrayList<Merkki> hairitseVastustajaa;
     private ArrayList<Merkki> varoVastustajaa;
     private ArrayList<Merkki> taytyyEstaa;
+    private ArrayList<Merkki> hyodyllistaJaHairintaa;
+    private ArrayList<Merkki> hyokkaystaJaVaromista;
+    private ArrayList<Merkki> voittamistaJaEstamista;
     private MerkkienJononLoytaja etsija;
     private ArrayList<ArrayList<Laatu>> puolikkaatJonotRistille;
     private ArrayList<ArrayList<Laatu>> puolikkaatJonotNollalle;
@@ -138,6 +141,52 @@ public class Vihje {
                 }
             }
         }
+        
+        ylennaMoninkertaisia();
+    }
+    
+    private void ylennaMoninkertaisia() {
+        ylennaTietystaKategoriasta(this.ehkaHyodyllinen, this.rakennaHyokkays);
+        ylennaTietystaKategoriasta(this.rakennaHyokkays, this.varmaVoitto);
+        ylennaTietystaKategoriasta(this.hairitseVastustajaa, this.varoVastustajaa);
+        ylennaTietystaKategoriasta(this.varoVastustajaa, this.taytyyEstaa);
+        ArrayList<Merkki> apu = new ArrayList<Merkki>();
+        apu.addAll(ehkaHyodyllinen);
+        apu.addAll(hairitseVastustajaa);
+        ylennaTietystaKategoriasta(apu, this.hyodyllistaJaHairintaa);
+        apu.clear();
+        apu.addAll(rakennaHyokkays);
+        apu.addAll(varoVastustajaa);
+        ylennaTietystaKategoriasta(apu, this.hyokkaystaJaVaromista);
+        apu.clear();
+        apu.addAll(varmaVoitto);
+        apu.addAll(taytyyEstaa);
+        ylennaTietystaKategoriasta(apu, this.getVoittamistaJaEstamista());
+    }
+    
+    private void ylennaTietystaKategoriasta(ArrayList<Merkki> ylennettava, ArrayList<Merkki> mihinYlenee) {
+        for (int i = 0; i < ylennettava.size()-1; i++) {
+            boolean ylentyiko = false;
+            for (int j = i+1; j < ylennettava.size(); j++) {
+                if (samatKoordinaatit(ylennettava.get(i), ylennettava.get(j))) {
+                    mihinYlenee.add(ylennettava.get(i));
+                    ylennettava.remove(j);
+                    ylennettava.remove(i);
+                    ylentyiko = true;
+                }
+            }
+            if (ylentyiko) {
+                ylennaTietystaKategoriasta(ylennettava, mihinYlenee);
+                break;
+            }
+        }
+    }
+    
+    private boolean samatKoordinaatit(Merkki merkki1, Merkki merkki2) {
+        if (merkki1.getX() == merkki2.getX() && merkki1.getY() == merkki2.getY()) {
+            return true;
+        }
+        return false;
     }
     
     private void alustaLaatuJonot() {
@@ -187,6 +236,9 @@ public class Vihje {
         this.taytyyEstaa = new ArrayList<Merkki>();
         this.varmaVoitto = new ArrayList<Merkki>();
         this.varoVastustajaa = new ArrayList<Merkki>();
+        this.hyodyllistaJaHairintaa = new ArrayList<Merkki>();
+        this.hyokkaystaJaVaromista = new ArrayList<Merkki>();
+        this.voittamistaJaEstamista = new ArrayList<Merkki>();
     }
 
     private void lisaaRistiJaNolla(ArrayList<Laatu> risti, ArrayList<Laatu> nolla) {
@@ -249,5 +301,26 @@ public class Vihje {
      */
     public ArrayList<Merkki> getTaytyyEstaa() {
         return taytyyEstaa;
+    }
+
+    /**
+     * @return the hyodyllistaJaHairintaa
+     */
+    public ArrayList<Merkki> getHyodyllistaJaHairintaa() {
+        return hyodyllistaJaHairintaa;
+    }
+
+    /**
+     * @return the hyokkaystaJaVaromista
+     */
+    public ArrayList<Merkki> getHyokkaystaJaVaromista() {
+        return hyokkaystaJaVaromista;
+    }
+
+    /**
+     * @return the voittamistaJaEstamista
+     */
+    public ArrayList<Merkki> getVoittamistaJaEstamista() {
+        return voittamistaJaEstamista;
     }
 }

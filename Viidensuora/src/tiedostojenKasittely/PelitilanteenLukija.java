@@ -6,6 +6,7 @@ package tiedostojenKasittely;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import kayttoliittymat.peliGraafisetToimijat.PeliHallitsija;
 import viidensuora.RistiNollaMuistio;
 
 /**
@@ -20,18 +21,24 @@ public class PelitilanteenLukija {
      * @param kasittelija käyttäjän syöttämä virheidenkäsittelijä
      * @param muistio käyttäjän syöttämä RistiNollaMuistio, jonka sisältö korvataan tiedostosta löytyvällä
      */
-    public void lataaPelitilanne(String tiedostonNimi, VirheidenKasittelija kasittelija, RistiNollaMuistio muistio) {
+    public String lataaPelitilanne(String tiedostonNimi, VirheidenKasittelija kasittelija, RistiNollaMuistio muistio) {
         tyhjennaMuistio(muistio);
-        lueTiedosto(muistio, kasittelija, tiedostonNimi);
+        return lueTiedosto(muistio, kasittelija, tiedostonNimi);
     }
 
-    private void lueTiedosto(RistiNollaMuistio muistio, VirheidenKasittelija kasittelija, String tiedostonNimi) {
+    private String lueTiedosto(RistiNollaMuistio muistio, VirheidenKasittelija kasittelija, String tiedostonNimi) {
         TiedostostaLukija lukija = new TiedostostaLukija();
         ArrayList<String> merkitStringina = lukija.lueTiedosto(tiedostonNimi, kasittelija);
         //salauksen purku, jos jaksan tehda
-        for (String string : merkitStringina) {
-            paloitteleString(string, muistio, kasittelija);
+        String palautettava = "";
+        for (int i = 0; i < merkitStringina.size(); i++) {
+            if (i == 0) {
+                palautettava = merkitStringina.get(i);
+                continue;
+            }
+            paloitteleString(merkitStringina.get(i), muistio, kasittelija);
         }
+        return palautettava;
     }
 
     private void paloitteleString(String string, RistiNollaMuistio muistio, VirheidenKasittelija kasittelija) {

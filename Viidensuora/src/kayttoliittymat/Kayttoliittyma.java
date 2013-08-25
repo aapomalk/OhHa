@@ -25,14 +25,14 @@ import viidensuora.RistiNollaMuistio;
  */
 public class Kayttoliittyma {
     
-    protected RistiNollaMuistio muistio;
+    private RistiNollaMuistio muistio;
     protected MerkkienJononLoytaja loytaja;
     protected ArrayList<Laatu> viisiRistia;
     protected ArrayList<Laatu> viisiNollaa;
     protected ReunimmaisetKoordinaatit rajaaja;
-    protected PelitilanteenTallentaja peliSave;
-    protected PelitilanteenLukija peliLoad;
-    protected VirheidenKasittelija kasittelija;
+    private PelitilanteenTallentaja peliSave;
+    private PelitilanteenLukija peliLoad;
+    private VirheidenKasittelija kasittelija;
     protected TilastoTunnusMuistio tilastot;
     protected boolean jatketaan;
     /**
@@ -55,7 +55,7 @@ public class Kayttoliittyma {
     
     public void tallennaTilastot() {
         TilastojenJaTunnustenTallentaja lopetus = new TilastojenJaTunnustenTallentaja();
-        lopetus.tallennaTiedostoon(tilastot, "Tilastot.txt", kasittelija);
+        lopetus.tallennaTiedostoon(tilastot, "Tilastot.txt", getKasittelija());
     }
     
     private void loytajienAlustus() {
@@ -69,15 +69,43 @@ public class Kayttoliittyma {
     }
     
     public boolean tarkistaVoitto() {
-        if (muistio.getEdellinenMerkkiRisti()) {
-            if (this.loytaja.tarkastaViimeinen(muistio.getMerkit(), viisiRistia)) {
+        if (getMuistio().getEdellinenMerkkiRisti()) {
+            if (this.loytaja.tarkastaViimeinen(getMuistio().getMerkit(), viisiRistia)) {
                 return true;
             }
         } else {
-            if (this.loytaja.tarkastaViimeinen(muistio.getMerkit(), viisiNollaa)) {
+            if (this.loytaja.tarkastaViimeinen(getMuistio().getMerkit(), viisiNollaa)) {
                 return true;
             }
         }
         return false;
+    }
+
+    /**
+     * @return the peliSave
+     */
+    public PelitilanteenTallentaja getPeliSave() {
+        return peliSave;
+    }
+
+    /**
+     * @return the peliLoad
+     */
+    public PelitilanteenLukija getPeliLoad() {
+        return peliLoad;
+    }
+
+    /**
+     * @return the kasittelija
+     */
+    public VirheidenKasittelija getKasittelija() {
+        return kasittelija;
+    }
+
+    /**
+     * @return the muistio
+     */
+    public RistiNollaMuistio getMuistio() {
+        return muistio;
     }
 }

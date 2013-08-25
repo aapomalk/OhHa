@@ -67,9 +67,9 @@ public class TekstiKayttoliittyma extends Kayttoliittyma {
         String komento = lukija.nextLine();
         if (komento.equals("tallenna")) {
             tilastot.peliTallennettu();
-            peliSave.tallennaPelitilanne(muistio.getMerkit(), "tallennus.txt", kasittelija);
+            getPeliSave().tallennaPelitilanne(getMuistio().getMerkit(), "tallennus.txt", getKasittelija());
         } else if (komento.equals("lataa")) {
-            peliLoad.lataaPelitilanne("tallennus.txt", kasittelija, muistio);
+            getPeliLoad().lataaPelitilanne("tallennus.txt", getKasittelija(), getMuistio());
         } else if (komento.equals("tilastot")) {
             tulostaTilastot();
         } else if (komento.equals("ruudukko")) {
@@ -81,7 +81,7 @@ public class TekstiKayttoliittyma extends Kayttoliittyma {
 
     private void kysyKoordinaatteja() {
         String ristiTaiNolla = "risti";
-        if (muistio.getEdellinenMerkkiRisti()) {
+        if (getMuistio().getEdellinenMerkkiRisti()) {
             ristiTaiNolla = "nolla";
         }
         System.out.print(ristiTaiNolla + " anna x-koordinaatti: ");
@@ -102,24 +102,24 @@ public class TekstiKayttoliittyma extends Kayttoliittyma {
     }
 
     private void lisaaKoordinaatit(int x, int y) {
-        int merkkienMaara = muistio.nollienMaara() + muistio.ristienMaara();
-        if (muistio.getEdellinenMerkkiRisti()) {
-            muistio.lisaaNolla(x, y);
+        int merkkienMaara = getMuistio().nollienMaara() + getMuistio().ristienMaara();
+        if (getMuistio().getEdellinenMerkkiRisti()) {
+            getMuistio().lisaaNolla(x, y);
         } else {
-            muistio.lisaaRisti(x, y);
+            getMuistio().lisaaRisti(x, y);
         }
-        if (merkkienMaara == muistio.nollienMaara() + muistio.ristienMaara()) {
+        if (merkkienMaara == getMuistio().nollienMaara() + getMuistio().ristienMaara()) {
             System.out.println("Merkin lisaaminen epaonnistui");
             kysyKoordinaatteja();
         }
     }
 
     private void tulostaKentta() {
-        rajaaja.etsiKoordinaatit(muistio.getMerkit());
+        rajaaja.etsiKoordinaatit(getMuistio().getMerkit());
         for (int i = rajaaja.getSuurinY(); i >= rajaaja.getPieninY(); i--) {
             for (int j = rajaaja.getPieninX(); j <= rajaaja.getSuurinX(); j++) {
                 boolean loytyiko = false;
-                for (Merkki merkki : muistio.getMerkit()) {
+                for (Merkki merkki : getMuistio().getMerkit()) {
 
                     if (merkki.getX() == j && merkki.getY() == i) {
                         loytyiko = true;

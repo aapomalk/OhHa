@@ -6,7 +6,9 @@ package kayttoliittymat.peliGraafisetToimijat;
 
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import vihjeToiminto.Vihje;
 import viidensuora.Laatu;
 import viidensuora.Merkki;
 import viidensuora.RistiNollaMuistio;
@@ -20,6 +22,8 @@ import viidensuora.RistiNollaMuistio;
 public class RuudukonHallitsija {
 
     private ArrayList<ArrayList<RuutuNappula>> ruudukko;
+    private Vihje vihje;
+    private boolean vihjettaPainettu;
 
     /**
      * Alustetaan ruudukko
@@ -30,6 +34,52 @@ public class RuudukonHallitsija {
     public RuudukonHallitsija(RistiNollaMuistio muistio, PeliHallitsija pelihallitsija) {
         this.ruudukko = new ArrayList<ArrayList<RuutuNappula>>();
         rakennaRuudukko(muistio, pelihallitsija);
+        this.vihje = new Vihje();
+        this.vihjettaPainettu = false;
+    }
+    
+    public boolean seuraavanLaatuRisti() {
+        return Laatu.RISTI == (seuraavanLaatu());
+    }
+    
+    private Laatu seuraavanLaatu() {
+        return ruudukko.get(0).get(0).getSeuraavaLaatu();
+    }
+    
+    public boolean etsiVihjeet(ArrayList<Merkki> merkit, Laatu kummanVuoro) {
+        if (kummanVuoro.equals(seuraavanLaatu())) {
+            vihje.lisaaVihjeetListoihin(merkit, kummanVuoro);
+            vihjettaPainettu = true;
+            RuutuNappula.vihjettaPainettu(true);
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "vihjeen voi saada vain omalla vuorolla");
+            return false;
+        }
+    }
+
+    public void paivitaVihjeRuudukot() {
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getHairitseVastustajaa(), "s");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getEhkaHyodyllinen(), "s");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getHyodyllistaJaHairintaa(), "S");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getRakennaHyokkays(), "h");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getVaroVastustajaa(), "v");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getHyokkaystaJaVaromista(), "z");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getVarmaVoitto(), "H");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getTaytyyEstaa(), "V");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getVoittamistaJaEstamista(), "Z");
+    }
+    
+    private void tyhjennaVihjeRuudukot() {
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getHairitseVastustajaa(), "");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getEhkaHyodyllinen(), "");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getHyodyllistaJaHairintaa(), "");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getVaroVastustajaa(), "");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getRakennaHyokkays(), "");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getHyokkaystaJaVaromista(), "");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getTaytyyEstaa(), "");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getVarmaVoitto(), "");
+        this.paivitaRuudukonKirjoitusTilanteet(vihje.getVoittamistaJaEstamista(), "");
     }
 
     private void rakennaRuudukko(RistiNollaMuistio muistio, PeliHallitsija pelihallitsija) {
@@ -47,24 +97,30 @@ public class RuudukonHallitsija {
      *
      * @param merkit käyttäjän syöttämä lista merkeistä
      */
-    public void paivitaRuudukonXjaOtilanteet(ArrayList<Merkki> merkit) {
+    public void paivitaRuudukonKirjoitusTilanteet(ArrayList<Merkki> merkit, String vihjeMerkki) {
         for (ArrayList<RuutuNappula> arrayList : ruudukko) {
             for (RuutuNappula ruutuNappula : arrayList) {
                 boolean muuttuikoArvo = false;
                 for (Merkki merkki : merkit) {
-                    muuttuikoArvo = muutaKirjoitus(ruutuNappula, merkki);
+                    muuttuikoArvo = muutaKirjoitus(ruutuNappula, merkki, vihjeMerkki);
                     if (muuttuikoArvo) {
                         break;
                     }
                 }
                 if (!muuttuikoArvo) {
-                    ruutuNappula.muutaKirjoitus("");
+                    if (vihjeMerkki.isEmpty()) {
+                        ruutuNappula.muutaKirjoitus("");
+                    }
                 }
             }
         }
     }
 
-    private boolean muutaKirjoitus(RuutuNappula ruutuNappula, Merkki merkki) {
+    public void paivitaRuudukonKirjoitusTilanteet(ArrayList<Merkki> merkit) {
+        this.paivitaRuudukonKirjoitusTilanteet(merkit, "");
+    }
+
+    private boolean muutaKirjoitus(RuutuNappula ruutuNappula, Merkki merkki, String teksti) {
         if (merkki.getX() == ruutuNappula.getX() && merkki.getY() == ruutuNappula.getY()) {
             if (merkki.getLaatu().equals(Laatu.RISTI)) {
                 ruutuNappula.muutaKirjoitus("X");
@@ -72,13 +128,20 @@ public class RuudukonHallitsija {
             } else if (merkki.getLaatu().equals(Laatu.NOLLA)) {
                 ruutuNappula.muutaKirjoitus("O");
                 return true;
+            } else if (merkki.getLaatu().equals(Laatu.TYHJA)) {
+                ruutuNappula.muutaKirjoitus(teksti);
+                return true;
             }
         }
         return false;
     }
-    
+
     void muutetaankoKirjoitus(RuutuNappula nappula, Merkki merkki) {
-        muutaKirjoitus(nappula, merkki);
+        muutaKirjoitus(nappula, merkki, "");
+        if (this.vihjettaPainettu) {
+            this.vihjettaPainettu = false;
+            this.tyhjennaVihjeRuudukot();
+        }
     }
 
     /**
@@ -128,7 +191,7 @@ public class RuudukonHallitsija {
         }
         return ruudut;
     }
-    
+
     public void vaihdaVuoroa() {
         for (ArrayList<RuutuNappula> arrayList : ruudukko) {
             for (RuutuNappula ruutuNappula : arrayList) {
@@ -136,20 +199,20 @@ public class RuudukonHallitsija {
             }
         }
     }
-    
+
     public int getRuudukonSuurinX() {
-        return this.ruudukko.get(0).get(this.ruudukko.get(0).size()-1).getX();
+        return this.ruudukko.get(0).get(this.ruudukko.get(0).size() - 1).getX();
     }
-    
+
     public int getRuudukonPieninX() {
         return this.ruudukko.get(0).get(0).getX();
     }
-    
+
     public int getRuudukonPieninY() {
         return this.ruudukko.get(0).get(0).getY();
     }
-    
+
     public int getRuudukonSuurinY() {
-        return this.ruudukko.get(this.ruudukko.size()-1).get(0).getY();
+        return this.ruudukko.get(this.ruudukko.size() - 1).get(0).getY();
     }
 }

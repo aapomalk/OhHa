@@ -17,6 +17,12 @@ import viidensuora.Suunta;
  * @author Aapo
  */
 public class RuudukonsiirtoNappulanKuuntelija implements ActionListener {
+    
+    private static boolean vihje = false;
+    
+    public static void asetaVihje(boolean vihjePainettu) {
+        vihje = vihjePainettu;
+    }
 
     private RistiNollaMuistio muistio;
     private PeliHallitsija hallitsija;
@@ -36,7 +42,10 @@ public class RuudukonsiirtoNappulanKuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         this.rajaaja.etsiKoordinaatit(muistio.getMerkit());
         siirraRuudukkoa();
-        this.ruutuHallitsija.paivitaRuudukonXjaOtilanteet(this.muistio.getMerkit());
+        this.ruutuHallitsija.paivitaRuudukonKirjoitusTilanteet(this.muistio.getMerkit());
+        if (vihje) {
+            this.ruutuHallitsija.paivitaVihjeRuudukot();
+        }
         this.hallitsija.paivitaPelikentta();
     }
     
