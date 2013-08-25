@@ -40,6 +40,7 @@ public class VihjeNappulanKuuntelija implements ActionListener {
         if (onnistuiko) {
             hallitsija.paivitaVihjeRuudukot();
             peliHallitsija.paivitaPelikentta();
+            peliHallitsija.lisaaVihjekertaTunnukselle();
         }
     }
     

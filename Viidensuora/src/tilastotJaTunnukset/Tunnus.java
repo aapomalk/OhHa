@@ -45,6 +45,10 @@ public class Tunnus implements Comparable {
         this.pelatutPelit++;
     }
     
+    void lisaaVihjenapinKaytto() {
+        this.vihjenapinKaytot++;
+    }
+    
     void lisaaVoitto() {
         this.voitot++;
     }

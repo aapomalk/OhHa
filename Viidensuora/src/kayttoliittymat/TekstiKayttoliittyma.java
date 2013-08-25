@@ -26,11 +26,11 @@ public class TekstiKayttoliittyma extends Kayttoliittyma {
     }
     
     private void tulostaTilastot() {
-        System.out.println("Pelien maara: " + tilastot.getPelienMaara());
-        System.out.println("Pelien keskimaarainen pituus: " + tilastot.getPelienKeskimaarainenPituus());
-        System.out.println("Ristien voitot: " + tilastot.getRistienVoitot());
-        System.out.println("Nollien voitot: " + tilastot.getNollienVoitot());
-        System.out.println("Pelien tallennusten maara: " + tilastot.getPelienTallennustenMaara());
+        System.out.println("Pelien maara: " + getTilastot().getPelienMaara());
+        System.out.println("Pelien keskimaarainen pituus: " + getTilastot().getPelienKeskimaarainenPituus());
+        System.out.println("Ristien voitot: " + getTilastot().getRistienVoitot());
+        System.out.println("Nollien voitot: " + getTilastot().getNollienVoitot());
+        System.out.println("Pelien tallennusten maara: " + getTilastot().getPelienTallennustenMaara());
     }
     /**
      * käynnistetään tekstikäyttöliittymä, jonka jälkeen peliä hallitsee käyttäjän syötteet
@@ -66,7 +66,7 @@ public class TekstiKayttoliittyma extends Kayttoliittyma {
         System.out.print("anna komento: ");
         String komento = lukija.nextLine();
         if (komento.equals("tallenna")) {
-            tilastot.peliTallennettu();
+            getTilastot().peliTallennettu();
             getPeliSave().tallennaPelitilanne(getMuistio().getMerkit(), "tallennus.txt", getKasittelija());
         } else if (komento.equals("lataa")) {
             getPeliLoad().lataaPelitilanne("tallennus.txt", getKasittelija(), getMuistio());

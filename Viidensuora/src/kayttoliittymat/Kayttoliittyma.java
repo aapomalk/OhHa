@@ -33,7 +33,7 @@ public class Kayttoliittyma {
     private PelitilanteenTallentaja peliSave;
     private PelitilanteenLukija peliLoad;
     private VirheidenKasittelija kasittelija;
-    protected TilastoTunnusMuistio tilastot;
+    private TilastoTunnusMuistio tilastot;
     protected boolean jatketaan;
     /**
      * alustetaan molempien käyttöliittymien tarvittavat oliomuuttujat ja otetaan
@@ -55,7 +55,7 @@ public class Kayttoliittyma {
     
     public void tallennaTilastot() {
         TilastojenJaTunnustenTallentaja lopetus = new TilastojenJaTunnustenTallentaja();
-        lopetus.tallennaTiedostoon(tilastot, "Tilastot.txt", getKasittelija());
+        lopetus.tallennaTiedostoon(getTilastot(), "Tilastot.txt", getKasittelija());
     }
     
     private void loytajienAlustus() {
@@ -107,5 +107,12 @@ public class Kayttoliittyma {
      */
     public RistiNollaMuistio getMuistio() {
         return muistio;
+    }
+
+    /**
+     * @return the tilastot
+     */
+    public TilastoTunnusMuistio getTilastot() {
+        return tilastot;
     }
 }

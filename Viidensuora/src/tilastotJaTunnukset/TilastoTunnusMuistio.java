@@ -98,6 +98,10 @@ public class TilastoTunnusMuistio {
         tunnusPari.lisaaTallennus();
     }
     
+    public void vihjeNappiaPainettu(Tunnus tunnus) {
+        tunnus.lisaaVihjenapinKaytto();
+    }
+    
     private void lisaaPelattuPeli() {
         this.pelienMaara++;
     }

@@ -101,16 +101,25 @@ public class PeliHallitsija {
     }
 
     private void kysyRistiPelaaja() {
-        Tunnus[] tunnukset = new Tunnus[2];
-        tunnukset[0] = pari.getTunnus1();
-        tunnukset[1] = pari.getTunnus2();
-        this.ristiPelaaja = (Tunnus) JOptionPane.showInputDialog(naytto, "Valitse ristilla pelaava tunnus", "Ristipelaaja",
+        String[] tunnukset = new String[2];
+        tunnukset[0] = pari.getTunnus1().getTunnus();
+        tunnukset[1] = pari.getTunnus2().getTunnus();
+        String tunnusNimi = (String) JOptionPane.showInputDialog(naytto, "Valitse ristilla pelaava tunnus", "Ristipelaaja",
                 JOptionPane.PLAIN_MESSAGE, null, tunnukset, tunnukset[0]);
+        if (tunnusNimi != null) {
+            if (tunnusNimi.equals(pari.getTunnus1().getTunnus())) {
+                this.ristiPelaaja = pari.getTunnus1();
+            } else {
+                this.ristiPelaaja = pari.getTunnus2();
+            }
+        }
     }
 
     public JPanel kaynnistaPeli(Tunnus pelaanRistilla) {
         if (this.pari != null && pelaanRistilla == null) {
             kysyRistiPelaaja();
+        } else {
+            this.ristiPelaaja = pelaanRistilla;
         }
         paivitaInfoteksti();
         naytto.add(infoteksti, BorderLayout.NORTH);
@@ -129,10 +138,28 @@ public class PeliHallitsija {
         String tiedostonNimi;
         if (this.ristiPelaaja == null) {
             tiedostonNimi = "Pikapeli.txt";
+            this.liittyma.getTilastot().peliTallennettu();
         } else {
-            tiedostonNimi = "" + this.pari.getTunnus1() + "_" + this.pari.getTunnus2();
+            this.liittyma.getTilastot().peliTallennettu(this.pari);
+            tiedostonNimi = "" + this.pari.getTunnus1().getTunnus() + "_" + this.pari.getTunnus2().getTunnus() + ".txt";
         }
         this.liittyma.getPeliSave().tallennaPelitilanne(this.muistio.getMerkit(), tiedostonNimi, this.liittyma.getKasittelija(), this.ristiPelaaja);
+        this.liittyma.tallennaTilastot();
+    }
+    
+    public void lisaaVihjekertaTunnukselle() {
+        if (this.kummanVuoroonJai() == Laatu.RISTI) {
+            this.liittyma.getTilastot().vihjeNappiaPainettu(ristiPelaaja);
+        } else {
+            Tunnus nollapelaaja;
+            if (this.ristiPelaaja.equals(this.pari.getTunnus1())) {
+                nollapelaaja = this.pari.getTunnus2();
+            } else {
+                nollapelaaja = this.pari.getTunnus1();
+            }
+            this.liittyma.getTilastot().vihjeNappiaPainettu(nollapelaaja);
+        }
+        this.liittyma.tallennaTilastot();
     }
 
     private JPanel lisaaPelikenttaJaNuolet() {

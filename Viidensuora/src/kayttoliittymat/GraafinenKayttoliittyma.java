@@ -23,6 +23,7 @@ import kayttoliittymat.kuuntelijat.tilastot.NaytaTunnuksetNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.tilastot.NaytaTunnusparitNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.tilastot.TunnusTilastoKategoriat;
 import kayttoliittymat.kuuntelijat.tilastot.YlosNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.valikko.KaksinpeliNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.valikko.LopetaNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.valikko.PikapeliNappulanKuuntelija;
 import kayttoliittymat.kuuntelijat.valikko.TilastoNappulanKuuntelija;
@@ -74,7 +75,7 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
             JOptionPane.showMessageDialog(frame, "Tunnuksen pituus taytyy olla 3-20 merkkia ilman valia");
             return;
         }
-        boolean onnistuiko = super.tilastot.lisaaTunnus(tunnus);
+        boolean onnistuiko = super.getTilastot().lisaaTunnus(tunnus);
         if (onnistuiko) {
             super.tallennaTilastot();
         } else {
@@ -138,9 +139,9 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         
         int listaMax;
         if (trueTunnuksilleFalsePareille) {
-            listaMax = this.tilastot.getTunnukset().size();
+            listaMax = this.getTilastot().getTunnukset().size();
         } else {
-            listaMax = this.tilastot.getTunnusParit().size();
+            listaMax = this.getTilastot().getTunnusParit().size();
         }
         
         YlosNappulanKuuntelija ylosKuuntelija = new YlosNappulanKuuntelija(this, tilastoIndeksi, listaMax, trueTunnuksilleFalsePareille);
@@ -188,8 +189,8 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         JPanel tunnusTilastoja = new JPanel();
         tunnusTilastoja.setLayout(new BoxLayout(tunnusTilastoja, BoxLayout.PAGE_AXIS));
         tunnusTilastoja.add(tulostaOtsikotTunnusTilastot());
-        for (int i = lahtoIndeksi; i < super.tilastot.getTunnukset().size(); i++) {
-            tunnusTilastoja.add(tulostaTunnusTilastot(super.tilastot.getTunnukset().get(i)));
+        for (int i = lahtoIndeksi; i < super.getTilastot().getTunnukset().size(); i++) {
+            tunnusTilastoja.add(tulostaTunnusTilastot(super.getTilastot().getTunnukset().get(i)));
         }
 
         return tunnusTilastoja;
@@ -279,6 +280,22 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     public void menePikapeliin() {
         this.menePikapeliin(true);
     }
+    
+    public void meneKaksinpeliin(boolean tyhjennetaanko, TunnusPari pari, Tunnus ristipelaaja) {
+        frame.getContentPane().removeAll();
+        frame.repaint();
+        if (tyhjennetaanko) {
+            tyhjennaRistiNollaMuistio();
+        }
+        PeliHallitsija hallitsija = new PeliHallitsija(pari, super.getMuistio(), this.frame, this);
+        frame.getContentPane().setLayout(new BorderLayout());
+        frame.getContentPane().add(hallitsija.kaynnistaPeli(ristipelaaja));
+        frame.pack();
+    }
+    
+    public void meneKaksinpeliin(TunnusPari pari, Tunnus ristiPelaaja) {
+        this.meneKaksinpeliin(true, pari, ristiPelaaja);
+    }
 
     private void luoKomponentitTunnuspariTilasto(Container container) {
 
@@ -344,8 +361,8 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         JPanel tunnusPariTilastoja = new JPanel();
         tunnusPariTilastoja.setLayout(new BoxLayout(tunnusPariTilastoja, BoxLayout.PAGE_AXIS));
         tunnusPariTilastoja.add(tulostaOtsikotTunnusPariTilastot());
-        for (int i = lahtoIndeksi; i < super.tilastot.getTunnusParit().size(); i++) {
-            tunnusPariTilastoja.add(tulostaTunnusPariTilastot(super.tilastot.getTunnusParit().get(i)));
+        for (int i = lahtoIndeksi; i < super.getTilastot().getTunnusParit().size(); i++) {
+            tunnusPariTilastoja.add(tulostaTunnusPariTilastot(super.getTilastot().getTunnusParit().get(i)));
         }
 
         container.add(tunnusPariTilastoja);
@@ -413,11 +430,11 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     private JPanel tulostaTilastoja() {
         JPanel tilastoja = new JPanel(new GridLayout(6, 1));
         tilastoja.add(new JLabel());
-        tilastoja.add(new JLabel("" + super.tilastot.getPelienMaara()));
-        tilastoja.add(new JLabel("" + super.tilastot.getRistienVoitot()));
-        tilastoja.add(new JLabel("" + super.tilastot.getNollienVoitot()));
-        tilastoja.add(new JLabel("" + super.tilastot.getPelienKeskimaarainenPituus()));
-        tilastoja.add(new JLabel("" + super.tilastot.getPelienTallennustenMaara()));
+        tilastoja.add(new JLabel("" + super.getTilastot().getPelienMaara()));
+        tilastoja.add(new JLabel("" + super.getTilastot().getRistienVoitot()));
+        tilastoja.add(new JLabel("" + super.getTilastot().getNollienVoitot()));
+        tilastoja.add(new JLabel("" + super.getTilastot().getPelienKeskimaarainenPituus()));
+        tilastoja.add(new JLabel("" + super.getTilastot().getPelienTallennustenMaara()));
         return tilastoja;
     }
 
@@ -452,6 +469,7 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         tilastotNappula.addActionListener(tilastoKuuntelija);
         luoTunnus.addActionListener(new TunnusNappulanKuuntelija(this));
         lopeta.addActionListener(new LopetaNappulanKuuntelija());
+        kaksinpeli.addActionListener(new KaksinpeliNappulanKuuntelija(this));
 
         valikko.add(pikapeli);
         valikko.add(new JLabel());
@@ -466,11 +484,11 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     }
     
     public void lisaaTilastoihinPikapeli(double pelinPituus, Laatu laatu) {
-        super.tilastot.peliPelattu(pelinPituus, laatu);
+        super.getTilastot().peliPelattu(pelinPituus, laatu);
     }
     
     public void lisaaTilastoihinKaksinpeli(double pelinPituus, Laatu laatu, Tunnus voittajaTunnus, TunnusPari tunnusPari) {
-        super.tilastot.peliPelattu(pelinPituus, laatu, voittajaTunnus, tunnusPari);
+        super.getTilastot().peliPelattu(pelinPituus, laatu, voittajaTunnus, tunnusPari);
     }
 
     public JFrame getFrame() {
@@ -478,10 +496,10 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     }
 
     public ArrayList<Tunnus> getTunnukset() {
-        return super.tilastot.getTunnukset();
+        return super.getTilastot().getTunnukset();
     }
 
     public ArrayList<TunnusPari> getTunnusParit() {
-        return super.tilastot.getTunnusParit();
+        return super.getTilastot().getTunnusParit();
     }
 }

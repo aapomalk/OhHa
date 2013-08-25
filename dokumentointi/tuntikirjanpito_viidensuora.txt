@@ -64,9 +64,10 @@ Projektin Viidensuora tuntikirjanpito:
 [23.08. klo 12- 24.08. klo 19: Koodikatselmoinnin tekemist‰, satunnainen aikam‰‰r‰]
 24.08. (yhteens‰ 02h 05min)
 	noin klo 19:10-21:15; Pikapeli -ominaisuus tallentamista ja vihjett‰ vaille valmiiksi
-25.08. (yhteens‰ 05h 20min)
+25.08. (yhteens‰ 07h 05min)
 	noin klo 13:10-14:30; Pikapeliin tallennusominaisuus
 	noin klo 15:00-16:20; Pikapeliin vihjetoiminto, ilman ikonia
 	noin klo 16:20-17:05; Vihjeille v‰rikoodi + ruudukon v‰ritys
 	noin klo 17:10-18:50; Anonyymi peli (aka pikapeli) taitaa olla valmis, viimeisen‰ peliin lis‰ttiin infoteksti, joka kertoo kumman vuoro jne..
 	noin klo 19:00-19:15; k‰sin testailua ja pienen bugin korjaus
+	noin klo 22:00-23:45; Kaksinpelin teko, pit‰isi olla valmis
