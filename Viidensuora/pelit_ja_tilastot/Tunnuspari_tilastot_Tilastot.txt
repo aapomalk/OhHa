@@ -1,1 +1,2 @@
 cec Aapo 1 10.0 0 1 0 0 1
+Aapo testi 0 0.0 0 0 0 0 0
