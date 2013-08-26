@@ -19,6 +19,7 @@ public class ValikkoonNappulanKuuntelija implements ActionListener {
     /**
      * 
      * @param liittyma tallennetaan viite kuuntelijaan
+     * @param kysytaankoTallennusta  
      */
     public ValikkoonNappulanKuuntelija(GraafinenKayttoliittyma liittyma, boolean kysytaankoTallennusta) {
         this.liittyma = liittyma;

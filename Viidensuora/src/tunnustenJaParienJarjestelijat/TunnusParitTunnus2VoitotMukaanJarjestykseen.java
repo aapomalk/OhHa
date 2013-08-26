@@ -16,7 +16,7 @@ public class TunnusParitTunnus2VoitotMukaanJarjestykseen implements Comparator<T
      * Vertaillaan Tunnusparien toisten tunnusten voittoja
      * @param t ensimmäinen verrattava tunnuspari
      * @param t1 toinen verrattava tunnuspari
-     * @return 
+     * @return toisten tunnusten voitot järjestykseen
      */
     @Override
     public int compare(TunnusPari t, TunnusPari t1) {

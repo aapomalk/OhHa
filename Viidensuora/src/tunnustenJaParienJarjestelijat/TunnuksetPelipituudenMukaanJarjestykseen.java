@@ -16,7 +16,7 @@ public class TunnuksetPelipituudenMukaanJarjestykseen implements Comparator<Tunn
      * Vertaillaan tunnuksia pelien pituuksien keskiarvon perusteella
      * @param t
      * @param t1
-     * @return 
+     * @return kummalla tunnuksista on pidemmät pelit
      */
     @Override
     public int compare(Tunnus t, Tunnus t1) {

@@ -16,6 +16,10 @@ import kayttoliittymat.GraafinenKayttoliittyma;
 public class TunnusNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
     
+    /**
+     *
+     * @param liittyma
+     */
     public TunnusNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;
     }

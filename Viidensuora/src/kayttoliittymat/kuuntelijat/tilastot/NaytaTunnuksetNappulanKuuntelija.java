@@ -15,6 +15,10 @@ import kayttoliittymat.GraafinenKayttoliittyma;
 public class NaytaTunnuksetNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
     
+    /**
+     *
+     * @param liittyma
+     */
     public NaytaTunnuksetNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;
     }

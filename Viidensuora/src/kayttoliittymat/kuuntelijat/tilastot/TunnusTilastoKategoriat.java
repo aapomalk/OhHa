@@ -10,9 +10,66 @@ package kayttoliittymat.kuuntelijat.tilastot;
  * @author Aapo
  */
 public enum TunnusTilastoKategoriat {
-    TUNNUS(true), PELIT(true), VOITOT(true), RISTIT(true), PITUUS(true), VIHJEET(true),
-    TUNNUS1_PARI(false), TUNNUS2_PARI(false), PELIT_PARI(false), TUNNUS1_VOITOT(false), TUNNUS1_RISTIT(false),
-    TUNNUS2_VOITOT(false), TUNNUS2_RISTIT(false), PITUUS_PARI(false), TALLENNUKSET_PARI(false);
+    /**
+     *
+     */
+    TUNNUS(true),
+    /**
+     *
+     */
+    PELIT(true),
+    /**
+     *
+     */
+    VOITOT(true),
+    /**
+     *
+     */
+    RISTIT(true),
+    /**
+     *
+     */
+    PITUUS(true),
+    /**
+     *
+     */
+    VIHJEET(true),
+    /**
+     *
+     */
+    TUNNUS1_PARI(false),
+    /**
+     *
+     */
+    TUNNUS2_PARI(false),
+    /**
+     *
+     */
+    PELIT_PARI(false),
+    /**
+     *
+     */
+    TUNNUS1_VOITOT(false),
+    /**
+     *
+     */
+    TUNNUS1_RISTIT(false),
+    /**
+     *
+     */
+    TUNNUS2_VOITOT(false),
+    /**
+     *
+     */
+    TUNNUS2_RISTIT(false),
+    /**
+     *
+     */
+    PITUUS_PARI(false),
+    /**
+     *
+     */
+    TALLENNUKSET_PARI(false);
     
     private final boolean trueTunnusFalsePari;
     

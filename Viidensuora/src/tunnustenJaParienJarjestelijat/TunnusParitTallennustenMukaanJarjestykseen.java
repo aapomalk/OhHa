@@ -16,7 +16,7 @@ public class TunnusParitTallennustenMukaanJarjestykseen implements Comparator<Tu
      * Vertaillaan tunnuspareja niiden tekemien tallennusten mukaan
      * @param t
      * @param t1
-     * @return 
+     * @return kumpi tunnuspareista on ollut ahkerampi tallentamaan
      */
     @Override
     public int compare(TunnusPari t, TunnusPari t1) {

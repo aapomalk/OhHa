@@ -7,6 +7,7 @@ package kayttoliittymat.peliGraafisetToimijat;
 import java.awt.Color;
 import javax.swing.JButton;
 import kayttoliittymat.kuuntelijat.peli.RuudukonsiirtoNappulanKuuntelija;
+import kayttoliittymat.kuuntelijat.peli.VuoronvaihtoNappulanKuuntelija;
 import viidensuora.Laatu;
 import viidensuora.RistiNollaMuistio;
 
@@ -21,6 +22,10 @@ public class RuutuNappula {
 
     private static boolean vihjettaPainettu = false;
 
+    /**
+     *
+     * @param onko
+     */
     public static void vihjettaPainettu(boolean onko) {
         vihjettaPainettu = onko;
     }
@@ -30,6 +35,7 @@ public class RuutuNappula {
     private RistiNollaMuistio muistio;
     private JButton nappula;
     private PeliHallitsija pelihallitsija;
+    private RuudukonHallitsija ruudukko;
 
     /**
      * Konstruktori, alustetaan oliomuuttujat
@@ -38,15 +44,22 @@ public class RuutuNappula {
      * @param y käyttäjän syöttämä alkuperäinen y-koordinaatti
      * @param muistio RistiNollaMuistio, johon nappula yrittää listä merkkiä
      * sitä paintettaessa
+     * @param pelihallitsija  
      */
-    public RuutuNappula(int x, int y, RistiNollaMuistio muistio, PeliHallitsija pelihallitsija) {
+    public RuutuNappula(int x, int y, RistiNollaMuistio muistio, PeliHallitsija pelihallitsija, RuudukonHallitsija ruudukko) {
         this.x = x;
         this.y = y;
         this.seuraavaLaatu = Laatu.RISTI;
         this.muistio = muistio;
         this.nappula = new JButton();
-        this.nappula.addActionListener(new RuutuNappulanKuuntelija(this));
+        nappulaanLisukkeet();
         this.pelihallitsija = pelihallitsija;
+        this.ruudukko = ruudukko;
+    }
+    
+    private void nappulaanLisukkeet() {
+        this.nappula.addActionListener(new RuutuNappulanKuuntelija(this));
+        this.nappula.addKeyListener(new VuoronvaihtoNappulanKuuntelija(ruudukko, pelihallitsija));
     }
 
     /**
@@ -87,7 +100,7 @@ public class RuutuNappula {
     public void muutaKirjoitus(String kirjoitus) {
         this.pelihallitsija.paivitaInfoteksti();
         this.nappula = new JButton(kirjoitus);
-        this.nappula.addActionListener(new RuutuNappulanKuuntelija(this));
+        nappulaanLisukkeet();
         if (kirjoitus.contains("s")) {
             nappula.setBackground(new Color(200, 200, 255));
         } else if (kirjoitus.contains("S")) {
@@ -112,6 +125,10 @@ public class RuutuNappula {
         nappula.setOpaque(true);
     }
 
+    /**
+     *
+     * @return palauttaa nappulan
+     */
     public JButton getNappula() {
         return this.nappula;
     }

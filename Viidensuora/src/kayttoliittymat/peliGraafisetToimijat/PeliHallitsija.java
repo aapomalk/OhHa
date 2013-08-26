@@ -44,25 +44,42 @@ public class PeliHallitsija {
      *
      * @param pari
      * @param muistio
+     * @param frame 
+     * @param liittyma  
      */
     public PeliHallitsija(TunnusPari pari, RistiNollaMuistio muistio, JFrame frame, GraafinenKayttoliittyma liittyma) {
         this.pari = pari;
         this.muistio = muistio;
         ruudukko = new RuudukonHallitsija(muistio, this);
         naytto = new JPanel(new BorderLayout());
+        naytto.addKeyListener(new VuoronvaihtoNappulanKuuntelija(this.ruudukko, this));
+        naytto.setFocusable(true);
         this.frame = frame;
         this.liittyma = liittyma;
         this.infoteksti = new JLabel("tahan tulee jotain infoa pelista");
     }
 
+    /**
+     *
+     * @param muistio
+     * @param frame
+     * @param liittyma
+     */
     public PeliHallitsija(RistiNollaMuistio muistio, JFrame frame, GraafinenKayttoliittyma liittyma) {
         this(null, muistio, frame, liittyma);
     }
     
+    /**
+     *
+     * @param onkoVihjePainettu
+     */
     public void onkoVihjePainettu(boolean onkoVihjePainettu) {
         RuudukonsiirtoNappulanKuuntelija.asetaVihje(onkoVihjePainettu);
     }
     
+    /**
+     *
+     */
     public void paivitaInfoteksti() {
         String teksti = "";
         if (this.pari == null) {
@@ -115,6 +132,11 @@ public class PeliHallitsija {
         }
     }
 
+    /**
+     * Itse pelitoiminnon käynnistämiseksi, rakennetaan ruudukko ja kaikki muu
+     * @param pelaanRistilla jos ristipelaaja on etukäteen tiedossa, muuten null
+     * @return JPanel, joka sisältää pelin
+     */
     public JPanel kaynnistaPeli(Tunnus pelaanRistilla) {
         if (this.pari != null && pelaanRistilla == null) {
             kysyRistiPelaaja();
@@ -130,10 +152,17 @@ public class PeliHallitsija {
         return naytto;
     }
     
+    /**
+     *
+     * @return JPanel pelistä
+     */
     public JPanel kaynnistaPeli() {
         return this.kaynnistaPeli(null);
     }
     
+    /**
+     *
+     */
     public void tallennaPeli() {
         String tiedostonNimi;
         if (this.ristiPelaaja == null) {
@@ -147,6 +176,9 @@ public class PeliHallitsija {
         this.liittyma.tallennaTilastot();
     }
     
+    /**
+     *
+     */
     public void lisaaVihjekertaTunnukselle() {
         if (this.ristiPelaaja == null) {
             return;
@@ -167,6 +199,7 @@ public class PeliHallitsija {
 
     private JPanel lisaaPelikenttaJaNuolet() {
         JPanel pelikentta = new JPanel(new BorderLayout());
+        pelikentta.setFocusable(true);
 
         JButton ylos = new JButton("A");
         JButton alas = new JButton("V");
@@ -187,6 +220,9 @@ public class PeliHallitsija {
         return pelikentta;
     }
 
+    /**
+     *
+     */
     public void paivitaPelikentta() {
         this.naytto.remove(this.naytto.getComponent(2));
         this.naytto.repaint();
@@ -194,6 +230,9 @@ public class PeliHallitsija {
         this.frame.pack();
     }
 
+    /**
+     *
+     */
     public void paivitaKenttaJaTarkistaVoitto() {
         this.paivitaPelikentta();
         boolean voitto = this.liittyma.tarkistaVoitto();
@@ -245,14 +284,16 @@ public class PeliHallitsija {
 
     private JPanel lisaaNappulat() {
         JPanel nappaimet = new JPanel(new GridLayout(5, 1));
+        nappaimet.setFocusable(true);
 
         JButton vuoronVaihto = new JButton("Vuoron vaihto");
         JButton vihjeNappula = new JButton("vihje");
         JButton tallennaPeli = new JButton("tallenna");
         JButton takaisinValikkoon = new JButton("Takaisin valikkoon");
         JButton peruSiirto = new JButton("Peru siirto");
-
+        
         vuoronVaihto.addActionListener(new VuoronvaihtoNappulanKuuntelija(this.getRuudukko(), this));
+        vuoronVaihto.addKeyListener(new VuoronvaihtoNappulanKuuntelija(this.getRuudukko(), this));
         takaisinValikkoon.addActionListener(new ValikkoonNappulanKuuntelija(this.liittyma, true));
         peruSiirto.addActionListener(new VuoronperumisNappulanKuuntelija(this.muistio, this, this.getRuudukko()));
         tallennaPeli.addActionListener(new TallennaNappulanKuuntelija(this));

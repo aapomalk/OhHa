@@ -104,7 +104,7 @@ public class Tunnus implements Comparable {
     /**
      * Tunnusten luonnollinen vertailujärjestys liittyy niiden nimeen
      * @param t käyttäjän antama verrattava olio
-     * @return 
+     * @return Tunnusten luonnollinen järjestys
      */
     @Override
     public int compareTo(Object t) {

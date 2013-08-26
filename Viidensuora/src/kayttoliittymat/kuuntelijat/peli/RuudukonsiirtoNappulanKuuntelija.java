@@ -20,6 +20,10 @@ public class RuudukonsiirtoNappulanKuuntelija implements ActionListener {
     
     private static boolean vihje = false;
     
+    /**
+     *
+     * @param vihjePainettu
+     */
     public static void asetaVihje(boolean vihjePainettu) {
         vihje = vihjePainettu;
     }
@@ -30,6 +34,13 @@ public class RuudukonsiirtoNappulanKuuntelija implements ActionListener {
     private ReunimmaisetKoordinaatit rajaaja;
     private Suunta suunta;
 
+    /**
+     *
+     * @param muistio
+     * @param hallitsija
+     * @param ruutuHallitsija
+     * @param suunta
+     */
     public RuudukonsiirtoNappulanKuuntelija(RistiNollaMuistio muistio, PeliHallitsija hallitsija, RuudukonHallitsija ruutuHallitsija, Suunta suunta) {
         this.muistio = muistio;
         this.hallitsija = hallitsija;
@@ -38,6 +49,10 @@ public class RuudukonsiirtoNappulanKuuntelija implements ActionListener {
         this.suunta = suunta;
     }
 
+    /**
+     *
+     * @param ae
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         this.rajaaja.etsiKoordinaatit(muistio.getMerkit());

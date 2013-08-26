@@ -30,6 +30,7 @@ public class RuudukonHallitsija {
      *
      * @param muistio käyttäjän syöttämä RistiNollaMuistio tallennetaan
      * RuutuNappuloihin
+     * @param pelihallitsija  
      */
     public RuudukonHallitsija(RistiNollaMuistio muistio, PeliHallitsija pelihallitsija) {
         this.ruudukko = new ArrayList<ArrayList<RuutuNappula>>();
@@ -38,6 +39,10 @@ public class RuudukonHallitsija {
         this.vihjettaPainettu = false;
     }
     
+    /**
+     *
+     * @return true, jos seuraavan laatu on risti
+     */
     public boolean seuraavanLaatuRisti() {
         return Laatu.RISTI == (seuraavanLaatu());
     }
@@ -46,6 +51,12 @@ public class RuudukonHallitsija {
         return ruudukko.get(0).get(0).getSeuraavaLaatu();
     }
     
+    /**
+     * RuudukonHallitsija välittää vihjeenetsintäkäskyn eteenpäin vain, mikäli on oma vuoro
+     * @param merkit näistä etsitään vihjeitä
+     * @param kummanVuoro kumman seuraavaksi pitäisi laittaa merkki, verrataan siihen kuka yrittää laittaa
+     * @return true jos vihjettä kysyttiin omalla vuorolla
+     */
     public boolean etsiVihjeet(ArrayList<Merkki> merkit, Laatu kummanVuoro) {
         if (kummanVuoro.equals(seuraavanLaatu())) {
             vihje.lisaaVihjeetListoihin(merkit, kummanVuoro);
@@ -58,6 +69,9 @@ public class RuudukonHallitsija {
         }
     }
 
+    /**
+     *
+     */
     public void paivitaVihjeRuudukot() {
         this.paivitaRuudukonKirjoitusTilanteet(vihje.getHairitseVastustajaa(), "s");
         this.paivitaRuudukonKirjoitusTilanteet(vihje.getEhkaHyodyllinen(), "s");
@@ -86,7 +100,7 @@ public class RuudukonHallitsija {
         for (int y = 0; y < 15; y++) {
             ArrayList<RuutuNappula> riviNappuloita = new ArrayList<RuutuNappula>();
             for (int x = 0; x < 15; x++) {
-                riviNappuloita.add(new RuutuNappula(x, y, muistio, pelihallitsija));
+                riviNappuloita.add(new RuutuNappula(x, y, muistio, pelihallitsija, this));
             }
             this.ruudukko.add(riviNappuloita);
         }
@@ -96,6 +110,7 @@ public class RuudukonHallitsija {
      * Päivitetään RuutuNappuloiden tekstit vastaamaan nykyistä pelitilannetta
      *
      * @param merkit käyttäjän syöttämä lista merkeistä
+     * @param vihjeMerkki  
      */
     public void paivitaRuudukonKirjoitusTilanteet(ArrayList<Merkki> merkit, String vihjeMerkki) {
         for (ArrayList<RuutuNappula> arrayList : ruudukko) {
@@ -116,6 +131,10 @@ public class RuudukonHallitsija {
         }
     }
 
+    /**
+     *
+     * @param merkit
+     */
     public void paivitaRuudukonKirjoitusTilanteet(ArrayList<Merkki> merkit) {
         this.paivitaRuudukonKirjoitusTilanteet(merkit, "");
     }
@@ -192,6 +211,9 @@ public class RuudukonHallitsija {
         return ruudut;
     }
 
+    /**
+     *
+     */
     public void vaihdaVuoroa() {
         for (ArrayList<RuutuNappula> arrayList : ruudukko) {
             for (RuutuNappula ruutuNappula : arrayList) {
@@ -200,18 +222,34 @@ public class RuudukonHallitsija {
         }
     }
 
+    /**
+     *
+     * @return suurinX
+     */
     public int getRuudukonSuurinX() {
         return this.ruudukko.get(0).get(this.ruudukko.get(0).size() - 1).getX();
     }
 
+    /**
+     *
+     * @return pieninX
+     */
     public int getRuudukonPieninX() {
         return this.ruudukko.get(0).get(0).getX();
     }
 
+    /**
+     *
+     * @return pieninY
+     */
     public int getRuudukonPieninY() {
         return this.ruudukko.get(0).get(0).getY();
     }
 
+    /**
+     *
+     * @return suurinY
+     */
     public int getRuudukonSuurinY() {
         return this.ruudukko.get(this.ruudukko.size() - 1).get(0).getY();
     }

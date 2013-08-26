@@ -21,12 +21,22 @@ public class VihjeNappulanKuuntelija implements ActionListener {
     private PeliHallitsija peliHallitsija;
     private RistiNollaMuistio muistio;
     
+    /**
+     *
+     * @param hallitsija
+     * @param peliHallitsija
+     * @param muistio
+     */
     public VihjeNappulanKuuntelija(RuudukonHallitsija hallitsija, PeliHallitsija peliHallitsija, RistiNollaMuistio muistio) {
         this.hallitsija = hallitsija;
         this.peliHallitsija = peliHallitsija;
         this.muistio = muistio;
     }
     
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Laatu laatu;

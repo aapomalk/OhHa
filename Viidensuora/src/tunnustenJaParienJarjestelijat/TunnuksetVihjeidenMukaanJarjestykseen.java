@@ -16,7 +16,7 @@ public class TunnuksetVihjeidenMukaanJarjestykseen implements Comparator<Tunnus>
      * Vertaillaan tunnuksia käytettyjen vihjekertojen perusteella
      * @param t
      * @param t1
-     * @return 
+     * @return kumpi tunnuksista on leikkinyt enemmän vihjenapilla
      */
     @Override
     public int compare(Tunnus t, Tunnus t1) {

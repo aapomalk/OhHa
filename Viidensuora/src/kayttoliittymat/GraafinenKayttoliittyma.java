@@ -265,6 +265,10 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         }
     }
     
+    /**
+     *
+     * @param tyhjennetaanko
+     */
     public void menePikapeliin(boolean tyhjennetaanko) {
         frame.getContentPane().removeAll();
         frame.repaint();
@@ -277,10 +281,19 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         frame.pack();
     }
     
+    /**
+     *
+     */
     public void menePikapeliin() {
         this.menePikapeliin(true);
     }
     
+    /**
+     *
+     * @param tyhjennetaanko
+     * @param pari
+     * @param ristipelaaja
+     */
     public void meneKaksinpeliin(boolean tyhjennetaanko, TunnusPari pari, Tunnus ristipelaaja) {
         frame.getContentPane().removeAll();
         frame.repaint();
@@ -293,6 +306,11 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         frame.pack();
     }
     
+    /**
+     *
+     * @param pari
+     * @param ristiPelaaja
+     */
     public void meneKaksinpeliin(TunnusPari pari, Tunnus ristiPelaaja) {
         this.meneKaksinpeliin(true, pari, ristiPelaaja);
     }
@@ -483,22 +501,46 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
         return valikko;
     }
     
+    /**
+     *
+     * @param pelinPituus
+     * @param laatu
+     */
     public void lisaaTilastoihinPikapeli(double pelinPituus, Laatu laatu) {
         super.getTilastot().peliPelattu(pelinPituus, laatu);
     }
     
+    /**
+     *
+     * @param pelinPituus
+     * @param laatu
+     * @param voittajaTunnus
+     * @param tunnusPari
+     */
     public void lisaaTilastoihinKaksinpeli(double pelinPituus, Laatu laatu, Tunnus voittajaTunnus, TunnusPari tunnusPari) {
         super.getTilastot().peliPelattu(pelinPituus, laatu, voittajaTunnus, tunnusPari);
     }
 
+    /**
+     *
+     * @return frame
+     */
     public JFrame getFrame() {
         return frame;
     }
 
+    /**
+     *
+     * @return haetaan tilastoilta lista tunnuksista, joka palautetaan
+     */
     public ArrayList<Tunnus> getTunnukset() {
         return super.getTilastot().getTunnukset();
     }
 
+    /**
+     *
+     * @return lista tunnuspareista
+     */
     public ArrayList<TunnusPari> getTunnusParit() {
         return super.getTilastot().getTunnusParit();
     }

@@ -73,6 +73,9 @@ public class Vihje {
      * @param laatu kumpi on hyökkäämässä, vaikuttaa pisteytykseen
      */
     public void lisaaVihjeetListoihin(ArrayList<Merkki> merkit, Laatu laatu) {
+        if (merkit.isEmpty()) {
+            return;
+        }
         nollaaListat();
         int indeksi = merkit.size() - 1;
         this.taydentaja.lisaaTyhjatMerkit(merkit);

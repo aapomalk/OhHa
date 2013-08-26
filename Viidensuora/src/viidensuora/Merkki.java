@@ -21,7 +21,7 @@ public class Merkki {
      * @param y käyttäjän antama y-koordinaatti, joka asetetaan pysyvästi
      * @param laatu käyttäjän antama laatu, jota ei voi enää vaihtaa
      */
-    public Merkki(int x, int y, viidensuora.Laatu laatu) {
+    public Merkki(int x, int y, Laatu laatu) {
         this.x = x;
         this.y = y;
         this.laatu = laatu;

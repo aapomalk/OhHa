@@ -75,3 +75,7 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 14:40-15:15; Saman tunnuksen mahdollisuuden poistaminen ja toisen bugin korjaus (k‰sin testausta) + lis‰‰ bugien (exceptionien poistamista)
 
 T‰ll‰ hetkell‰ ilmeisesti 70.83h tyˆt‰ takana kurssin eteen (+ katselmointi, jota ei laskuissa)
+
+26.08 (yhteens‰ 01h 20min) + [ennen yhteenlaskua 35min -> todellisuudessa yhteens‰ 1h 55min]
+	noin klo 22:05-22:15; Pieni bugi.
+	noin klo 22:25-23:35; JavaDoc -rupeaman alustus, vuoronvaihto v-n‰pp‰imell‰ -> ei toimi t‰ydellisesti (pit‰‰ klikata jotain ruudukon nappulaa, jotta aktivoituisi)

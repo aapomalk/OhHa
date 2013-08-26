@@ -16,7 +16,7 @@ public class TunnuksetRistienMukaanJarjestykseen implements Comparator<Tunnus> {
      * Vertaillaan tunnuksia ristillä pelattujen pelien lukumäärän perusteella
      * @param t
      * @param t1
-     * @return 
+     * @return kumpi on pelannut enemmän pelejä
      */
     @Override
     public int compare(Tunnus t, Tunnus t1) {

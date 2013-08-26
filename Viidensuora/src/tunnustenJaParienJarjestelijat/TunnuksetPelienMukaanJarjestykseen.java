@@ -16,7 +16,7 @@ public class TunnuksetPelienMukaanJarjestykseen implements Comparator<Tunnus> {
      * Vertaillaan tunnuksia pelien lukumäärän perusteella
      * @param t
      * @param t1
-     * @return 
+     * @return palauttaa tiedon int -muodossa, kumpi tunnuksista on edella
      */
     @Override
     public int compare(Tunnus t, Tunnus t1) {

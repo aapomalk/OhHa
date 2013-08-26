@@ -17,10 +17,18 @@ public class TallennaNappulanKuuntelija implements ActionListener {
     
     private PeliHallitsija hallitsija;
     
+    /**
+     *
+     * @param hallitsija
+     */
     public TallennaNappulanKuuntelija(PeliHallitsija hallitsija) {
         this.hallitsija = hallitsija;
     }
     
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (JOptionPane.showConfirmDialog(null, "Haluatko varmasti tallentaa pelin?" + 

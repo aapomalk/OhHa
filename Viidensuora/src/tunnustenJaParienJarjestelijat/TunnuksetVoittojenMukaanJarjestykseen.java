@@ -16,7 +16,7 @@ public class TunnuksetVoittojenMukaanJarjestykseen implements Comparator<Tunnus>
      * Vertaillaan tunnuksia voittojen perusteella
      * @param t
      * @param t1
-     * @return 
+     * @return kumpi tunnuksista on voittanut enemmän
      */
     @Override
     public int compare(Tunnus t, Tunnus t1) {

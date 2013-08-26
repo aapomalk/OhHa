@@ -16,7 +16,7 @@ public class TunnusParitPelipituudenMukaanJarjestykseen implements Comparator<Tu
      * Vertaillaan tunnuspareja pelien keskimääräisen pituuden mukaan
      * @param t
      * @param t1
-     * @return 
+     * @return kummalla tunnusparilla on pidemmät pelit, keskimäärin
      */
     @Override
     public int compare(TunnusPari t, TunnusPari t1) {

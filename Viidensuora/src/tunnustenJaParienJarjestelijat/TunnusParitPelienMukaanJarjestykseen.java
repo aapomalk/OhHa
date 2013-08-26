@@ -16,7 +16,7 @@ public class TunnusParitPelienMukaanJarjestykseen implements Comparator<TunnusPa
      * Vertaillaan tunnuspareja keskenään pelien lukumäärän perusteella
      * @param t
      * @param t1
-     * @return 
+     * @return kummalla tunnusparilla on enemmän pelattuja pelejä
      */
     @Override
     public int compare(TunnusPari t, TunnusPari t1) {

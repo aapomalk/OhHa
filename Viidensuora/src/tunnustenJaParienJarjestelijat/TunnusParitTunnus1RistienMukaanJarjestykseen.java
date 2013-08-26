@@ -16,7 +16,7 @@ public class TunnusParitTunnus1RistienMukaanJarjestykseen implements Comparator<
      * Vertaillaan tunnusparien ensimmäisten tunnusten ristillä pelattujen pelien määrää
      * @param t
      * @param t1
-     * @return 
+     * @return tunnusparien ensimmäisten tunnusten järjestys ristipelien mukaan
      */
     @Override
     public int compare(TunnusPari t, TunnusPari t1) {

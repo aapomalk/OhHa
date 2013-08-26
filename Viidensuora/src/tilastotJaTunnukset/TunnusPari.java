@@ -170,7 +170,7 @@ public class TunnusPari implements Comparable {
     /**
      * Tunnusparien luonnollinen vertailujärjestys on ensimmäisten tunnusten nimet
      * @param t käyttäjän antama syöte, jota verrataan kyseiseen tunnuspariin
-     * @return 
+     * @return tunnusparien luonnollinen järjestys
      */
     @Override
     public int compareTo(Object t) {

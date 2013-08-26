@@ -26,14 +26,29 @@ import viidensuora.RistiNollaMuistio;
 public class Kayttoliittyma {
     
     private RistiNollaMuistio muistio;
+    /**
+     *
+     */
     protected MerkkienJononLoytaja loytaja;
+    /**
+     *
+     */
     protected ArrayList<Laatu> viisiRistia;
+    /**
+     *
+     */
     protected ArrayList<Laatu> viisiNollaa;
+    /**
+     *
+     */
     protected ReunimmaisetKoordinaatit rajaaja;
     private PelitilanteenTallentaja peliSave;
     private PelitilanteenLukija peliLoad;
     private VirheidenKasittelija kasittelija;
     private TilastoTunnusMuistio tilastot;
+    /**
+     *
+     */
     protected boolean jatketaan;
     /**
      * alustetaan molempien käyttöliittymien tarvittavat oliomuuttujat ja otetaan
@@ -53,6 +68,9 @@ public class Kayttoliittyma {
         rajaaja = new ReunimmaisetKoordinaatit();
     }
     
+    /**
+     *
+     */
     public void tallennaTilastot() {
         TilastojenJaTunnustenTallentaja lopetus = new TilastojenJaTunnustenTallentaja();
         lopetus.tallennaTiedostoon(getTilastot(), "Tilastot.txt", getKasittelija());
@@ -68,6 +86,10 @@ public class Kayttoliittyma {
         
     }
     
+    /**
+     *
+     * @return true jos löytyy viidensuora, else false
+     */
     public boolean tarkistaVoitto() {
         if (getMuistio().getEdellinenMerkkiRisti()) {
             if (this.loytaja.tarkastaViimeinen(getMuistio().getMerkit(), viisiRistia)) {
