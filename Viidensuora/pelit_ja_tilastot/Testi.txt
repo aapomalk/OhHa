@@ -1,5 +1,0 @@
-Pikapeli
-RISTI 0 0 
-NOLLA 1 1 
-RISTI -1 -1 
-NOLLA 2 0 

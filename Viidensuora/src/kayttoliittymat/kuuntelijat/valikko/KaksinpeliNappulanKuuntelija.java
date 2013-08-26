@@ -39,6 +39,10 @@ public class KaksinpeliNappulanKuuntelija implements ActionListener {
         if (tunnus2 == null) {
             return;
         }
+        if (tunnus1.equals(tunnus2)) {
+            JOptionPane.showMessageDialog(null, "Et voi pelata samalla tunnuksella samaa tunnusta vastaan!");
+            return;
+        }
         boolean onnistuiko = liittyma.getTilastot().lisaaTunnusPari(tunnus1, tunnus2);
         TunnusPari pari = null;
         if (!onnistuiko) {
@@ -79,6 +83,10 @@ public class KaksinpeliNappulanKuuntelija implements ActionListener {
     }
     
     private Tunnus valitseTunnus(String kysymys) {
+        if (liittyma.getTunnukset().size() < 2) {
+            JOptionPane.showMessageDialog(null, "Luo ensin vahintaan kaksi tunnusta");
+            return null;
+        }
         String[] tunnukset = new String[liittyma.getTunnukset().size()];
         for (int i = 0; i < liittyma.getTunnukset().size(); i++) {
             tunnukset[i] = liittyma.getTunnukset().get(i).getTunnus();
@@ -86,6 +94,9 @@ public class KaksinpeliNappulanKuuntelija implements ActionListener {
         
         String tunnusNimi = (String) JOptionPane.showInputDialog(liittyma.getFrame(), kysymys, "Tunnuksen valinta",
                 JOptionPane.PLAIN_MESSAGE, null, tunnukset, tunnukset[0]);
+        if (tunnusNimi == null) {
+            return null;
+        }
         Tunnus tunnus = etsiTunnus(tunnusNimi);
         return tunnus;
     }

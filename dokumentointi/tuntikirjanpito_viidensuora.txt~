@@ -54,6 +54,24 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 15:10-16:50; JavaDoc melkein kaikille public metodeille
 	noin klo 18:50-20:30; Nykyiseen, Graafiseen versioon p‰ivitetty Luokkakaavio. Tikku-ukko n‰ytt‰‰ mielest‰ni oikein hyv‰lt‰; D
 	noin klo 21:30-22:05; Sekvenssikaavioista lukemista (tiedonhaku)
-20.08. (yhteens‰ 02h 10min)
+20.08. (yhteens‰ 04h 05min)
 	noin klo 13:10-15:20; Dian harjoittelua ja ensimm‰inen sekvenssikaavio
-	noin klo 16:30-
+	noin klo 17:25-19:20; Peliominaisuuden aloittaminen
+21.08. (yhteens‰ 01h 25min)
+	noin klo 10:35-12:00; Sekvenssikaavioita/p‰ivityst‰ ja viilausta ohjelmaan
+22.08. (yhteens‰ 00h 40min)
+	noin klo 21:25-22:05; Luokkakaavion siirt‰minen Dia -formaattiin
+[23.08. klo 12- 24.08. klo 19: Koodikatselmoinnin tekemist‰, satunnainen aikam‰‰r‰]
+24.08. (yhteens‰ 02h 05min)
+	noin klo 19:10-21:15; Pikapeli -ominaisuus tallentamista ja vihjett‰ vaille valmiiksi
+25.08. (yhteens‰ 07h 05min)
+	noin klo 13:10-14:30; Pikapeliin tallennusominaisuus
+	noin klo 15:00-16:20; Pikapeliin vihjetoiminto, ilman ikonia
+	noin klo 16:20-17:05; Vihjeille v‰rikoodi + ruudukon v‰ritys
+	noin klo 17:10-18:50; Anonyymi peli (aka pikapeli) taitaa olla valmis, viimeisen‰ peliin lis‰ttiin infoteksti, joka kertoo kumman vuoro jne..
+	noin klo 19:00-19:15; k‰sin testailua ja pienen bugin korjaus
+	noin klo 22:00-23:45; Kaksinpelin teko, pit‰isi olla valmis
+26.08. (yhteens‰ 00h 35min)
+	noin klo 14:40-15:15; Saman tunnuksen mahdollisuuden poistaminen ja toisen bugin korjaus (k‰sin testausta) + lis‰‰ bugien (exceptionien poistamista)
+
+T‰ll‰ hetkell‰ ilmeisesti 70.83h tyˆt‰ takana kurssin eteen (+ katselmointi, jota ei laskuissa)

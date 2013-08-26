@@ -71,3 +71,7 @@ Projektin Viidensuora tuntikirjanpito:
 	noin klo 17:10-18:50; Anonyymi peli (aka pikapeli) taitaa olla valmis, viimeisenä peliin lisättiin infoteksti, joka kertoo kumman vuoro jne..
 	noin klo 19:00-19:15; käsin testailua ja pienen bugin korjaus
 	noin klo 22:00-23:45; Kaksinpelin teko, pitäisi olla valmis
+26.08. (yhteensä 00h 35min)
+	noin klo 14:40-15:15; Saman tunnuksen mahdollisuuden poistaminen ja toisen bugin korjaus (käsin testausta) + lisää bugien (exceptionien poistamista)
+
+Tällä hetkellä ilmeisesti 70.83h työtä takana kurssin eteen (+ katselmointi, jota ei laskuissa)

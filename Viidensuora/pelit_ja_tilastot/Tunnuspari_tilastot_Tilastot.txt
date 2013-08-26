@@ -1,3 +1,1 @@
-testi1 testi2 2 9.75 0 1 1 1 1
-testi3 testi2 0 0.0 0 0 0 0 0
-Aapo ea 0 0.0 1 0 0 0 0
+cec Aapo 1 10.0 0 1 0 0 1

@@ -148,6 +148,9 @@ public class PeliHallitsija {
     }
     
     public void lisaaVihjekertaTunnukselle() {
+        if (this.ristiPelaaja == null) {
+            return;
+        }
         if (this.kummanVuoroonJai() == Laatu.RISTI) {
             this.liittyma.getTilastot().vihjeNappiaPainettu(ristiPelaaja);
         } else {

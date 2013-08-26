@@ -99,6 +99,9 @@ public class TilastoTunnusMuistio {
     }
     
     public void vihjeNappiaPainettu(Tunnus tunnus) {
+        if (tunnus == null) {
+            return;
+        }
         tunnus.lisaaVihjenapinKaytto();
     }
     

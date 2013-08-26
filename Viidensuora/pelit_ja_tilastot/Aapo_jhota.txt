@@ -1,5 +1,0 @@
-jhota
-RISTI 7 7 
-NOLLA 8 8 
-RISTI 8 7 
-NOLLA 9 7 

@@ -458,7 +458,7 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
 
     private JPanel luoValikko() {
         JPanel valikko = new JPanel(new GridLayout(2, 5));
-        JButton pikapeli = new JButton("anonyymi peli");
+        JButton pikapeli = new JButton("pikapeli");
         JButton kaksinpeli = new JButton("kaksinpeli");
         JButton tilastotNappula = new JButton("tilastot");
         JButton luoTunnus = new JButton("luo tunnus");
