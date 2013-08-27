@@ -12,7 +12,7 @@ import viidensuora.Laatu;
 import viidensuora.RistiNollaMuistio;
 
 /**
- *
+ * kuuntelee nappulaa, jota painettaessa pitäisi ruudukolle ilmestyä vihjeitä
  * @author Aapo
  */
 public class VihjeNappulanKuuntelija implements ActionListener {
@@ -22,10 +22,10 @@ public class VihjeNappulanKuuntelija implements ActionListener {
     private RistiNollaMuistio muistio;
     
     /**
-     *
-     * @param hallitsija
-     * @param peliHallitsija
-     * @param muistio
+     * tallennetaan viitteet käskytettäviin olioihin
+     * @param hallitsija päivittää vihjeruudukot
+     * @param peliHallitsija päivittää pelikentän ja lisää vihjekerran tunnukselle
+     * @param muistio sisältää listan merkeistä, joita käytetään hyväksi vihjeiden löytämiseksi
      */
     public VihjeNappulanKuuntelija(RuudukonHallitsija hallitsija, PeliHallitsija peliHallitsija, RistiNollaMuistio muistio) {
         this.hallitsija = hallitsija;
@@ -34,7 +34,7 @@ public class VihjeNappulanKuuntelija implements ActionListener {
     }
     
     /**
-     *
+     * nappulaa painettiin! Vihjeet kehiin.
      * @param e
      */
     @Override

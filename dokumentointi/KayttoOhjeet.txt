@@ -1,0 +1,59 @@
+Käyttöohjeet (Viidensuora):
+
+Viidensuoran yleiset säännöt:
+Pelataan äärettömällä ruudukolla, merkitsemällä risti- ja nollamerkkejä vuorotellen ruutuihin (yksi merkki per ruutu). Risti aloittaa aina. Voittaja on se, joka saa viisi omaa merkkiään vierekkäisiin ruutuihin joko vaakasuoraan, pystysuoraan tai vinottain.
+
+Pelin käynnistys:
+Pelin voi käynnistää suoraan kaksoisklikkaamalla hiirellä Viidensuora.jar -tiedostoa(?) tai terminaalin kautta erinäisellä komennolla(joka on?).
+
+Toiminta pelissä:
+Pelin käynnistyttyä ilmestyy aluksi valikko, josta voi valita pikapelin, kaksinpelin, tilastot, tunnuksen luomisen tai lopettamisen. Nappuloita painetaan hiiren vasemmalla nappulalla (ensin viedään hiirikuvake nappulan päälle ja sitten vasta painetaan nappulaa, niin että hiirikuvake on edelleen nappulan päällä päästettäessä nappulasta irti)
+
+Pikapelinappula:
+Jos valitset tämän, sinulla ei ole paineita, että nimesi tallentuisi tilastoihin. Painamisen jälkeen ohjelma kysyy, että haluatko yrittää ladata tallennusta, jos edellisellä kerralla tallensit pelin, paina "yes" (kyllä), muuten paina "no" (ei), tai paina "cancel" (peruuta), jolloin et menekkään itse peliin. Jos painoit "yes", ohjelma lataa tallennuksen ja pääset jatkamaan sitä, tai sitten ohjelma antaa virheilmoituksen, että tallennusta ei löytynyt, jolloin pysytään edelleen valikossa. Painamalla "no" ohjelma siirtyy peliin lataamatta tallennusta.
+
+Kaksinpelinappula:
+Muuten sama kuin pikapelinappula, mutta ennen kysymystä tallennuksesta, täytyy valita kaksi eri tunnusta (jos tunnuksia on alle kaksi, ohjelma pyytää luomaan vähintään kaksi tunnusta). Tämän lisäksi, jos tallennusta ei ladata, ja siirryt peliin, kysyy ohjelma, että kumpi tunnuksista pelaa ristillä. Tässä vaiheessa pelaajien täytyy päättää, kumpi heistä pelaa ristillä (risti aloittaa aina).
+
+Tilastotnappula:
+Tästä painamalla siirtyy suoraan yleiset_tilastot_näkymään, jossa näkyy yleisiä tilastoja. Näkymä sisältää takaisin valikkoon-, tunnustilastoihin- ja tunnusparitilastoihin nappulat. Tunnus- ja tunnusparitilastoissa ylhäällä on kaksi nappulaa, joista tilastoja voi 'rullata' ylös tai alas (mikäli kaikki tilastot eivät mahdu ruudulle), minkä lisäksi alhaalla on useampi nappula, joilla kyseisiä tilastoja voi järjestellä eri kategorioiden mukaan.
+
+Luo_tunnus-nappula:
+Tästä painamalla ohjelma kysyy tunnusta. Tunnuksen täytyy olla 3-20 merkkiä pitkä, eikä se saa sisältää välilyöntejä. Lisäksi tunnusten täytyy olla erinimisiä (kahta samaa tunnusta ei voi olla). Tunnuksen luomisen jälkeen se löytyy tilastoista, ja sen voi valita kaksinpeliin.
+
+Lopetanappula:
+Tästä painamalla ohjelma kysyy lopettamishalusta, vastaa "yes" (kyllä), niin poistut pelistä. Myös ruudun ruksista voi poistua, mutta tällöin ohjelma ei erikseen kysy poistumishalua (joten sitä ei kannata painaa, ellei ole kiire).
+
+
+Toiminta itse pelissä (oli kyseessä sitten pikapeli tai kaksinpeli):
+
+Sisältö:
+
+Infoteksti:
+Pelinäkymään kuuluu infoteksti, joka kertoo kumpi yrittää laittaa merkkiä, ja kumpi laittoi viimeksi merkin. Merkin lisääminen onnistuu vain, jos mainituissa kohdissa lukee eri merkki (X tai O). Lisäksi kaksinpelissä teksti kertoo, että mitkä tunnukset on vastakkain, ja lisäksi millä merkillä kumpikin tunnus pelaa.
+
+Oikeanpuoleinen nappulapalkki:
+Näppäimiä löytyy vuoronvaihto, vihje, tallenna, takaisin valikkoon ja peru siirto.
+	Vuoronvaihdolla ilmoitetaan kanssapelaajalle, että vuoro on vaihtunut (tämä onnistuu myös näppäimellä v, mutta hieman bugisesti).
+	Vihjenappulalla (mikäli on oma vuoro, eikä vielä ole laittanut merkkiään) ohjelma kirjain- ja värikoodaa ruudukon antaen vihjettä, mihin kenties kannattaisi laittaa (ks. vihjekoodit).
+	Tallennanappulalla voi pelin tallentaa, kannattaa kuitenkin ottaa huomioon, että pikapelissä on yksi tallennuspaikka, samoin kunkin tunnuksen välillä on vain yksi.
+	Takaisin valikkoonnappula vihjaa ensin, että peli kannattaa tallentaa ennen valikkoon siirtymistä, mikäli et ole tallentanut älä paina "yes" (kyllä), vaan "no" tai "cancel", jolloin voit vielä tallentaa pelin ja vasta sitten palata valikkoon. (toki jos tiedät, että et halua tallentaa peliä, silloin älä tallenna)
+	Peru siirtonäppäimellä voi siirron perua (ohjelma kysyy ensin varmistusta), mutta sitä ei kannata käyttää kuin esimerkiksi vahingon sattuessa tai muussa äärimmäisessä tilanteessa.
+
+Ruudukon ympärillä olevat ruudukonsiirtonäppäimet:
+Näillä neljällä näppäimellä ruudukkoa saa siirrettyä, mikäli peli uhkaa laajentua kohti ruudukon reunaa, ja siitä yli. Jos mikään merkki (X tai O) ei ole alle neljän ruudun päässä reunasta, ei mitään tapahdu, vaikka kuinka näitä hiirellä klikkailisi.
+
+Itse ruudukko:
+Jokainen ruutu on oma nappulansa, jota painamalla voi sijoittaa oman merkin (omalla vuorolla), tällöin ruudun väri vaihtuu ja siihen ilmestyy oma merkkisi (X tai O). Ruudussa voi myös olla vihjetoiminnon vihjekoodi, joka sisältää jonkin kirjaimen (muu kuin X tai O) ja jonkin värin (ks. vihjekoodi), näitä ruutuja voi silti painaa (asettaen oman merkkinsä kyseiseen ruutuun), vaikka niissä onkin jo jotain.
+
+Vihjekoodi:
+Vihjekoodin kirjainpuoleen kuuluu kirjaimet s, S, h, H, v, V, z ja Z (kirjaimen koolla on väliä). Ässät (s ja S) ovat väritykseltään sinisiä, hoot (h ja H) vihreitä, veet (v ja V) punaisia ja zetat (z ja Z) keltaisia. Pienet kirjaimet ovat aina väriltään vaaleampia ja isot tummempia.
+Koodien selitykset:
+s - varovaisin vihjaus, voi liittyä sekä omiin merkkeihin, että vastustajan merkkeihin. Tähän ruutuun laittamalla ehkä hyödyt itse tai ehkä häiritset vastustajaa.
+S - hieman vahvempi vihjaus, liittyy sekä omiin, että vastustajan merkkeihin. Tähän ruutuun laittamalla mahdollisesti sekä itse hyödyt, ja samaan aikaan häiritset vastustajaa.
+h - vihjaus hyökkäysmahdollisuudesta. Liittyy joko yhteen vahvaan merkkien jonoon (esimerkiksi kolme peräkkäin) tai esimerkiksi kahteen varovaiseen vihjaukseen (jotka molemmat liittyvät omiin merkkeihin).
+H - vihjaus erinomaisesta hyökkäysmahdollisuudesta. Tähän laittamalla voit ehkä jopa voittaa pelin. Liittyy joko yhteen erittäin vahvaan merkkien jonoon tai sitten kyseiseen ruutuun yritettiin änkeä kahta erillistä h-vihjausta.
+v - vihjaus puolustusherkkyydestä. Tätä ruutua kannattaa pitää silmällä, sillä vastustajalla voi olla jokin hyökkäysmahdollisuus tätä ruutua käyttäen.
+V - vihjaus lähes pakonomaisesta puolustuksesta. Todennäköisesti jos et laita omaa merkkiäsi tähän ruutuun, häviät pelin.
+z - vihjaus samanaikaisesti hyökkäys- ja puolustusmahdollisuudesta (eli käytännössä samassa ruudussa olisi h- ja v-vihjaukset).
+Z - vihjaus samanaikaisesti voitto- ja puolustuspakkomahdollisuudesta (eli käytännössä samassa ruudussa olisi sekä H-, että V-vihjaukset).

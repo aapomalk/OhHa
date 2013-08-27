@@ -11,7 +11,8 @@ import java.awt.event.KeyListener;
 import kayttoliittymat.peliGraafisetToimijat.PeliHallitsija;
 import kayttoliittymat.peliGraafisetToimijat.RuudukonHallitsija;
 /**
- *
+ * kuuntelee nappulaa, jota painettaessa vuoron pitäisi vaihtua, toimii myös
+ * (hieman kömpelösti) näppäimistön kuuntelijana (v-kirjaimelle)
  * @author aapomalk
  */
 public class VuoronvaihtoNappulanKuuntelija implements ActionListener, KeyListener {
@@ -20,7 +21,7 @@ public class VuoronvaihtoNappulanKuuntelija implements ActionListener, KeyListen
     private PeliHallitsija peliHallitsija;
     
     /**
-     *
+     * konstruktori, tallennetaan viitteet käskytettäviin olioihin
      * @param hallitsija
      * @param peliHallitsija
      */
@@ -30,7 +31,7 @@ public class VuoronvaihtoNappulanKuuntelija implements ActionListener, KeyListen
     }
     
     /**
-     *
+     * jos nappulaa painetaan, vaihdetaan vuoroa
      * @param e
      */
     @Override
@@ -48,7 +49,10 @@ public class VuoronvaihtoNappulanKuuntelija implements ActionListener, KeyListen
     public void keyTyped(KeyEvent ke) {
         
     }
-
+    /**
+     * painettaessa näppäintä V -vaihdetaan vuoroa (ei toimim täydellisesti)
+     * @param ke 
+     */
     @Override
     public void keyPressed(KeyEvent ke) {
         if (ke.getKeyCode()==KeyEvent.VK_V) {

@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import kayttoliittymat.peliGraafisetToimijat.PeliHallitsija;
 
 /**
- *
+ * kuuntelee nappulaa, jota painettaessa peli tallennetaan, kenties
  * @author Aapo
  */
 public class TallennaNappulanKuuntelija implements ActionListener {
@@ -18,15 +18,15 @@ public class TallennaNappulanKuuntelija implements ActionListener {
     private PeliHallitsija hallitsija;
     
     /**
-     *
-     * @param hallitsija
+     * 
+     * @param hallitsija käskytettävä olio
      */
     public TallennaNappulanKuuntelija(PeliHallitsija hallitsija) {
         this.hallitsija = hallitsija;
     }
     
     /**
-     *
+     * nappulaa painettiin, kysytään kysymyksiä ja tallennetaan ehkä peli
      * @param e
      */
     @Override

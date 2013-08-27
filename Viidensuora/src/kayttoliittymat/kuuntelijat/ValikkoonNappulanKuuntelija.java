@@ -4,9 +4,9 @@
  */
 package kayttoliittymat.kuuntelijat;
 
-import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import kayttoliittymat.GraafinenKayttoliittyma;
 
 /**
@@ -17,9 +17,9 @@ public class ValikkoonNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
     private boolean kysytaankoTallennusta;
     /**
-     * 
+     * Luodaan joko tilastoihin tai peliin tallennettava kuuntelija
      * @param liittyma tallennetaan viite kuuntelijaan
-     * @param kysytaankoTallennusta  
+     * @param kysytaankoTallennusta true jos ollaan sisällä pelissä, muuten false
      */
     public ValikkoonNappulanKuuntelija(GraafinenKayttoliittyma liittyma, boolean kysytaankoTallennusta) {
         this.liittyma = liittyma;
@@ -27,13 +27,14 @@ public class ValikkoonNappulanKuuntelija implements ActionListener {
     }
     /**
      * ei kysyta tallennusta, koska ei olla pelissa
-     * @param liittyma 
+     * @param liittyma tallennetaan viite kuuntelijaan
      */
     public ValikkoonNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this(liittyma, false);
     }
     /**
-     * nappulaa painettaessa käsketään käyttöliittymää palaamaan valikkoon
+     * nappulaa painettaessa käsketään käyttöliittymää palaamaan valikkoon,
+     * kuitenkin jos ollaan pelissä, kysytään ensin tallennushalukkuutta
      * @param e 
      */
     @Override

@@ -1,0 +1,10 @@
+Ohjelman rakenteen kuvaus (liittyen tiedostoon LuokkakaavioYksinkertaistettu)
+
+
+Pelin suoritus alkaa luokasta Viidensuora, joka luo ja käynnistää (run) Graafisen käyttöliittymän.
+
+Käyttöliittymä pakettiin kuuluu runsaasti eri nappuloiden kuuntelijoita, joista erikoispoimintana ValikkoonNappulanKuuntelija, sillä sitä käytetään sekä pelissä, että tilastoissa. Lisäksi käyttöliittymän ehkä tärkeimpänä osana on pakkauksen peliGraafisetToimijat -sisältö, sillä kyseiset luokat pyörittävät itse pelitoiminnallisuutta (kuten näkyykin, että paketista kulkee nuolet luokkiin Vihje ja erityisesti RistiNollaMuistio).
+
+Tilastot -paketin kuuntelijat käyttävät pääasiassa paketin tunnustenJaParienJarjestelijat -luokkia, sillä ne järjestävät TilastoTunnusMuistion sisältämiä listoja. Näiden lisäksi tilastot -paketti sisältää nappuloiden kuuntelijoita tilastoissa navigointiin. (huom likimain kaikki varsinaiset nappulat luodaan GraafinenKayttoliittyma -luokassa)
+
+Erillisenä pakettina luokkakaaviossa on vielä tiedostojenKasittely, johon kylläkin on sisälle kirjoitettu kaikki siihen kuuluvat luokat (ja rajapinta), mutta näiden välille ei ole laitettu yhteyksiä, sillä ne ovat melko itsestäänselvät: Käyttöliittymä kutsuu joko Tilastojen- tai Pelitilanteen lukijaa tai tallentajaa. Sekä tilastojen, että pelitilanteen lukijat hyödyntävät TiedostostaLukijaa, joka lukee halutun tiedoston kansiosta pelit_ja_tilastot, samoin Tallentajat hyödyntävät Kirjoittajaa, joka vastaavasti kirjoittaa samaan kansioon tekstitiedostoja myöhemmin luettavaksi.

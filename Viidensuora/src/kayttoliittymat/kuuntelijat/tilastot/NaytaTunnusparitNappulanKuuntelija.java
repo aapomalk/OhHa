@@ -17,7 +17,7 @@ public class NaytaTunnusparitNappulanKuuntelija implements ActionListener {
     
     /**
      *
-     * @param liittyma
+     * @param liittyma käskytettävä käyttöliittymä
      */
     public NaytaTunnusparitNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;

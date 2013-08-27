@@ -10,7 +10,8 @@ import viidensuora.*;
 
 /**
  * Rakennusvaiheen käyttöliittymä, koska tekstimuotoista käyttöliittymää on 
- * helpompi muokata tarpeen vaatiessa.
+ * helpompi muokata tarpeen vaatiessa. (ei toimi enää, sillä osa toiminnoista
+ * siirrettiin Kayttoliittyma -luokalle, jonka jälkeen näitä toimintoja muokattiin)
  * @author aapomalk
  */
 public class TekstiKayttoliittyma extends Kayttoliittyma {

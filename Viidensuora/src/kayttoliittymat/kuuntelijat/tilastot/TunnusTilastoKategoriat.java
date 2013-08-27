@@ -11,63 +11,63 @@ package kayttoliittymat.kuuntelijat.tilastot;
  */
 public enum TunnusTilastoKategoriat {
     /**
-     *
+     * Kyseessä Tunnustilaston tunnus
      */
     TUNNUS(true),
     /**
-     *
+     * tunnustilaston pelien lukumäärä
      */
     PELIT(true),
     /**
-     *
+     * tunnustilastojen voittojen lukumäärä
      */
     VOITOT(true),
     /**
-     *
+     * tunnustilastojen ristipelien lukumäärä
      */
     RISTIT(true),
     /**
-     *
+     * tunnustilastojen pelien keskimääräinen pituus
      */
     PITUUS(true),
     /**
-     *
+     * tunnustilastojen vihjenapin käyttökertojen lukumäärä
      */
     VIHJEET(true),
     /**
-     *
+     * tunnusparitilastojen ensimmäinen tunnus
      */
     TUNNUS1_PARI(false),
     /**
-     *
+     * tunnusparitilastojen toinen tunnus
      */
     TUNNUS2_PARI(false),
     /**
-     *
+     * tunnusparitilastojen pelien lukumäärä
      */
     PELIT_PARI(false),
     /**
-     *
+     * tunnusparitilastojen ensimmäisen tunnuksen voitot
      */
     TUNNUS1_VOITOT(false),
     /**
-     *
+     * tunnusparitilastojen ensimmäisen tunnuksen ristillä pelatut pelit
      */
     TUNNUS1_RISTIT(false),
     /**
-     *
+     * tunnusparitilastojen toisen tunnuksen voitot
      */
     TUNNUS2_VOITOT(false),
     /**
-     *
+     * tunnusparitilastojen toisen tunnuksen ristillä pelatut pelit
      */
     TUNNUS2_RISTIT(false),
     /**
-     *
+     * tunnusparitilastojen pelattujen pelien keskimääräinen pituus
      */
     PITUUS_PARI(false),
     /**
-     *
+     * tunnusparitilastojen tallennusten lukumäärä
      */
     TALLENNUKSET_PARI(false);
     

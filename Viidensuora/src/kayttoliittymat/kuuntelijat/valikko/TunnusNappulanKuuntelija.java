@@ -17,8 +17,9 @@ public class TunnusNappulanKuuntelija implements ActionListener {
     private GraafinenKayttoliittyma liittyma;
     
     /**
-     *
-     * @param liittyma
+     * 
+     * @param liittyma käytettävä käyttöliittymä, jotta kuuntelija voi käskyttää
+     * sitä
      */
     public TunnusNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;

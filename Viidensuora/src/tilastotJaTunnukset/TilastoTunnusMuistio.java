@@ -24,13 +24,13 @@ public class TilastoTunnusMuistio {
     private int pelienTallennustenMaara;
     /**
      * Luodaan uusi Tilasto tiedostosta luettujen arvojen perusteella
-     * @param tunnukset
-     * @param tunnusParit
-     * @param nollienVoitot
-     * @param pelienKeskimaarainenPituus
-     * @param pelienMaara
-     * @param pelienTallennustenMaara
-     * @param ristienVoitot 
+     * @param tunnukset lista tunnuksista (sisältää myös tilastoja)
+     * @param tunnusParit lista tunnuspareista (sisältää myös tilastoja)
+     * @param nollienVoitot yleisiin tilastoihin
+     * @param pelienKeskimaarainenPituus yleisiin tilastoihin
+     * @param pelienMaara yleisiin tilastoihin
+     * @param pelienTallennustenMaara yleisiin tilastoihin
+     * @param ristienVoitot yleisiin tilastoihin
      */
     public TilastoTunnusMuistio(ArrayList<Tunnus> tunnukset, ArrayList<TunnusPari> tunnusParit,
             int nollienVoitot, double pelienKeskimaarainenPituus, int pelienMaara, int pelienTallennustenMaara,
@@ -97,7 +97,10 @@ public class TilastoTunnusMuistio {
         peliTallennettu();
         tunnusPari.lisaaTallennus();
     }
-    
+    /**
+     * Painettaessa vihjenappia, lisätään tunnukselle vihjenapinpainokerta, jos tunnus on olemassa
+     * @param tunnus 
+     */
     public void vihjeNappiaPainettu(Tunnus tunnus) {
         if (tunnus == null) {
             return;

@@ -1,38 +1,37 @@
 Aihe: Viidensuora
-Toteutetaan vuoropohjainen peli, jossa kaksi pelaajaa yrittävät saada omaa merkkiään (esimerkiksi risti tai nolla)
+Toteutetaan vuoropohjainen peli, jossa kaksi pelaajaa yrittävät saada omaa merkkiään (risti tai nolla)
 viisi peräkkäin pysty-, vaaka- tai vinottaiseen suuntaan. Pelialustana toimii ääretön ruudukko.
 
-Lisäominaisuuksina peliin voidaan toteuttaa vihjenappula aloittelijoille sekä erilaisia pelaajaprofiili- sekä peli-
+Lisäominaisuuksina peliin toteutettiin vihjenappula aloittelijoille sekä erilaisia pelaajaprofiili- sekä peli-
 tilasto -ominaisuuksia.
 
 Käyttäjät: kaksi pelaajaa (kerrallaan)
 
 Pelin valikon toiminnot:
 -pikapeli
-	*ei kirjautumista -> suoraan peliin
+	*ei tunnuksia -> suoraan peliin
 	*mahdollisuus yhteen tallennuspaikkaan
-(sekä mahdolliset lisäominaisuudet:)
+(sekä lisäominaisuudet:)
 -kaksinpeli
-	*kaksi pelaajaa kirjautuvat sisään
-	*valitaan ottelun pituus (yksittäinen, paras kolmesta, -viidestä, ...)
+	*kaksi pelaajaa valitsevat tunnuksensa
 	*mahdollisuus myös ladata tallennettu peli
 -tilastot
-	*nähdään kaikkien pelien tilastot
+	*nähdään tilastot (yleiset, tunnus- ja tunnuspari kohtaiset)
 -tunnusten luominen
-	*uusi pelaaja luo itselleen käyttäjänimen (ja salasanan, tai ehkä ei)
+	*uusi pelaaja luo itselleen käyttäjänimen
 -lopeta
-	*sulkee pelin (kirjautumiset eivät jää voimaan)
+	*sulkee pelin
 
 Pelin pelattavat ominaisuudet:
 -ruudukko
 	*pelaajat vuorollaan painavat ruutuja tehden 'aluevaltauksia'
 -sivupalkki
 	*vuoronvaihtonappula(t), jottei hiiren käyttäjää vaihdettaessa vahingossa suoriteta eihaluttua vuoroa
-		[mahdollisuus myös näppäinohjaukseen, jolloin pelaajilla omat näppäimet, nuoli+enter/wasd+välilyönti]
+		[vaihto onnistuu myös v-näppäimellä, mutta toiminto on hieman buginen]
 	*vihjenappula aloittelijoille (mihin seuraavaksi ehkä kannattaisi laittaa oma merkki)
 	*tallenna peli -nappula (pikapelissä yksi tallennuspaikka, samoin kullakin tunnusparilla yksi)
-	*takaisin valikkoon -nappula (kysyy pelin tallennushalukkuudesta, jonka jälkeen siirrytään takaisin valikkoon)
-	*peru siirto -nappula (poistaa edellisen merkin, kysyy jonkun kysymyksen tjtn)
+	*takaisin valikkoon -nappula (kysyy pelin tallennushalukkuudesta, jonka jälkeen mahdollisesti siirrytään takaisin valikkoon)
+	*peru siirto -nappula (poistaa edellisen merkin, kysyy sitä ennen kuitenkin varmistavan kysymyksen)
 
 Pelin tilastoihin tallennettava tiedot:
 -yleiset:

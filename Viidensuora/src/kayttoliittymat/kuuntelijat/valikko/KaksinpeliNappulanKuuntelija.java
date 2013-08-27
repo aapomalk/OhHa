@@ -17,17 +17,21 @@ import tilastotJaTunnukset.TunnusPari;
  * @author Aapo
  */
 public class KaksinpeliNappulanKuuntelija implements ActionListener {
+
     private GraafinenKayttoliittyma liittyma;
+
     /**
-     * 
+     *
      * @param liittyma tallennetaan viite kuuntelijaan
      */
     public KaksinpeliNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;
     }
+
     /**
      * nappulaa painettaessa käsketään käyttöliittymää siirtymään pikapeliin
-     * @param e 
+     *
+     * @param e
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -46,28 +50,36 @@ public class KaksinpeliNappulanKuuntelija implements ActionListener {
         boolean onnistuiko = liittyma.getTilastot().lisaaTunnusPari(tunnus1, tunnus2);
         TunnusPari pari = null;
         if (!onnistuiko) {
-            for (TunnusPari tunnuspari : liittyma.getTilastot().getTunnusParit()) {
-                if ((tunnuspari.getTunnus1().equals(tunnus1) || tunnuspari.getTunnus2().equals(tunnus1))
-                        && (tunnuspari.getTunnus1().equals(tunnus2) || tunnuspari.getTunnus2().equals(tunnus2))) {
-                    pari = tunnuspari;
-                    break;
-                }
-            }
+            etsitaanPariListaltaJaTallennetaanParametriin(pari, tunnus1, tunnus2);
             if (pari == null) {
                 JOptionPane.showMessageDialog(null, "Tunnusparin luominen/loytaminen epaonnistui");
                 return;
             }
         } else {
-            pari = liittyma.getTilastot().getTunnusParit().get(liittyma.getTilastot().getTunnusParit().size()-1);
+            pari = liittyma.getTilastot().getTunnusParit().get(liittyma.getTilastot().getTunnusParit().size() - 1);
         }
-         
-        
+
+        samatKysymyksetKuinPikapelissa(pari);
+
+    }
+
+    private void etsitaanPariListaltaJaTallennetaanParametriin(TunnusPari pari, Tunnus tunnus1, Tunnus tunnus2) {
+        for (TunnusPari tunnuspari : liittyma.getTilastot().getTunnusParit()) {
+            if ((tunnuspari.getTunnus1().equals(tunnus1) || tunnuspari.getTunnus2().equals(tunnus1))
+                    && (tunnuspari.getTunnus1().equals(tunnus2) || tunnuspari.getTunnus2().equals(tunnus2))) {
+                pari = tunnuspari;
+                break;
+            }
+        }
+    }
+
+    private void samatKysymyksetKuinPikapelissa(TunnusPari pari) {
         int vastaus = JOptionPane.showConfirmDialog(null, "Haluatko yrittaa ladata tallennuksen?");
         Tunnus ristiPelaaja = null;
         if (vastaus == 0) {
             PelitilanteenLukija lukija = this.liittyma.getPeliLoad();
             String tunnus = lukija.lataaPelitilanne("" + pari.getTunnus1().getTunnus() + "_" + pari.getTunnus2().getTunnus() + ".txt", this.liittyma.getKasittelija(), this.liittyma.getMuistio());
-            
+
             if (tunnus.contains(" ") || tunnus.isEmpty() || tunnus == null) {
                 JOptionPane.showMessageDialog(null, "Ristipelaajan tunnus oli korruptoitunut");
                 return;
@@ -81,7 +93,7 @@ public class KaksinpeliNappulanKuuntelija implements ActionListener {
         }
         liittyma.meneKaksinpeliin(pari, ristiPelaaja);
     }
-    
+
     private Tunnus valitseTunnus(String kysymys) {
         if (liittyma.getTunnukset().size() < 2) {
             JOptionPane.showMessageDialog(null, "Luo ensin vahintaan kaksi tunnusta");
@@ -91,7 +103,7 @@ public class KaksinpeliNappulanKuuntelija implements ActionListener {
         for (int i = 0; i < liittyma.getTunnukset().size(); i++) {
             tunnukset[i] = liittyma.getTunnukset().get(i).getTunnus();
         }
-        
+
         String tunnusNimi = (String) JOptionPane.showInputDialog(liittyma.getFrame(), kysymys, "Tunnuksen valinta",
                 JOptionPane.PLAIN_MESSAGE, null, tunnukset, tunnukset[0]);
         if (tunnusNimi == null) {
@@ -100,7 +112,7 @@ public class KaksinpeliNappulanKuuntelija implements ActionListener {
         Tunnus tunnus = etsiTunnus(tunnusNimi);
         return tunnus;
     }
-    
+
     private Tunnus etsiTunnus(String tunnusNimi) {
         Tunnus tunnus = null;
         for (Tunnus apu : liittyma.getTunnukset()) {
@@ -110,5 +122,4 @@ public class KaksinpeliNappulanKuuntelija implements ActionListener {
         }
         return tunnus;
     }
-    
 }

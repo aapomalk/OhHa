@@ -27,19 +27,19 @@ public class Kayttoliittyma {
     
     private RistiNollaMuistio muistio;
     /**
-     *
+     * Jotta GraafinenKayttoliittyma voisi käyttää myös MerkkienJononLoytajaa loytaja
      */
     protected MerkkienJononLoytaja loytaja;
     /**
-     *
+     * graafisen käyttöön viiden ristin lista
      */
     protected ArrayList<Laatu> viisiRistia;
     /**
-     *
+     * graafisen käyttöön viiden nollan lista
      */
     protected ArrayList<Laatu> viisiNollaa;
     /**
-     *
+     * graafisen käyttöön reunimmaisten koordinaattien etsijä
      */
     protected ReunimmaisetKoordinaatit rajaaja;
     private PelitilanteenTallentaja peliSave;
@@ -47,7 +47,7 @@ public class Kayttoliittyma {
     private VirheidenKasittelija kasittelija;
     private TilastoTunnusMuistio tilastot;
     /**
-     *
+     * Taitaa olla tekstikäyttöliittymän käyttöön tämä
      */
     protected boolean jatketaan;
     /**
@@ -69,7 +69,7 @@ public class Kayttoliittyma {
     }
     
     /**
-     *
+     * Tallentaa tilastot (kutsutaan kun tilastoja on muokattu)
      */
     public void tallennaTilastot() {
         TilastojenJaTunnustenTallentaja lopetus = new TilastojenJaTunnustenTallentaja();

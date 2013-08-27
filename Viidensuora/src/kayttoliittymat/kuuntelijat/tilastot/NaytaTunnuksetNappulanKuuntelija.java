@@ -17,7 +17,7 @@ public class NaytaTunnuksetNappulanKuuntelija implements ActionListener {
     
     /**
      *
-     * @param liittyma
+     * @param liittyma käskytettävä käyttöliittymä
      */
     public NaytaTunnuksetNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;

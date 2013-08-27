@@ -6,7 +6,6 @@ package tiedostojenKasittely;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import kayttoliittymat.peliGraafisetToimijat.PeliHallitsija;
 import viidensuora.RistiNollaMuistio;
 
 /**

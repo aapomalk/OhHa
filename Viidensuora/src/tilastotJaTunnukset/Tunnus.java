@@ -17,7 +17,7 @@ public class Tunnus implements Comparable {
     private int vihjenapinKaytot;
     /**
      * Luodaan uusi tunnus tilastoarvoilla 0
-     * @param tunnus 
+     * @param tunnus tunnuksen nimi
      */
     public Tunnus(String tunnus) {
         this(tunnus, 0, 0.0, 0, 0, 0);
@@ -25,11 +25,11 @@ public class Tunnus implements Comparable {
     /**
      * Luodaan uusi tunnus tiedostosta luettujen arvojen perusteella
      * @param tunnusNimi
-     * @param pelit
+     * @param pelit lukumäärä
      * @param pelienKeskimaarainenPituus
-     * @param ristillaPelatut
-     * @param vihjenapinKaytot
-     * @param voittoja 
+     * @param ristillaPelatut pelit (lukumäärä)
+     * @param vihjenapinKaytot kaikki painallukset, kyseisellä tunnuksella
+     * @param voittoja lukumäärä
      */
     public Tunnus(String tunnusNimi, int pelit, double pelienKeskimaarainenPituus, int ristillaPelatut, 
              int vihjenapinKaytot, int voittoja) {

@@ -24,8 +24,8 @@ public class TunnusPari implements Comparable {
     private int tallennustenLukumaara;
     /**
      * Luodaan uusi tunnuspari syöttämällä kaikkiin tilastoihin arvo 0
-     * @param tunnus1
-     * @param tunnus2 
+     * @param tunnus1 uuden tunnusparin tunnus1
+     * @param tunnus2 uuden tunnusparin tunnus2
      */
     public TunnusPari(Tunnus tunnus1, Tunnus tunnus2) {
         this(tunnus1, tunnus2, 0, 0, 0, 0, 0, 0.0, 0);

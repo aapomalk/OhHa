@@ -266,8 +266,8 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     }
     
     /**
-     *
-     * @param tyhjennetaanko
+     * mennään pikapeliin
+     * @param tyhjennetaanko true jos ei ladata tallennusta, false jos ladataan
      */
     public void menePikapeliin(boolean tyhjennetaanko) {
         frame.getContentPane().removeAll();
@@ -282,17 +282,17 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     }
     
     /**
-     *
+     * mennään pikapeliin lataamatta tallennusta
      */
     public void menePikapeliin() {
         this.menePikapeliin(true);
     }
     
     /**
-     *
-     * @param tyhjennetaanko
-     * @param pari
-     * @param ristipelaaja
+     * mennään kaksinpeliin
+     * @param tyhjennetaanko true jos ei ladata tallennusta
+     * @param pari valittu tunnuspari, jonka sisällä matsi pelataan
+     * @param ristipelaaja kumpi pelaa ristillä (täytyy olla toinen tunnusparin pareista)
      */
     public void meneKaksinpeliin(boolean tyhjennetaanko, TunnusPari pari, Tunnus ristipelaaja) {
         frame.getContentPane().removeAll();
@@ -307,9 +307,9 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     }
     
     /**
-     *
-     * @param pari
-     * @param ristiPelaaja
+     * mennään kaksinpeliin lataamatta tallennusta
+     * @param pari tunnuspari, jonka välinen matsi on kyseessä
+     * @param ristiPelaaja toinen tunnuksista, joka pelaa ristillä
      */
     public void meneKaksinpeliin(TunnusPari pari, Tunnus ristiPelaaja) {
         this.meneKaksinpeliin(true, pari, ristiPelaaja);
@@ -502,20 +502,20 @@ public class GraafinenKayttoliittyma extends Kayttoliittyma implements Runnable 
     }
     
     /**
-     *
-     * @param pelinPituus
-     * @param laatu
+     * lisätään tilastoihin pelattu pikapeli (vain yleisiin tilastoihin)
+     * @param pelinPituus kuinka monta kierrosta peliä pelattiin
+     * @param laatu kumpi voitti (risti vai nolla)
      */
     public void lisaaTilastoihinPikapeli(double pelinPituus, Laatu laatu) {
         super.getTilastot().peliPelattu(pelinPituus, laatu);
     }
     
     /**
-     *
-     * @param pelinPituus
-     * @param laatu
-     * @param voittajaTunnus
-     * @param tunnusPari
+     * lisätään tilastoihin pelatun kaksinpelin tilastot
+     * @param pelinPituus kierrosten lukumäärä
+     * @param laatu voittajan laatu
+     * @param voittajaTunnus voittajan tunnus
+     * @param tunnusPari mihin tunnuspariin tilastot tallennetaan
      */
     public void lisaaTilastoihinKaksinpeli(double pelinPituus, Laatu laatu, Tunnus voittajaTunnus, TunnusPari tunnusPari) {
         super.getTilastot().peliPelattu(pelinPituus, laatu, voittajaTunnus, tunnusPari);

@@ -6,16 +6,13 @@ package kayttoliittymat.kuuntelijat.peli;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
-import kayttoliittymat.GraafinenKayttoliittyma;
 import kayttoliittymat.peliGraafisetToimijat.PeliHallitsija;
 import kayttoliittymat.peliGraafisetToimijat.RuudukonHallitsija;
 import viidensuora.RistiNollaMuistio;
 
 /**
- *
+ * kuuntelee nappulaa, jota painettaessa vuoron pitäisi peruuntua
  * @author Aapo
  */
 public class VuoronperumisNappulanKuuntelija implements ActionListener {
@@ -25,10 +22,10 @@ public class VuoronperumisNappulanKuuntelija implements ActionListener {
     private RuudukonHallitsija ruutuHallitsija;
 
     /**
-     *
-     * @param muistio
-     * @param hallitsija
-     * @param ruutuHallitsija
+     * tallennetaan viitteet käskytettäviin olioihin
+     * @param muistio josta käsin vuoro perutaan
+     * @param hallitsija päivittää infotekstin ja pelikentän
+     * @param ruutuHallitsija päivittää ruudukon kirjoitukset
      */
     public VuoronperumisNappulanKuuntelija(RistiNollaMuistio muistio, PeliHallitsija hallitsija, RuudukonHallitsija ruutuHallitsija) {
         this.muistio = muistio;
@@ -37,7 +34,7 @@ public class VuoronperumisNappulanKuuntelija implements ActionListener {
     }
 
     /**
-     *
+     * nyt nappulaa painettiin, käskytetään muita!
      * @param ae
      */
     @Override

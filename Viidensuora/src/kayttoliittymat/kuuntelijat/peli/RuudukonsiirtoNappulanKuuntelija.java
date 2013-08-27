@@ -13,7 +13,7 @@ import viidensuora.RistiNollaMuistio;
 import viidensuora.Suunta;
 
 /**
- *
+ * kuuntelee ruudukonsiirtonappulaa (mitätahansa niistä neljästä)
  * @author Aapo
  */
 public class RuudukonsiirtoNappulanKuuntelija implements ActionListener {
@@ -21,8 +21,9 @@ public class RuudukonsiirtoNappulanKuuntelija implements ActionListener {
     private static boolean vihje = false;
     
     /**
-     *
-     * @param vihjePainettu
+     * jos vihjettä on painettu, niin täytyy vihjeitäkin kuljettaa mukana
+     * siirrettäessä ruudukkoa
+     * @param vihjePainettu true jos vihjettä painettu, false jos perutaan vihje
      */
     public static void asetaVihje(boolean vihjePainettu) {
         vihje = vihjePainettu;
@@ -36,10 +37,12 @@ public class RuudukonsiirtoNappulanKuuntelija implements ActionListener {
 
     /**
      *
-     * @param muistio
-     * @param hallitsija
-     * @param ruutuHallitsija
-     * @param suunta
+     * @param muistio tarvitaan, jotta ruudukko voidaan rajata
+     * @param hallitsija päivittää pelikentän
+     * @param ruutuHallitsija päivittää ruutujen kirjoitukset sekä vihjeet,
+     * lisäksi sisältää tiedon ruudukon reunojen koordinaateista
+     * @param suunta mihin suuntaan nappula, jonka sisään kuuntelija tallennetaan,
+     * yrittää siirtää ruudukkoa
      */
     public RuudukonsiirtoNappulanKuuntelija(RistiNollaMuistio muistio, PeliHallitsija hallitsija, RuudukonHallitsija ruutuHallitsija, Suunta suunta) {
         this.muistio = muistio;
@@ -50,7 +53,7 @@ public class RuudukonsiirtoNappulanKuuntelija implements ActionListener {
     }
 
     /**
-     *
+     * Nappulaa painettu, yritetään siirtää ruudukkoa!
      * @param ae
      */
     @Override

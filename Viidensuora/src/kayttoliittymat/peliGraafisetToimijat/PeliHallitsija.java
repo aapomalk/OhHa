@@ -42,10 +42,10 @@ public class PeliHallitsija {
     /**
      * Alustetaan ruudukko, tunnuspari ja JPanel.
      *
-     * @param pari
-     * @param muistio
-     * @param frame 
-     * @param liittyma  
+     * @param pari jos kyseessä on kaksinpeli, muuten null
+     * @param muistio mahdollisesti ladattu tallennus, muuten tyhjänä
+     * @param frame pelin frame
+     * @param liittyma graafinen käyttöliittymä
      */
     public PeliHallitsija(TunnusPari pari, RistiNollaMuistio muistio, JFrame frame, GraafinenKayttoliittyma liittyma) {
         this.pari = pari;
@@ -60,46 +60,67 @@ public class PeliHallitsija {
     }
 
     /**
+     * Alustetaan PeliHallitsija pikapeliin, eli ilman tunnusparia
      *
-     * @param muistio
-     * @param frame
-     * @param liittyma
+     * @param muistio tämä voi sisältää ladatun tallennuksen, tai olla tyhjä
+     * @param frame pelin frame
+     * @param liittyma pelin graafinen käyttöliittymä
      */
     public PeliHallitsija(RistiNollaMuistio muistio, JFrame frame, GraafinenKayttoliittyma liittyma) {
         this(null, muistio, frame, liittyma);
     }
-    
+
     /**
+     * Käyttäjä vastaa metodin kysymykseen joko true tai false
      *
-     * @param onkoVihjePainettu
+     * @param onkoVihjePainettu käyttäjän asettama arvo välitetään eteenpäin
+     * ruudukonsiirtonappuloille, jotta myös vihjeruudut liikkuisivat kaiken
+     * mukana
      */
     public void onkoVihjePainettu(boolean onkoVihjePainettu) {
         RuudukonsiirtoNappulanKuuntelija.asetaVihje(onkoVihjePainettu);
     }
-    
+
     /**
-     *
+     * Peliruudun yläreunassa oleva infoteksti päivitetään tätä kutsumalla
      */
     public void paivitaInfoteksti() {
         String teksti = "";
         if (this.pari == null) {
             teksti += "Pikapeli";
         } else {
-            teksti += this.pari.getTunnus1().getTunnus();
-            boolean olikoTunnus1ristipelaaja = false;
-            if (this.ristiPelaaja.equals(this.pari.getTunnus1())) {
-                olikoTunnus1ristipelaaja = true;
-                teksti += " (X)";
-            } else {
-                teksti += " (O)";
-            }
-            teksti += " vs. " + this.pari.getTunnus2().getTunnus();
-            if (olikoTunnus1ristipelaaja) {
-                teksti += " (O)";
-            } else {
-                teksti += " (X)";
-            }
+            teksti += lisataanTekstiinTunnuspariVs();
         }
+        teksti += merkkiaYrittaaSijoittaaJaEdellisenMerkinLaittoi();
+        this.infoteksti.repaint();
+        this.infoteksti.setText(teksti);
+        this.infoteksti.repaint();
+    }
+
+    private String lisataanTekstiinTunnuspariVs() {
+        String teksti = "";
+
+        teksti += this.pari.getTunnus1().getTunnus();
+        boolean olikoTunnus1ristipelaaja = false;
+        if (this.ristiPelaaja.equals(this.pari.getTunnus1())) {
+            olikoTunnus1ristipelaaja = true;
+            teksti += " (X)";
+        } else {
+            teksti += " (O)";
+        }
+        teksti += " vs. " + this.pari.getTunnus2().getTunnus();
+        if (olikoTunnus1ristipelaaja) {
+            teksti += " (O)";
+        } else {
+            teksti += " (X)";
+        }
+
+        return teksti;
+    }
+    
+    private String merkkiaYrittaaSijoittaaJaEdellisenMerkinLaittoi() {
+        String teksti = "";
+        
         teksti += "; merkkia yrittaa sijoittaa ";
         if (this.ruudukko.seuraavanLaatuRisti()) {
             teksti += "X-pelaaja";
@@ -112,9 +133,8 @@ public class PeliHallitsija {
         } else {
             teksti += "O-pelaaja";
         }
-        this.infoteksti.repaint();
-        this.infoteksti.setText(teksti);
-        this.infoteksti.repaint();
+        
+        return teksti;
     }
 
     private void kysyRistiPelaaja() {
@@ -134,6 +154,7 @@ public class PeliHallitsija {
 
     /**
      * Itse pelitoiminnon käynnistämiseksi, rakennetaan ruudukko ja kaikki muu
+     *
      * @param pelaanRistilla jos ristipelaaja on etukäteen tiedossa, muuten null
      * @return JPanel, joka sisältää pelin
      */
@@ -151,7 +172,7 @@ public class PeliHallitsija {
         this.paivitaPelikentta();
         return naytto;
     }
-    
+
     /**
      *
      * @return JPanel pelistä
@@ -159,9 +180,9 @@ public class PeliHallitsija {
     public JPanel kaynnistaPeli() {
         return this.kaynnistaPeli(null);
     }
-    
+
     /**
-     *
+     * Tallennetaan peli, toimii sekä pikapelissä, että kaksinpelissä
      */
     public void tallennaPeli() {
         String tiedostonNimi;
@@ -175,9 +196,9 @@ public class PeliHallitsija {
         this.liittyma.getPeliSave().tallennaPelitilanne(this.muistio.getMerkit(), tiedostonNimi, this.liittyma.getKasittelija(), this.ristiPelaaja);
         this.liittyma.tallennaTilastot();
     }
-    
+
     /**
-     *
+     * lisätään tunnukselle vihjekerta, paitsi jos tunnusta ei ole olemassa
      */
     public void lisaaVihjekertaTunnukselle() {
         if (this.ristiPelaaja == null) {
@@ -205,12 +226,12 @@ public class PeliHallitsija {
         JButton alas = new JButton("V");
         JButton oikealle = new JButton(">");
         JButton vasemmalle = new JButton("<");
-        
+
         ylos.addActionListener(new RuudukonsiirtoNappulanKuuntelija(this.muistio, this, this.getRuudukko(), Suunta.ALAS));
         oikealle.addActionListener(new RuudukonsiirtoNappulanKuuntelija(this.muistio, this, this.getRuudukko(), Suunta.VASEMMALLE));
         alas.addActionListener(new RuudukonsiirtoNappulanKuuntelija(this.muistio, this, this.getRuudukko(), Suunta.YLOS));
         vasemmalle.addActionListener(new RuudukonsiirtoNappulanKuuntelija(this.muistio, this, this.getRuudukko(), Suunta.OIKEALLE));
-        
+
         pelikentta.add(ylos, BorderLayout.NORTH);
         pelikentta.add(alas, BorderLayout.SOUTH);
         pelikentta.add(oikealle, BorderLayout.EAST);
@@ -221,7 +242,7 @@ public class PeliHallitsija {
     }
 
     /**
-     *
+     * Päivitetään pelikenttä, jotta päivitetyt nappulat tulisi näkyviin
      */
     public void paivitaPelikentta() {
         this.naytto.remove(this.naytto.getComponent(2));
@@ -231,7 +252,7 @@ public class PeliHallitsija {
     }
 
     /**
-     *
+     * päivitetään pelikenttä ja tarkistetaan samalla päättyikö peli
      */
     public void paivitaKenttaJaTarkistaVoitto() {
         this.paivitaPelikentta();
@@ -257,7 +278,7 @@ public class PeliHallitsija {
         this.liittyma.tallennaTilastot();
         this.liittyma.palaaValikkoon();
     }
-    
+
     private Tunnus kumpiSiisVoitti() {
         if (muistio.getEdellinenMerkkiRisti()) {
             return this.ristiPelaaja;
@@ -291,7 +312,7 @@ public class PeliHallitsija {
         JButton tallennaPeli = new JButton("tallenna");
         JButton takaisinValikkoon = new JButton("Takaisin valikkoon");
         JButton peruSiirto = new JButton("Peru siirto");
-        
+
         vuoronVaihto.addActionListener(new VuoronvaihtoNappulanKuuntelija(this.getRuudukko(), this));
         vuoronVaihto.addKeyListener(new VuoronvaihtoNappulanKuuntelija(this.getRuudukko(), this));
         takaisinValikkoon.addActionListener(new ValikkoonNappulanKuuntelija(this.liittyma, true));

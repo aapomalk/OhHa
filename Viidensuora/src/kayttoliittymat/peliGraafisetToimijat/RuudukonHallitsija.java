@@ -30,7 +30,7 @@ public class RuudukonHallitsija {
      *
      * @param muistio käyttäjän syöttämä RistiNollaMuistio tallennetaan
      * RuutuNappuloihin
-     * @param pelihallitsija  
+     * @param pelihallitsija tallennetaan myöskin RuutuNappuloihin
      */
     public RuudukonHallitsija(RistiNollaMuistio muistio, PeliHallitsija pelihallitsija) {
         this.ruudukko = new ArrayList<ArrayList<RuutuNappula>>();
@@ -70,7 +70,8 @@ public class RuudukonHallitsija {
     }
 
     /**
-     *
+     * Vihjenappia painettaessa lisätään vihjeen osoittamiin paikkoihin kirjain
+     * koodilla (ja värikoodilla) varustettu nappula
      */
     public void paivitaVihjeRuudukot() {
         this.paivitaRuudukonKirjoitusTilanteet(vihje.getHairitseVastustajaa(), "s");
@@ -110,7 +111,7 @@ public class RuudukonHallitsija {
      * Päivitetään RuutuNappuloiden tekstit vastaamaan nykyistä pelitilannetta
      *
      * @param merkit käyttäjän syöttämä lista merkeistä
-     * @param vihjeMerkki  
+     * @param vihjeMerkki metodia käytetään myös vihjenapin kanssa, jolloin tämä ei ole tyhjä
      */
     public void paivitaRuudukonKirjoitusTilanteet(ArrayList<Merkki> merkit, String vihjeMerkki) {
         for (ArrayList<RuutuNappula> arrayList : ruudukko) {
@@ -132,8 +133,9 @@ public class RuudukonHallitsija {
     }
 
     /**
-     *
-     * @param merkit
+     * Metodin kuormitus, jotta kaikkialle ei tarvitse lisätä ylimääräistä parametriä,
+     * jota tarvitaan vain vihjetoiminnon kanssa
+     * @param merkit käyttäjän syöttämä lista merkeistä
      */
     public void paivitaRuudukonKirjoitusTilanteet(ArrayList<Merkki> merkit) {
         this.paivitaRuudukonKirjoitusTilanteet(merkit, "");
@@ -212,7 +214,7 @@ public class RuudukonHallitsija {
     }
 
     /**
-     *
+     * Vaihtaa kaikille nappuloille seuraavan laadun
      */
     public void vaihdaVuoroa() {
         for (ArrayList<RuutuNappula> arrayList : ruudukko) {

@@ -17,7 +17,7 @@ public class TilastoNappulanKuuntelija implements ActionListener {
     
     /**
      *
-     * @param liittyma
+     * @param liittyma käskytettävä käyttöliittymä
      */
     public TilastoNappulanKuuntelija(GraafinenKayttoliittyma liittyma) {
         this.liittyma = liittyma;

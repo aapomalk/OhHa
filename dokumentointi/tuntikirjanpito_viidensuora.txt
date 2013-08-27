@@ -79,3 +79,10 @@ Tällä hetkellä ilmeisesti 70.83h työtä takana kurssin eteen (+ katselmointi, jot
 26.08 (yhteensä 01h 20min) + [ennen yhteenlaskua 35min -> todellisuudessa yhteensä 1h 55min]
 	noin klo 22:05-22:15; Pieni bugi.
 	noin klo 22:25-23:35; JavaDoc -rupeaman alustus, vuoronvaihto v-näppäimellä -> ei toimi täydellisesti (pitää klikata jotain ruudukon nappulaa, jotta aktivoituisi)
+27.08. (yhteensä 03h 45min)
+	noin klo 10:00-11:15; JavaDoc -rupeama
+	noin klo 11:20-12:00; Luokkakaavion yksinkertaistus
+	noin klo 12:05-12:45; Sekvenssikaaviot vihjenappulan painamisesta
+	noin klo 12:45-12:50; Aihemäärittelyn päivitystä (hienosäätöä)
+	noin klo 12:50-13:05; Ohjelman rakenteen kuvaus
+	noin klo 13:05-13:55; Käyttöohjeiden kirjoittelua

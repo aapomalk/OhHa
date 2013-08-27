@@ -307,6 +307,7 @@ public class Vihje {
     }
 
     /**
+     * Vihjelista merkeistä, joista itse hyötyy ja samalla häiritsee vastustajaa
      * @return the hyodyllistaJaHairintaa
      */
     public ArrayList<Merkki> getHyodyllistaJaHairintaa() {
@@ -314,6 +315,7 @@ public class Vihje {
     }
 
     /**
+     * Vihjelista merkeistä, joiden avulla itse hyökkää ja varoo samalla vastustajaa
      * @return the hyokkaystaJaVaromista
      */
     public ArrayList<Merkki> getHyokkaystaJaVaromista() {
@@ -321,6 +323,7 @@ public class Vihje {
     }
 
     /**
+     * Vihjelista merkeistä, joiden avulla kenties itse voittaa ja estää vastustajaa voittamasta
      * @return the voittamistaJaEstamista
      */
     public ArrayList<Merkki> getVoittamistaJaEstamista() {
