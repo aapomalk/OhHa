@@ -50,7 +50,7 @@ public class KaksinpeliNappulanKuuntelija implements ActionListener {
         boolean onnistuiko = liittyma.getTilastot().lisaaTunnusPari(tunnus1, tunnus2);
         TunnusPari pari = null;
         if (!onnistuiko) {
-            etsitaanPariListaltaJaTallennetaanParametriin(pari, tunnus1, tunnus2);
+            pari = etsitaanPariListaltaJaTallennetaanParametriin(pari, tunnus1, tunnus2);
             if (pari == null) {
                 JOptionPane.showMessageDialog(null, "Tunnusparin luominen/loytaminen epaonnistui");
                 return;
@@ -63,14 +63,14 @@ public class KaksinpeliNappulanKuuntelija implements ActionListener {
 
     }
 
-    private void etsitaanPariListaltaJaTallennetaanParametriin(TunnusPari pari, Tunnus tunnus1, Tunnus tunnus2) {
+    private TunnusPari etsitaanPariListaltaJaTallennetaanParametriin(TunnusPari pari, Tunnus tunnus1, Tunnus tunnus2) {
         for (TunnusPari tunnuspari : liittyma.getTilastot().getTunnusParit()) {
             if ((tunnuspari.getTunnus1().equals(tunnus1) || tunnuspari.getTunnus2().equals(tunnus1))
                     && (tunnuspari.getTunnus1().equals(tunnus2) || tunnuspari.getTunnus2().equals(tunnus2))) {
-                pari = tunnuspari;
-                break;
+                return tunnuspari;
             }
         }
+        return null;
     }
 
     private void samatKysymyksetKuinPikapelissa(TunnusPari pari) {
