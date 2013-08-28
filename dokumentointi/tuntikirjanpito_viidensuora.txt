@@ -88,3 +88,4 @@ Tällä hetkellä ilmeisesti 70.83h työtä takana kurssin eteen (+ katselmointi, jot
 	noin klo 13:05-13:55; Käyttöohjeiden kirjoittelua
 28.08. (yhteensä 00h 30min)
 	noin klo 10:00-10:30; Merkkien väritystä ja vähän testailua
+	noin klo 18:00-18:35; Viimeisten javadoc -kansion ja jar -tiedoston tuominen kansiorakenteeseen mallin mukaisesti.

@@ -4,7 +4,7 @@ Viidensuoran yleiset s‰‰nnˆt:
 Pelataan ‰‰rettˆm‰ll‰ ruudukolla, merkitsem‰ll‰ risti- ja nollamerkkej‰ vuorotellen ruutuihin (yksi merkki per ruutu). Risti aloittaa aina. Voittaja on se, joka saa viisi omaa merkki‰‰n vierekk‰isiin ruutuihin joko vaakasuoraan, pystysuoraan tai vinottain.
 
 Pelin k‰ynnistys:
-Pelin voi k‰ynnist‰‰ suoraan kaksoisklikkaamalla hiirell‰ Viidensuora.jar -tiedostoa(?) tai terminaalin kautta erin‰isell‰ komennolla(joka on?).
+Pelin voi k‰ynnist‰‰ suoraan kaksoisklikkaamalla hiirell‰ Viidensuora.jar -tiedostoa (kansiossa OhHa) tai terminaalin kautta erin‰isell‰ komennolla(joka on: java -jar [ja tiedoston sijainti]). T‰rke‰‰ huomata, ett‰ ohjelman tilastot ja tallentamiset eiv‰t toimi, ellei kansiossa, jossa Viidensuora.jar sijaitsee, ole sis‰ll‰ kansiota nimelt‰ pelit_ja_tilastot!!! (ja ohjelma valittaa jatkuvasti, sill‰ se yritt‰‰ tallentaa tilastoja)
 
 Toiminta peliss‰:
 Pelin k‰ynnistytty‰ ilmestyy aluksi valikko, josta voi valita pikapelin, kaksinpelin, tilastot, tunnuksen luomisen tai lopettamisen. Nappuloita painetaan hiiren vasemmalla nappulalla (ensin vied‰‰n hiirikuvake nappulan p‰‰lle ja sitten vasta painetaan nappulaa, niin ett‰ hiirikuvake on edelleen nappulan p‰‰ll‰ p‰‰stett‰ess‰ nappulasta irti)
