@@ -117,8 +117,10 @@ public class RuutuNappula {
             nappula.setBackground(new Color(255, 255, 150));
         } else if (kirjoitus.contains("Z")) {
             nappula.setBackground(new Color(255, 255, 0));
-        } else if (!kirjoitus.isEmpty()) {
-            nappula.setBackground(Color.LIGHT_GRAY);
+        } else if (kirjoitus.contains("O")) {
+            nappula.setBackground(new Color(170, 170, 170));
+        } else if (kirjoitus.contains("X")) {
+            nappula.setBackground(new Color(120, 120, 120));
         } else {
             nappula.setBackground(Color.WHITE);
         }
