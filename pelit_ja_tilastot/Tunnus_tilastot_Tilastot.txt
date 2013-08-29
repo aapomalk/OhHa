@@ -2,5 +2,5 @@ cec 1 10.0 1 0 0
 Aapo 1 10.0 0 0 1
 testi 0 0.0 0 3 0
 asd 0 0.0 0 0 0
-testi2 0 0.0 0 0 0
-testi3 0 0.0 0 0 0
+testi2 1 12.5 0 1 0
+testi3 1 12.5 1 0 1
